@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="TuentiTvTheme" parent="@style/Theme.Leanback">
+    <item name="android:windowBackground">@color/first_background</item>
+  </style>
+
+  <style name="AppLogo">
+    <item name="android:layout_centerVertical">true</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:src">@drawable/ic_launcher</item>
+  </style>
+
+  <style name="BigProgressBar" parent="Widget.AppCompat.ProgressBar">
+    <item name="android:layout_centerVertical">true</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:layout_margin">@dimen/progress_bar_margin</item>
+  </style>
+
+</resources>
