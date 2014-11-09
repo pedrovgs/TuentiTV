@@ -1,9 +1,10 @@
 package com.tuenti.tuentitv.ui.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
-import com.tuenti.tuentitv.di.ActivityModule;
+import android.support.v4.app.FragmentActivity;
+import butterknife.ButterKnife;
 import com.tuenti.tuentitv.TuentiTvApplication;
+import com.tuenti.tuentitv.di.ActivityModule;
 import dagger.ObjectGraph;
 import java.util.List;
 
@@ -14,13 +15,14 @@ import java.util.List;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends FragmentActivity {
 
   private ObjectGraph activityObjectGraph;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     initializeDependencyInjectorForActivityScopeGraph();
+    injectViews();
   }
 
   /**
@@ -39,8 +41,24 @@ public abstract class BaseActivity extends Activity {
   }
 
   /**
+   * Method created to inject dependencies in components attached to Activities like Fragments or
+   * Views.
+   */
+  public void inject(Object object) {
+    activityObjectGraph.inject(object);
+  }
+
+  /**
    * Abstract method implemented by every Activity and used to declare which modules are going to
    * provide dependencies for this component.
    */
   protected abstract List getModules();
+
+  /**
+   * Replace every field annotated with ButterKnife annotations like @InjectView with the proper
+   * value.
+   */
+  private void injectViews() {
+    ButterKnife.inject(this);
+  }
 }
