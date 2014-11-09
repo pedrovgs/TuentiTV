@@ -5,11 +5,11 @@ import com.tuenti.tuentitv.R;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    setContentView(R.layout.login_activity);
   }
 
   @Override protected List getModules() {
