@@ -13,10 +13,14 @@
       android:layout_centerVertical="true"
       android:layout_centerHorizontal="true">
 
+
     <TextView
         android:layout_width="300dip"
+        android:focusable="true"
         android:layout_height="wrap_content"
-        android:text="@string/login_username"/>
+        android:text="@string/login_username">
+      <requestFocus/>
+    </TextView>
 
     <EditText
         android:id="@+id/et_user_name"
