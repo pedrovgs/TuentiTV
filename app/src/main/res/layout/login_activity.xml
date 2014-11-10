@@ -1,44 +1,92 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:scrollbars="none">
 
-  <!-- Login Form -->
+  <!-- Main Container -->
 
-  <LinearLayout
-      android:layout_width="wrap_content"
+  <RelativeLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:layout_centerVertical="true"
-      android:layout_centerHorizontal="true">
+      android:focusable="false"
+      tools:context=".MainActivity">
 
+    <!-- Login Form -->
 
-    <TextView
-        android:layout_width="300dip"
-        android:focusable="true"
+    <LinearLayout
+        android:id="@+id/ll_login_form"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login_username">
-      <requestFocus/>
-    </TextView>
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dip"
+        android:focusable="false">
 
-    <EditText
-        android:id="@+id/et_user_name"
-        android:layout_width="300dip"
-        android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="300dip"
+      <TextView
+          android:layout_width="300dip"
+          android:focusable="true"
+          android:layout_height="wrap_content"
+          android:text="@string/login_username">
+        <requestFocus/>
+      </TextView>
+
+      <EditText
+          android:id="@+id/et_user_name"
+          android:layout_width="300dip"
+          android:layout_height="wrap_content"/>
+
+      <TextView
+          android:layout_width="300dip"
+          android:layout_height="wrap_content"
+          android:text="@string/login_password"/>
+
+      <EditText
+          android:id="@+id/et_password"
+          android:inputType="textPassword"
+          android:layout_width="300dip"
+          android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_password"/>
+        android:layout_marginTop="100dip"
+        android:layout_marginBottom="75dip"
+        android:focusable="false"
+        android:orientation="horizontal"
+        android:layout_below="@id/ll_login_form"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal">
 
-    <EditText
-        android:id="@+id/et_password"
-        android:inputType="textPassword"
-        android:layout_width="300dip"
-        android:layout_height="wrap_content"/>
+      <RelativeLayout
+          android:layout_below="@id/ll_login_form"
+          android:layout_width="100dip"
+          android:layout_height="200dip"
+          android:background="#000000"/>
 
-  </LinearLayout>
+      <RelativeLayout
+          android:layout_below="@id/ll_login_form"
+          android:layout_width="100dip"
+          android:layout_height="200dip"
+          android:background="#000000"/>
+      <RelativeLayout
+          android:layout_below="@id/ll_login_form"
+          android:layout_width="100dip"
+          android:layout_height="200dip"
+          android:background="#000000"/>
+      <RelativeLayout
+          android:layout_below="@id/ll_login_form"
+          android:layout_width="100dip"
+          android:layout_height="200dip"
+          android:background="#000000"/>
 
 
-</RelativeLayout>
+    </LinearLayout>
+
+
+  </RelativeLayout>
+</ScrollView>
