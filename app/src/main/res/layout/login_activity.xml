@@ -62,28 +62,10 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal">
 
-      <RelativeLayout
-          android:layout_below="@id/ll_login_form"
-          android:layout_width="100dip"
-          android:layout_height="200dip"
-          android:background="#000000"/>
-
-      <RelativeLayout
-          android:layout_below="@id/ll_login_form"
-          android:layout_width="100dip"
-          android:layout_height="200dip"
-          android:background="#000000"/>
-      <RelativeLayout
-          android:layout_below="@id/ll_login_form"
-          android:layout_width="100dip"
-          android:layout_height="200dip"
-          android:background="#000000"/>
-      <RelativeLayout
-          android:layout_below="@id/ll_login_form"
-          android:layout_width="100dip"
-          android:layout_height="200dip"
-          android:background="#000000"/>
-
+      <include layout="@layout/detected_account_item"/>
+      <include layout="@layout/detected_account_item"/>
+      <include layout="@layout/detected_account_item"/>
+      <include layout="@layout/detected_account_item"/>
 
     </LinearLayout>
 
