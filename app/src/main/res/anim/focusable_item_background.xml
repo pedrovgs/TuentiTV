@@ -7,7 +7,7 @@
           android:duration="@android:integer/config_shortAnimTime"
           android:propertyName="translationZ"
           android:valueFrom="0dip"
-          android:valueTo="6dip"
+          android:valueTo="10dip"
           android:valueType="floatType"/>
 
     </set>
@@ -18,7 +18,7 @@
       <objectAnimator
           android:duration="@android:integer/config_shortAnimTime"
           android:propertyName="translationZ"
-          android:valueFrom="6dip"
+          android:valueFrom="10dip"
           android:valueTo="0dip"
           android:valueType="floatType"/>
 

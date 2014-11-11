@@ -47,7 +47,10 @@
           android:id="@+id/et_password"
           android:inputType="textPassword"
           android:layout_width="300dip"
-          android:layout_height="wrap_content"/>
+          android:layout_height="wrap_content"
+          android:nextFocusDown="@+id/detected_account_1"
+          android:nextFocusLeft="@+id/detected_account_1"
+          android:nextFocusRight="@+id/detected_account_4"/>
 
     </LinearLayout>
 
@@ -62,10 +65,12 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal">
 
+      <include
+          android:id="@+id/detected_account_1"
+          layout="@layout/detected_account_item"/>
       <include layout="@layout/detected_account_item"/>
       <include layout="@layout/detected_account_item"/>
-      <include layout="@layout/detected_account_item"/>
-      <include layout="@layout/detected_account_item"/>
+      <include android:id="@+id/detected_account_4" layout="@layout/detected_account_item"/>
 
     </LinearLayout>
 
