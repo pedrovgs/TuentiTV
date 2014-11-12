@@ -1,12 +1,10 @@
 package com.tuenti.tuentitv.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v17.leanback.app.BrowseFragment;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
-import com.tuenti.tuentitv.ui.androidpresenter.Account;
 import com.tuenti.tuentitv.ui.androidpresenter.AccountPresenter;
 
 /**
@@ -18,7 +16,7 @@ import com.tuenti.tuentitv.ui.androidpresenter.AccountPresenter;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class LoginFragment extends BrowseFragment {
+public class LoginFragment extends BrowseBaseFragment {
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -31,11 +29,7 @@ public class LoginFragment extends BrowseFragment {
     AccountPresenter accountPresenter = new AccountPresenter();
 
     ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(accountPresenter);
-    listRowAdapter.add(new Account(name, avatarUrl));
-    listRowAdapter.add(new Account(name, avatarUrl));
-    listRowAdapter.add(new Account(name, avatarUrl));
-    listRowAdapter.add(new Account(name, avatarUrl));
-    listRowAdapter.add(new Account(name, avatarUrl));
+    //listRowAdapter.add(new Account(name, avatarUrl));
 
     //Header associated to the row, in this fragment, an empty header.
     HeaderItem header = new HeaderItem("", null);

@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.tuenti.tuentitv.R;
-import java.net.URI;
 
 /**
  * @author Pedro Vicente Gómez Sánchez.
@@ -50,9 +49,9 @@ public class AccountPresenter extends Presenter {
       return mCardView;
     }
 
-    protected void updateCardViewImage(URI uri) {
+    protected void updateCardViewImage(String url) {
       Picasso.with(mContext)
-          .load(uri.toString())
+          .load(url)
           .resize(CARD_WIDTH, CARD_HEIGHT)
           .centerCrop()
           .error(mDefaultCardImage);
@@ -76,11 +75,11 @@ public class AccountPresenter extends Presenter {
     ((ViewHolder) viewHolder).setMovie(account);
 
     Log.d(TAG, "onBindViewHolder");
-    ((ViewHolder) viewHolder).mCardView.setTitleText(account.getTitle());
-    ((ViewHolder) viewHolder).mCardView.setContentText(account.getStudio());
+    ((ViewHolder) viewHolder).mCardView.setTitleText(account.getName());
+    ((ViewHolder) viewHolder).mCardView.setContentText(account.getName());
     ((ViewHolder) viewHolder).mCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
-    if (account.getCardImageUrl() != null) {
-      ((ViewHolder) viewHolder).updateCardViewImage(account.getCardImageURI());
+    if (account.getAvatarUrl() != null) {
+      ((ViewHolder) viewHolder).updateCardViewImage(account.getAvatarUrl());
     }
   }
 
