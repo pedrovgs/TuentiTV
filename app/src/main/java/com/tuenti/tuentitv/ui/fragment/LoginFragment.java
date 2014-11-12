@@ -6,8 +6,8 @@ import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
-import com.tuenti.tuentitv.ui.presenter.Account;
-import com.tuenti.tuentitv.ui.presenter.AccountPresenter;
+import com.tuenti.tuentitv.ui.androidpresenter.Account;
+import com.tuenti.tuentitv.ui.androidpresenter.AccountPresenter;
 
 /**
  * Fragment shown to the user inside LoginActivity with a set of already added accounts. This is
@@ -31,11 +31,11 @@ public class LoginFragment extends BrowseFragment {
     AccountPresenter accountPresenter = new AccountPresenter();
 
     ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(accountPresenter);
-    listRowAdapter.add(new Account());
-    listRowAdapter.add(new Account());
-    listRowAdapter.add(new Account());
-    listRowAdapter.add(new Account());
-    listRowAdapter.add(new Account());
+    listRowAdapter.add(new Account(name, avatarUrl));
+    listRowAdapter.add(new Account(name, avatarUrl));
+    listRowAdapter.add(new Account(name, avatarUrl));
+    listRowAdapter.add(new Account(name, avatarUrl));
+    listRowAdapter.add(new Account(name, avatarUrl));
 
     //Header associated to the row, in this fragment, an empty header.
     HeaderItem header = new HeaderItem("", null);

@@ -1,4 +1,4 @@
-package com.tuenti.tuentitv.ui.presenter;
+package com.tuenti.tuentitv.ui.androidpresenter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
