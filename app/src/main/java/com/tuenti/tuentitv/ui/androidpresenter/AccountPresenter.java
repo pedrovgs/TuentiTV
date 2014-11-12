@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.tuenti.tuentitv.R;
+import com.tuenti.tuentitv.domain.Account;
 
 /**
  * @author Pedro Vicente Gómez Sánchez.

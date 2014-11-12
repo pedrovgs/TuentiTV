@@ -1,4 +1,4 @@
-package com.tuenti.tuentitv.ui.androidpresenter;
+package com.tuenti.tuentitv.domain;
 
 /**
  * Class created to represent user accounts. One user account user name and user avatar photo url.
