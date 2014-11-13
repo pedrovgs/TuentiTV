@@ -10,6 +10,7 @@
       android:layout_height="100dip"
       android:layout_margin="20dp"
       android:background="@drawable/account_background"
+      android:src="@drawable/ic_launcher"
       android:stateListAnimator="@anim/focusable_item_background">
   </ImageButton>
 
