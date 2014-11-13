@@ -39,6 +39,7 @@ public class LoginFragment extends BrowseBaseFragment implements LoginPresenter.
     ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
     AccountPresenter accountPresenter = new AccountPresenter();
 
+    //Add accounts loaded to accounts adapter.
     ArrayObjectAdapter accountsAdapter = new ArrayObjectAdapter(accountPresenter);
     accountsAdapter.addAll(0, accounts);
 
