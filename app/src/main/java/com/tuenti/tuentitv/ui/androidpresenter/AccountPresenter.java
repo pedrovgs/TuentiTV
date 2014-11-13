@@ -1,12 +1,13 @@
 package com.tuenti.tuentitv.ui.androidpresenter;
 
 import android.content.Context;
-import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
+import com.tuenti.tuentitv.ui.cardview.CircleCardView;
 import com.tuenti.tuentitv.ui.model.Account;
 import com.tuenti.tuentitv.ui.picasso.PicassoImageCardViewTarget;
 
@@ -22,12 +23,12 @@ public class AccountPresenter extends Presenter {
   private static Context context;
 
   static class ViewHolder extends Presenter.ViewHolder {
-    private ImageCardView cardView;
+    private CircleCardView cardView;
     private PicassoImageCardViewTarget imageCardViewTarget;
 
     public ViewHolder(View view) {
       super(view);
-      cardView = (ImageCardView) view;
+      cardView = (CircleCardView) view;
       imageCardViewTarget = new PicassoImageCardViewTarget(context, cardView);
     }
 
@@ -45,16 +46,17 @@ public class AccountPresenter extends Presenter {
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent) {
     context = parent.getContext();
 
-    ImageCardView cardView = new ImageCardView(context);
+    CircleCardView cardView = new CircleCardView(context);
     cardView.setFocusable(true);
     cardView.setFocusableInTouchMode(true);
+    cardView.setMainImageScaleType(ImageView.ScaleType.CENTER_CROP);
     cardView.setBackgroundColor(context.getResources().getColor(R.color.white));
     return new ViewHolder(cardView);
   }
 
   @Override public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
     Account account = (Account) item;
-    ImageCardView cardView = ((ViewHolder) viewHolder).cardView;
+    CircleCardView cardView = ((ViewHolder) viewHolder).cardView;
     cardView.setTitleText(account.getName());
     cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
     if (account.getAvatarUrl() != null) {
