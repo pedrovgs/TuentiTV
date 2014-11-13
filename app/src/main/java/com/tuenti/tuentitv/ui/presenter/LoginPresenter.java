@@ -1,6 +1,6 @@
 package com.tuenti.tuentitv.ui.presenter;
 
-import com.tuenti.tuentitv.domain.Account;
+import com.tuenti.tuentitv.ui.model.Account;
 import java.util.Arrays;
 import java.util.List;
 import javax.inject.Inject;
@@ -40,7 +40,8 @@ public class LoginPresenter {
         new Account("Luis Javier", "https://tuentiimg1-a.akamaihd.net/MeyvDQONIBaVEpFrAA");
     Account pedro =
         new Account("Pedro Vicente", "https://tuentiimg0-a.akamaihd.net/MeVNOAO1hS95RMX9AA");
-    List<Account> accounts = Arrays.asList(juanma, emanuela, luisja, pedro);
+    Account addAccount = new Account("Add account", null);
+    List<Account> accounts = Arrays.asList(juanma, emanuela, luisja, pedro, addAccount);
     showAccounts(accounts);
   }
 

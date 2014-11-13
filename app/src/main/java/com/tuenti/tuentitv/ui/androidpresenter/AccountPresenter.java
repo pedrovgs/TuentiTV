@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
-import com.tuenti.tuentitv.domain.Account;
+import com.tuenti.tuentitv.ui.model.Account;
 import com.tuenti.tuentitv.ui.picasso.PicassoImageCardViewTarget;
 
 /**
@@ -56,9 +56,9 @@ public class AccountPresenter extends Presenter {
 
   @Override public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
     Account account = (Account) item;
-    ((ViewHolder) viewHolder).cardView.setTitleText(account.getName());
-    ((ViewHolder) viewHolder).cardView.setContentText(account.getName());
-    ((ViewHolder) viewHolder).cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
+    ImageCardView cardView = ((ViewHolder) viewHolder).cardView;
+    cardView.setTitleText(account.getName());
+    cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
     if (account.getAvatarUrl() != null) {
       ((ViewHolder) viewHolder).updateCardViewImage(account.getAvatarUrl());
     }

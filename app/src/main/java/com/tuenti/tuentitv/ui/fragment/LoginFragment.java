@@ -5,7 +5,7 @@ import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
-import com.tuenti.tuentitv.domain.Account;
+import com.tuenti.tuentitv.ui.model.Account;
 import com.tuenti.tuentitv.ui.androidpresenter.AccountPresenter;
 import com.tuenti.tuentitv.ui.presenter.LoginPresenter;
 import java.util.List;

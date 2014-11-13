@@ -1,4 +1,4 @@
-package com.tuenti.tuentitv.domain;
+package com.tuenti.tuentitv.ui.model;
 
 /**
  * Class created to represent user accounts. One user account user name and user avatar photo url.
