@@ -7,7 +7,7 @@ import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
 import com.tuenti.tuentitv.ui.model.Account;
 import com.tuenti.tuentitv.ui.androidpresenter.AccountPresenter;
-import com.tuenti.tuentitv.ui.presenter.LoginPresenter;
+import com.tuenti.tuentitv.ui.presenter.LoginViewPresenter;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -20,9 +20,9 @@ import javax.inject.Inject;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class LoginFragment extends BrowseBaseFragment implements LoginPresenter.View {
+public class LoginFragment extends BrowseBaseFragment implements LoginViewPresenter.View {
 
-  @Inject LoginPresenter presenter;
+  @Inject LoginViewPresenter presenter;
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

@@ -20,11 +20,11 @@ import javax.inject.Inject;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class LoginPresenter {
+public class LoginViewPresenter {
 
   private View view;
 
-  @Inject public LoginPresenter() {
+  @Inject public LoginViewPresenter() {
     // Empty
   }
 
