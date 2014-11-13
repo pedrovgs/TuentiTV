@@ -1,7 +1,6 @@
 package com.tuenti.tuentitv.ui.androidpresenter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
 import android.view.View;
@@ -24,14 +23,12 @@ public class AccountPresenter extends Presenter {
 
   static class ViewHolder extends Presenter.ViewHolder {
     private ImageCardView cardView;
-    private Drawable defaultCardImage;
     private PicassoImageCardViewTarget imageCardViewTarget;
 
     public ViewHolder(View view) {
       super(view);
       cardView = (ImageCardView) view;
       imageCardViewTarget = new PicassoImageCardViewTarget(context, cardView);
-      defaultCardImage = context.getResources().getDrawable(R.drawable.ic_launcher);
     }
 
     protected void updateCardViewImage(String url) {
@@ -39,7 +36,8 @@ public class AccountPresenter extends Presenter {
           .load(url)
           .resize(CARD_WIDTH, CARD_HEIGHT)
           .centerCrop()
-          .error(defaultCardImage)
+          .placeholder(R.drawable.ic_launcher)
+          .error(R.drawable.ic_launcher)
           .into(imageCardViewTarget);
     }
   }
