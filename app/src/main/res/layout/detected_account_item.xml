@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="100dip"
-    android:layout_height="200dip"
-    android:layout_margin="40dp"
-    android:background="#ffffff"
-    android:stateListAnimator="@anim/focusable_item_background">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
+  <ImageButton
+      android:layout_width="100dip"
+      android:layout_height="100dip"
+      android:layout_margin="20dp"
+      android:background="@drawable/account_background"
+      android:stateListAnimator="@anim/focusable_item_background">
+  </ImageButton>
 
-</ImageButton>
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Pedro Vicente"/>
 
+</LinearLayout>

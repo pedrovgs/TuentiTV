@@ -2,7 +2,7 @@
 <resources>
 
   <style name="TuentiTvTheme" parent="@style/Theme.Leanback">
-    <item name="android:windowBackground">@color/first_background</item>
+    <item name="android:windowBackground">@color/primary_color</item>
   </style>
 
   <style name="AppLogo">
