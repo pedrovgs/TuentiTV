@@ -8,7 +8,7 @@
   <style name="AppLogo">
     <item name="android:layout_centerVertical">true</item>
     <item name="android:layout_centerHorizontal">true</item>
-    <item name="android:src">@drawable/ic_launcher</item>
+    <item name="android:src">@drawable/icn_application</item>
   </style>
 
   <style name="BigProgressBar" parent="Widget.AppCompat.ProgressBar">

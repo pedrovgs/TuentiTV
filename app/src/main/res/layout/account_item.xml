@@ -6,15 +6,17 @@
     android:gravity="center_horizontal">
 
   <ImageButton
-      android:layout_width="100dip"
-      android:layout_height="100dip"
-      android:layout_margin="20dp"
+      android:id="@+id/ib_account"
+      android:layout_width="107dip"
+      android:layout_height="107dip"
+      android:layout_margin="40dp"
       android:background="@drawable/account_background"
-      android:src="@drawable/ic_launcher"
+      android:src="@drawable/icn_user_default_blue"
       android:stateListAnimator="@anim/focusable_item_background">
   </ImageButton>
 
   <TextView
+      android:id="@+id/tv_account_name"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Pedro Vicente"/>

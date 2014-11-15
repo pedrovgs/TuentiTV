@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+  <ImageButton
+      android:id="@+id/ib_account"
+      android:layout_width="107dip"
+      android:layout_height="107dip"
+      android:layout_margin="40dp"
+      android:background="@drawable/account_background"
+      android:src="@drawable/icn_add_user_white"
+      android:stateListAnimator="@anim/focusable_item_background">
+  </ImageButton>
+
+  <TextView
+      android:id="@+id/tv_account_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Pedro Vicente"/>
+
+</LinearLayout>
