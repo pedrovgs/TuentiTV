@@ -7,13 +7,14 @@
 
   <ImageButton
       android:id="@+id/ib_account"
-      android:layout_width="107dip"
-      android:layout_height="107dip"
+      android:layout_width="@dimen/account_item_size"
+      android:layout_height="@dimen/account_item_size"
       android:layout_margin="40dp"
       android:background="@drawable/account_background"
       android:src="@drawable/icn_user_default_blue"
       android:stateListAnimator="@anim/focusable_item_background">
   </ImageButton>
+
 
   <TextView
       android:id="@+id/tv_account_name"

@@ -38,10 +38,7 @@ public class LoginViewPresenter {
         new Account("Emanuela", "https://tuentiimg2-a.akamaihd.net/Meo8zgSyA0mYepIyAA");
     Account luisja =
         new Account("Luis Javier", "https://tuentiimg1-a.akamaihd.net/MeyvDQONIBaVEpFrAA");
-    Account pedro =
-        new Account("Pedro Vicente", "https://tuentiimg0-a.akamaihd.net/MeVNOAO1hS95RMX9AA");
-    Account addAccount = new Account("Add account", "asdfasdf");
-    List<Account> accounts = Arrays.asList(juanma, emanuela, luisja, pedro, addAccount);
+    List<Account> accounts = Arrays.asList(juanma, emanuela, luisja);
     showAccounts(accounts);
   }
 
