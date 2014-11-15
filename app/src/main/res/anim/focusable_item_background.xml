@@ -4,19 +4,19 @@
       android:state_focused="true">
     <set>
       <objectAnimator
-          android:duration="@android:integer/config_shortAnimTime"
+          android:duration="@integer/short_animation_time"
           android:propertyName="translationZ"
           android:valueTo="10dip"
           android:valueType="floatType"/>
       <objectAnimator
-          android:duration="@android:integer/config_shortAnimTime"
+          android:duration="@integer/short_animation_time"
           android:propertyName="scaleX"
-          android:valueTo="1.4"
+          android:valueTo="1.6"
           android:valueType="floatType"/>
       <objectAnimator
-          android:duration="@android:integer/config_shortAnimTime"
+          android:duration="@integer/short_animation_time"
           android:propertyName="scaleY"
-          android:valueTo="1.4"
+          android:valueTo="1.6"
           android:valueType="floatType"/>
     </set>
   </item>
@@ -24,17 +24,17 @@
   <item>
     <set>
       <objectAnimator
-          android:duration="@android:integer/config_shortAnimTime"
+          android:duration="@integer/short_animation_time"
           android:propertyName="translationZ"
           android:valueTo="0dip"
           android:valueType="floatType"/>
       <objectAnimator
-          android:duration="@android:integer/config_shortAnimTime"
+          android:duration="@integer/short_animation_time"
           android:propertyName="scaleX"
           android:valueTo="1"
           android:valueType="floatType"/>
       <objectAnimator
-          android:duration="@android:integer/config_shortAnimTime"
+          android:duration="@integer/short_animation_time"
           android:propertyName="scaleY"
           android:valueTo="1"
           android:valueType="floatType"/>

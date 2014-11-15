@@ -10,6 +10,7 @@
       android:layout_width="107dip"
       android:layout_height="107dip"
       android:layout_margin="40dp"
+      android:layout_marginBottom="45dp"
       android:background="@drawable/account_background"
       android:src="@drawable/icn_add_user_white"
       android:stateListAnimator="@anim/focusable_item_background">
@@ -19,6 +20,7 @@
       android:id="@+id/tv_account_name"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Pedro Vicente"/>
+      android:text="@string/add_account_button"
+      android:textColor="@color/secondary_color"/>
 
 </LinearLayout>

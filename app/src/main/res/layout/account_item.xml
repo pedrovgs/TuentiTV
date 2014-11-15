@@ -20,6 +20,6 @@
       android:id="@+id/tv_account_name"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Pedro Vicente"/>
+      android:textColor="@color/secondary_color"/>
 
 </LinearLayout>

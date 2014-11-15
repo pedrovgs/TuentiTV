@@ -4,5 +4,6 @@
   <string name="app_name">Tuenti TV</string>
   <string name="login_username">Username</string>
   <string name="login_password">Password</string>
+  <string name="add_account_button">Add</string>
 
 </resources>

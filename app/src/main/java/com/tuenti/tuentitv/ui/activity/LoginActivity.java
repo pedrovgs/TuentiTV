@@ -74,12 +74,12 @@ public class LoginActivity extends BaseActivity implements LoginViewPresenter.Vi
     }
 
     @Override public void onFocusChange(View v, boolean hasFocus) {
-      float to = hasFocus ? 1.4f : 1;
+      float to = hasFocus ? 1.6f : 1;
       ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(view, "scaleX", to);
-      scaleXAnimator.setDuration(150);
+      scaleXAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       scaleXAnimator.start();
       ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(view, "scaleY", to);
-      scaleYAnimator.setDuration(150);
+      scaleYAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       scaleYAnimator.start();
     }
   }
