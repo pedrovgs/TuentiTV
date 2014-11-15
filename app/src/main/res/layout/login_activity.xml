@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_browse_fragment"
-    android:name="com.tuenti.tuentitv.ui.fragment.LoginFragment"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".LoginActivity"
-    tools:deviceIds="tv"
-    tools:ignore="MergeRootFrame"/>
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="false">
+
+  <!-- App Logo -->
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:focusable="false"
+      android:layout_marginTop="45dip"
+      android:layout_gravity="center_horizontal"
+      android:src="@drawable/icn_application_transparent_bg"/>
+
+  <!-- Accounts -->
+
+  <LinearLayout
+      android:id="@+id/ll_accounts_container"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:orientation="horizontal"
+      android:layout_gravity="center"
+      android:gravity="center">
+
+    <include layout="@layout/account_item"/>
+    <include layout="@layout/account_item"/>
+    <include layout="@layout/account_item"/>
+    <include layout="@layout/add_account_item"/>
+
+  </LinearLayout>
+
+</LinearLayout>

@@ -2,7 +2,6 @@ package com.tuenti.tuentitv.di;
 
 import android.content.Context;
 import com.tuenti.tuentitv.ui.activity.LoginActivity;
-import com.tuenti.tuentitv.ui.fragment.LoginFragment;
 import dagger.Module;
 import dagger.Provides;
 
@@ -12,8 +11,7 @@ import dagger.Provides;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-@Module(injects = { LoginActivity.class, LoginFragment.class }, library = true)
-public class ActivityModule {
+@Module(injects = { LoginActivity.class }, library = true) public class ActivityModule {
 
   private final Context context;
 
