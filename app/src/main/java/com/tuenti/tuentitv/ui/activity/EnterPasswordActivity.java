@@ -93,6 +93,15 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
   }
 
   @Override public void closeViewWithSuccessPassword() {
+    finishWithResult();
+  }
+
+  @Override public void openLoadingActivity() {
+    Intent intent = new Intent(this, LoadingActivity.class);
+    startActivity(intent);
+  }
+
+  private void finishWithResult() {
     Intent returnIntent = new Intent();
     returnIntent.putExtra(RESULT_KEY, true);
     setResult(RESULT_OK, returnIntent);

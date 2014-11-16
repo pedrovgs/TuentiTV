@@ -53,6 +53,7 @@ public class EnterPasswordPresenter {
     if(!view.isLastElementFocused()) {
       view.moveFocusToNextElement();
     }else{
+      view.openLoadingActivity();
       view.closeViewWithSuccessPassword();
     }
   }
@@ -72,5 +73,7 @@ public class EnterPasswordPresenter {
     boolean isLastElementFocused();
 
     void closeViewWithSuccessPassword();
+
+    void openLoadingActivity();
   }
 }

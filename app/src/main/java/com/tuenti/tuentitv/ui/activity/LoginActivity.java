@@ -56,8 +56,6 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == PASSWORD_REQUEST_CODE && passwordIsCorrect(data)) {
-      Intent intent = new Intent(this, LoadingActivity.class);
-      startActivity(intent);
       finish();
     }
   }
