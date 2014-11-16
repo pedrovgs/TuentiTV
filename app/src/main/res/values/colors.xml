@@ -2,4 +2,5 @@
 <resources>
   <color name="primary_color">#FF1C61BE</color>
   <color name="secondary_color">#FFFFFFFF</color>
+  <color name="black_transparent">#80000000</color>
 </resources>

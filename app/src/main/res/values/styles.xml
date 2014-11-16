@@ -5,6 +5,14 @@
     <item name="android:windowBackground">@color/primary_color</item>
   </style>
 
+  <style name="TuentiTvTheme.DialogActivity" parent="@style/Theme.Leanback">
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@color/black_transparent</item>
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowEnterTransition">@android:transition/slide_top</item>
+    <item name="android:windowExitTransition">@android:transition/slide_bottom</item>
+  </style>
+
   <style name="AppLogo">
     <item name="android:layout_centerVertical">true</item>
     <item name="android:layout_centerHorizontal">true</item>

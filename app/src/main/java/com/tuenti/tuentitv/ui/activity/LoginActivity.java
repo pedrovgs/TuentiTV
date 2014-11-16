@@ -1,6 +1,7 @@
 package com.tuenti.tuentitv.ui.activity;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,17 @@ public class LoginActivity extends BaseActivity implements LoginViewPresenter.Vi
     }
   }
 
+  @Override public void showPasswordBox() {
+    Intent intent = new Intent(this, EnterPasswordActivity.class);
+    startActivity(intent);
+  }
+
   private void hookListeners() {
+    hookScaleAnimations();
+    hookAccountClickListeners();
+  }
+
+  private void hookScaleAnimations() {
     for (int i = 0; i < ll_accounts_container.getChildCount(); i++) {
       View v_account = ll_accounts_container.getChildAt(i);
       configureScaleAnimator(v_account);
@@ -61,10 +72,6 @@ public class LoginActivity extends BaseActivity implements LoginViewPresenter.Vi
         .into(ib_account);
   }
 
-  @Override protected List getModules() {
-    return new LinkedList();
-  }
-
   private class OnFocusChangeAccountListener implements View.OnFocusChangeListener {
 
     private final View view;
@@ -82,5 +89,31 @@ public class LoginActivity extends BaseActivity implements LoginViewPresenter.Vi
       scaleYAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       scaleYAnimator.start();
     }
+  }
+
+  private void hookAccountClickListeners() {
+    for (int i = 0; i < ll_accounts_container.getChildCount() - 1; i++) {
+      ImageButton ib_accoun =
+          (ImageButton) ll_accounts_container.getChildAt(i).findViewById(R.id.ib_account);
+      ib_accoun.setOnClickListener(new OnAccountClickListener(i));
+    }
+  }
+
+  private class OnAccountClickListener implements View.OnClickListener {
+
+    private final int position;
+
+    public OnAccountClickListener(int position) {
+      this.position = position;
+    }
+
+    @Override public void onClick(View v) {
+      Account selectedAccount = loginPresenter.getAccountAtIndex(position);
+      loginPresenter.onAccountClicked(selectedAccount);
+    }
+  }
+
+  @Override protected List getModules() {
+    return new LinkedList();
   }
 }

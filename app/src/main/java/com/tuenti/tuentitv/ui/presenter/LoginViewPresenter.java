@@ -23,6 +23,8 @@ import javax.inject.Inject;
 public class LoginViewPresenter {
 
   private View view;
+  private List<Account> accounts;
+  private Account selectedAccount;
 
   @Inject public LoginViewPresenter() {
     // Empty
@@ -38,16 +40,27 @@ public class LoginViewPresenter {
         new Account("Emanuela", "https://tuentiimg2-a.akamaihd.net/Meo8zgSyA0mYepIyAA");
     Account luisja =
         new Account("Luis Javier", "https://tuentiimg1-a.akamaihd.net/MeyvDQONIBaVEpFrAA");
-    List<Account> accounts = Arrays.asList(juanma, emanuela, luisja);
+    accounts = Arrays.asList(juanma, emanuela, luisja);
     showAccounts(accounts);
+  }
+
+  public Account getAccountAtIndex(int position) {
+    return accounts.get(position);
   }
 
   private void showAccounts(List<Account> accounts) {
     view.showAccounts(accounts);
   }
 
+  public void onAccountClicked(Account selectedAccount) {
+    this.selectedAccount = selectedAccount;
+    view.showPasswordBox();
+  }
+
   public interface View {
 
     void showAccounts(List<Account> accounts);
+
+    void showPasswordBox();
   }
 }
