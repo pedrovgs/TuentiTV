@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import butterknife.InjectView;
+import butterknife.OnFocusChange;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
 import com.tuenti.tuentitv.ui.model.Account;
@@ -24,6 +25,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
   @Inject LoginPresenter loginPresenter;
 
   @InjectView(R.id.ll_accounts_container) ViewGroup ll_accounts_container;
+  @InjectView(R.id.iv_app_logo) View iv_app_logo;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.login_activity);
@@ -31,6 +33,12 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
     hookListeners();
     loginPresenter.setView(this);
     loginPresenter.loadAccounts();
+  }
+
+  @OnFocusChange(R.id.iv_app_logo) void onFocusChanged(boolean focused) {
+    if (!focused) {
+      iv_app_logo.setFocusable(false);
+    }
   }
 
   @Override public void showAccounts(List<Account> accounts) {

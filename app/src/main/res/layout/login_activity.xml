@@ -7,12 +7,21 @@
   <!-- App Logo -->
 
   <ImageView
+      android:id="@+id/iv_app_logo"
+      android:focusable="true"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:focusable="false"
       android:layout_marginTop="45dip"
       android:layout_centerHorizontal="true"
-      android:src="@drawable/icn_application_transparent_bg"/>
+      android:src="@drawable/icn_application_transparent_bg"
+      android:nextFocusDown="@+id/ib_account"
+      android:nextFocusLeft="@+id/ib_account"
+      android:nextFocusRight="@+id/ib_account"
+      android:nextFocusUp="@+id/ib_account">
+
+    <requestFocus/>
+
+  </ImageView>
 
   <!-- Accounts -->
 
