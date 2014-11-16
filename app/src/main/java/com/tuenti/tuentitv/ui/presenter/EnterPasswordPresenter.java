@@ -30,19 +30,47 @@ public class EnterPasswordPresenter {
   }
 
   public void onDpadUpPressed() {
+    view.showTopArrowOnCurrentPasswordField();
+    continueToNextPasswordElement();
   }
 
   public void onDpadRightPressed() {
+    view.showRightArrowOnCurrentPasswordField();
+    continueToNextPasswordElement();
   }
 
   public void onDpadLeftPressed() {
+    view.showLeftArrowOnCurrentPasswordField();
+    continueToNextPasswordElement();
   }
 
   public void onDpadDownPressed() {
+    view.showDownArrowOnCurrentPasswordField();
+    continueToNextPasswordElement();
+  }
+
+  private void continueToNextPasswordElement() {
+    if(!view.isLastElementFocused()) {
+      view.moveFocusToNextElement();
+    }else{
+      view.closeViewWithSuccessPassword();
+    }
   }
 
   public interface View {
 
+    void showTopArrowOnCurrentPasswordField();
 
+    void showRightArrowOnCurrentPasswordField();
+
+    void showLeftArrowOnCurrentPasswordField();
+
+    void showDownArrowOnCurrentPasswordField();
+
+    void moveFocusToNextElement();
+
+    boolean isLastElementFocused();
+
+    void closeViewWithSuccessPassword();
   }
 }
