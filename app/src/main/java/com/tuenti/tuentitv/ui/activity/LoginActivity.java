@@ -11,15 +11,15 @@ import butterknife.InjectView;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
 import com.tuenti.tuentitv.ui.model.Account;
-import com.tuenti.tuentitv.ui.presenter.LoginViewPresenter;
+import com.tuenti.tuentitv.ui.presenter.LoginPresenter;
 import com.tuenti.tuentitv.ui.transformation.CircleTransform;
 import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;
 
-public class LoginActivity extends BaseActivity implements LoginViewPresenter.View {
+public class LoginActivity extends BaseActivity implements LoginPresenter.View {
 
-  @Inject LoginViewPresenter loginPresenter;
+  @Inject LoginPresenter loginPresenter;
 
   @InjectView(R.id.ll_accounts_container) ViewGroup ll_accounts_container;
 
