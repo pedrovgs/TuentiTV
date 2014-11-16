@@ -1,5 +1,6 @@
 package com.tuenti.tuentitv.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -15,6 +16,8 @@ import javax.inject.Inject;
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class EnterPasswordActivity extends BaseActivity implements EnterPasswordPresenter.View {
+
+  public static final String RESULT_KEY = "result";
 
   @Inject EnterPasswordPresenter presenter;
   private boolean isLastPasswordElement;
@@ -87,6 +90,9 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
   }
 
   @Override public void closeViewWithSuccessPassword() {
+    Intent returnIntent = new Intent();
+    returnIntent.putExtra(RESULT_KEY,true);
+    setResult(RESULT_OK,returnIntent);
     finish();
   }
 

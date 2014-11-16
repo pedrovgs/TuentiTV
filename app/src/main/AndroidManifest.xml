@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tuenti.tuentitv">
 
+  <!-- Application permissions-->
+
   <uses-permission android:name="android.permission.INTERNET"/>
+
+  <!-- Application configuration -->
 
   <application
       android:name=".TuentiTvApplication"
@@ -10,6 +14,8 @@
       android:icon="@drawable/icn_application"
       android:label="@string/app_name"
       android:theme="@style/TuentiTvTheme">
+
+    <!-- Login Activity -->
 
     <activity
         android:name=".ui.activity.LoginActivity"
@@ -21,11 +27,18 @@
       </intent-filter>
     </activity>
 
+    <!-- Enter Password Activity -->
 
     <activity
         android:name=".ui.activity.EnterPasswordActivity"
         android:screenOrientation="landscape"
         android:theme="@style/TuentiTvTheme.DialogActivity"/>
+
+    <!-- Loading Activity -->
+
+    <activity
+        android:name=".ui.activity.LoadingActivity"
+        android:screenOrientation="landscape"/>
 
   </application>
 

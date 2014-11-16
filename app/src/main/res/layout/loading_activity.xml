@@ -4,11 +4,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+  <!-- Application Icon -->
+
   <ImageView
       android:id="@+id/iv_app_icon"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       style="@style/AppLogo"/>
+
+  <!-- Loading -->
 
   <ProgressBar
       android:layout_width="wrap_content"

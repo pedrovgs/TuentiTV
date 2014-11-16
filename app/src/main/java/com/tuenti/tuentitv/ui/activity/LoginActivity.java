@@ -19,6 +19,8 @@ import javax.inject.Inject;
 
 public class LoginActivity extends BaseActivity implements LoginPresenter.View {
 
+  private static final int PASSWORD_REQUEST_CODE = 1;
+
   @Inject LoginPresenter loginPresenter;
 
   @InjectView(R.id.ll_accounts_container) ViewGroup ll_accounts_container;
@@ -40,7 +42,16 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
 
   @Override public void showPasswordBox() {
     Intent intent = new Intent(this, EnterPasswordActivity.class);
-    startActivity(intent);
+    startActivityForResult(intent, PASSWORD_REQUEST_CODE);
+  }
+
+  @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == PASSWORD_REQUEST_CODE && passwordIsCorrect(data)) {
+      Intent intent = new Intent(this, LoadingActivity.class);
+      startActivity(intent);
+      finish();
+    }
   }
 
   private void hookListeners() {
@@ -72,6 +83,18 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
         .into(ib_account);
   }
 
+  private void hookAccountClickListeners() {
+    for (int i = 0; i < ll_accounts_container.getChildCount() - 1; i++) {
+      ImageButton ib_accoun =
+          (ImageButton) ll_accounts_container.getChildAt(i).findViewById(R.id.ib_account);
+      ib_accoun.setOnClickListener(new OnAccountClickListener(i));
+    }
+  }
+
+  private boolean passwordIsCorrect(Intent data) {
+    return data.getBooleanExtra(EnterPasswordActivity.RESULT_KEY, false);
+  }
+
   private class OnFocusChangeAccountListener implements View.OnFocusChangeListener {
 
     private final View view;
@@ -88,14 +111,6 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
       ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(view, "scaleY", to);
       scaleYAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       scaleYAnimator.start();
-    }
-  }
-
-  private void hookAccountClickListeners() {
-    for (int i = 0; i < ll_accounts_container.getChildCount() - 1; i++) {
-      ImageButton ib_accoun =
-          (ImageButton) ll_accounts_container.getChildAt(i).findViewById(R.id.ib_account);
-      ib_accoun.setOnClickListener(new OnAccountClickListener(i));
     }
   }
 
