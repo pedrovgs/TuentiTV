@@ -8,9 +8,6 @@
   <style name="TuentiTvTheme.DialogActivity" parent="@style/Theme.Leanback">
     <item name="android:windowIsTranslucent">true</item>
     <item name="android:windowBackground">@color/third_color_transparent</item>
-    <item name="android:windowContentTransitions">true</item>
-    <item name="android:windowEnterTransition">@android:transition/slide_top</item>
-    <item name="android:windowExitTransition">@android:transition/slide_bottom</item>
   </style>
 
   <style name="AppLogo">
