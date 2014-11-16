@@ -2,6 +2,7 @@ package com.tuenti.tuentitv.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,11 @@ import javax.inject.Inject;
 public class EnterPasswordActivity extends BaseActivity implements EnterPasswordPresenter.View {
 
   public static final String RESULT_KEY = "result";
+  public static final int CHANGE_PASSWORD_TIME_IN_MILLIS = 700;
 
   @Inject EnterPasswordPresenter presenter;
   private boolean isLastPasswordElement;
+  private final Handler handler = new Handler();
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.enter_password_activity);
@@ -91,8 +94,8 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
 
   @Override public void closeViewWithSuccessPassword() {
     Intent returnIntent = new Intent();
-    returnIntent.putExtra(RESULT_KEY,true);
-    setResult(RESULT_OK,returnIntent);
+    returnIntent.putExtra(RESULT_KEY, true);
+    setResult(RESULT_OK, returnIntent);
     finish();
   }
 
@@ -101,5 +104,14 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
     ViewGroup parent = (ViewGroup) focusedView.getParent();
     ImageView iv_password_element = (ImageView) parent.findViewById(R.id.iv_password_element);
     iv_password_element.setImageResource(passwordElementResource);
+    updatePasswordElementWithAterisk(iv_password_element);
+  }
+
+  private void updatePasswordElementWithAterisk(final ImageView iv_password_element) {
+    handler.postDelayed(new Runnable() {
+      @Override public void run() {
+        iv_password_element.setImageResource(R.drawable.lb_ic_pause);
+      }
+    }, CHANGE_PASSWORD_TIME_IN_MILLIS);
   }
 }
