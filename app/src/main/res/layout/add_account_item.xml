@@ -13,7 +13,7 @@
       android:layout_marginBottom="45dp"
       android:background="@drawable/account_background"
       android:src="@drawable/icn_add_user_white"
-      android:stateListAnimator="@anim/focusable_item_background">
+      android:stateListAnimator="@anim/account_login_item_background">
   </ImageButton>
 
   <TextView

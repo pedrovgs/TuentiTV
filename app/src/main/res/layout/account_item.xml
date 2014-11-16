@@ -12,7 +12,7 @@
       android:layout_margin="40dp"
       android:background="@drawable/account_background"
       android:src="@drawable/icn_user_default_blue"
-      android:stateListAnimator="@anim/focusable_item_background">
+      android:stateListAnimator="@anim/account_login_item_background">
   </ImageButton>
 
 
