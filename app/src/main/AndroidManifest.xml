@@ -40,6 +40,12 @@
         android:name=".ui.activity.LoadingActivity"
         android:screenOrientation="landscape"/>
 
+    <!-- Main Activity -->
+
+    <activity
+        android:name=".ui.activity.MainActivity"
+        android:screenOrientation="landscape"/>
+
   </application>
 
 </manifest>

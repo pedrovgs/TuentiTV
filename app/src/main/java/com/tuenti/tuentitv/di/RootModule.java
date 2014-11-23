@@ -4,6 +4,7 @@ import android.content.Context;
 import com.tuenti.tuentitv.TuentiTvApplication;
 import com.tuenti.tuentitv.ui.activity.EnterPasswordActivity;
 import com.tuenti.tuentitv.ui.activity.LoadingActivity;
+import com.tuenti.tuentitv.ui.activity.MainActivity;
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,7 +15,8 @@ import dagger.Provides;
  * @author Pedro Vicente Gómez Sánchez.
  */
 @Module(injects = {
-    TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class
+    TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
+    MainActivity.class
 }, library = true) public class RootModule {
 
   private final Context context;
