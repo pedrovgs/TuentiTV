@@ -11,7 +11,7 @@
       android:focusable="true"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="45dip"
+      android:layout_marginTop="48dip"
       android:layout_centerHorizontal="true"
       android:src="@drawable/icn_application_transparent_bg"
       android:nextFocusDown="@+id/ib_account"
@@ -28,7 +28,7 @@
   <LinearLayout
       android:id="@+id/ll_accounts_container"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="500dp"
       android:orientation="horizontal"
       android:layout_centerHorizontal="true"
       android:layout_centerInParent="true"

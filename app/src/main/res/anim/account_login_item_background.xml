@@ -18,6 +18,11 @@
           android:propertyName="scaleY"
           android:valueTo="1.6"
           android:valueType="floatType"/>
+      <objectAnimator
+          android:duration="@integer/short_animation_time"
+          android:propertyName="alpha"
+          android:valueTo="1"
+          android:valueType="floatType"/>
     </set>
   </item>
 
@@ -37,6 +42,11 @@
           android:duration="@integer/short_animation_time"
           android:propertyName="scaleY"
           android:valueTo="1"
+          android:valueType="floatType"/>
+      <objectAnimator
+          android:duration="@integer/short_animation_time"
+          android:propertyName="alpha"
+          android:valueTo="0.5"
           android:valueType="floatType"/>
     </set>
   </item>

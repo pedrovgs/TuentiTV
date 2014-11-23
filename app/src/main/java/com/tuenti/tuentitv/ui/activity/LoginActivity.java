@@ -27,6 +27,9 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
   @InjectView(R.id.ll_accounts_container) ViewGroup ll_accounts_container;
   @InjectView(R.id.iv_app_logo) View iv_app_logo;
 
+  private float accountItemYSelected;
+  private float accountItemYNotSelected;
+
   @Override protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.login_activity);
     super.onCreate(savedInstanceState);

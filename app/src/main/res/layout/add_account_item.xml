@@ -7,12 +7,15 @@
 
   <ImageButton
       android:id="@+id/ib_account"
-      android:layout_width="107dip"
-      android:layout_height="107dip"
-      android:layout_margin="40dp"
-      android:layout_marginBottom="45dp"
-      android:background="@drawable/account_background"
+      android:layout_width="@dimen/account_item_size"
+      android:layout_height="@dimen/account_item_size"
+      android:layout_marginTop="@dimen/account_item_margin_top"
+      android:layout_marginBottom="@dimen/account_item_margin_bottom"
+      android:layout_marginLeft="@dimen/account_item_margin_left"
+      android:layout_marginRight="@dimen/account_item_margin_right"
+      android:background="@drawable/add_account_background"
       android:src="@drawable/icn_add_user_white"
+      android:alpha="0.5"
       android:stateListAnimator="@anim/account_login_item_background">
   </ImageButton>
 
@@ -20,7 +23,10 @@
       android:id="@+id/tv_account_name"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:alpha="0.5"
       android:text="@string/add_account_button"
-      android:textColor="@color/secondary_color"/>
+      android:textColor="@color/secondary_color"
+      android:textSize="@dimen/title_text_size"
+      android:fontFamily="sans-serif-condensed"/>
 
 </LinearLayout>
