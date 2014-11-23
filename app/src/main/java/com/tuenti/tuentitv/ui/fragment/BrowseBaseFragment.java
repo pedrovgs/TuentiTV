@@ -28,8 +28,8 @@ import com.tuenti.tuentitv.ui.activity.BaseActivity;
  */
 public abstract class BrowseBaseFragment extends BrowseFragment {
 
-  @Override public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  @Override public void onActivityCreated(Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
     injectDependencies();
   }
 

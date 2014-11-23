@@ -5,6 +5,7 @@ import com.tuenti.tuentitv.TuentiTvApplication;
 import com.tuenti.tuentitv.ui.activity.EnterPasswordActivity;
 import com.tuenti.tuentitv.ui.activity.LoadingActivity;
 import com.tuenti.tuentitv.ui.activity.MainActivity;
+import com.tuenti.tuentitv.ui.fragment.MainFragment;
 import dagger.Module;
 import dagger.Provides;
 
@@ -16,7 +17,7 @@ import dagger.Provides;
  */
 @Module(injects = {
     TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
-    MainActivity.class
+    MainActivity.class, MainFragment.class
 }, library = true) public class RootModule {
 
   private final Context context;
