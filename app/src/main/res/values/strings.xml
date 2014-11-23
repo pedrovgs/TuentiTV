@@ -6,5 +6,9 @@
   <string name="login_password">Password</string>
   <string name="add_account_button">Add</string>
   <string name="main_fragment_title">Tuenti TV</string>
+  <string name="favorites_item_title">Favorites</string>
+  <string name="recent_conversation_item_title">Recent Conversations</string>
+  <string name="contacts_item_title">Contacts</string>
+  <string name="preferences">Preferences</string>
 
 </resources>
