@@ -6,7 +6,8 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import com.tuenti.tuentitv.R;
 import com.tuenti.tuentitv.ui.presenter.EnterPasswordPresenter;
 import java.util.LinkedList;
@@ -55,31 +56,30 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
   }
 
   @Override public void showTopArrowOnCurrentPasswordField() {
-    int passwordElementResource = R.drawable.lb_ic_play;
+    int passwordElementResource = R.drawable.icn_arrow_top;
     showPasswordElement(passwordElementResource);
   }
 
   @Override public void showRightArrowOnCurrentPasswordField() {
-    int passwordElementResource = R.drawable.lb_ic_play;
+    int passwordElementResource = R.drawable.icn_arrow_right;
     showPasswordElement(passwordElementResource);
   }
 
   @Override public void showLeftArrowOnCurrentPasswordField() {
-    int passwordElementResource = R.drawable.lb_ic_play;
+    int passwordElementResource = R.drawable.icn_arrow_left;
     showPasswordElement(passwordElementResource);
   }
 
   @Override public void showDownArrowOnCurrentPasswordField() {
-    int passwordElementResource = R.drawable.lb_ic_play;
+    int passwordElementResource = R.drawable.icn_arrow_down;
     showPasswordElement(passwordElementResource);
   }
 
   @Override public void moveFocusToNextElement() {
     View focusedElement = getCurrentFocus();
-    ViewGroup parent = (ViewGroup) focusedElement.getParent().getParent();
+    ViewGroup parent = (ViewGroup) focusedElement.getParent();
     for (int i = 0; i < parent.getChildCount(); i++) {
-      ViewGroup child = (ViewGroup) parent.getChildAt(i);
-      View ib_element_item = child.findViewById(R.id.ib_password_element);
+      View ib_element_item = parent.getChildAt(i);
       if (focusedElement.equals(ib_element_item)) {
         View nextFocusedElement = parent.getChildAt(i + 1);
         nextFocusedElement.requestFocus();
@@ -109,17 +109,20 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
   }
 
   private void showPasswordElement(int passwordElementResource) {
-    View focusedView = getCurrentFocus();
-    ViewGroup parent = (ViewGroup) focusedView.getParent();
-    ImageView iv_password_element = (ImageView) parent.findViewById(R.id.iv_password_element);
-    iv_password_element.setImageResource(passwordElementResource);
-    updatePasswordElementWithAterisk(iv_password_element);
+    ImageButton ib_password_element = (ImageButton) getCurrentFocus();
+    ib_password_element.setImageResource(passwordElementResource);
+    ib_password_element.setBackgroundResource(R.color.transparent);
+    LinearLayout.LayoutParams lp =
+        (LinearLayout.LayoutParams) ib_password_element.getLayoutParams();
+    lp.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+    ib_password_element.setLayoutParams(lp);
+    updatePasswordElementWithAterisk(ib_password_element);
   }
 
-  private void updatePasswordElementWithAterisk(final ImageView iv_password_element) {
+  private void updatePasswordElementWithAterisk(final ImageButton ib_password_element) {
     handler.postDelayed(new Runnable() {
       @Override public void run() {
-        iv_password_element.setImageResource(R.drawable.lb_ic_pause);
+        ib_password_element.setImageResource(R.drawable.icn_pass_ok_blue);
       }
     }, CHANGE_PASSWORD_TIME_IN_MILLIS);
   }

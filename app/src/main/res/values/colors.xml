@@ -4,4 +4,5 @@
   <color name="secondary_color">#FFFFFFFF</color>
   <color name="third_color">#000000</color>
   <color name="third_color_transparent">#80000000</color>
+  <color name="transparent">#00000000</color>
 </resources>

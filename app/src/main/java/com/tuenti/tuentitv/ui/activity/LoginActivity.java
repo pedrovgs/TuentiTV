@@ -3,6 +3,7 @@ package com.tuenti.tuentitv.ui.activity;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -124,6 +125,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
       ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(view, "alpha", toAlpha);
       alphaAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       alphaAnimator.start();
+      float density = getResources().getDisplayMetrics().density;
     }
   }
 
