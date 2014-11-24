@@ -120,6 +120,10 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
       ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(view, "scaleY", to);
       scaleYAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       scaleYAnimator.start();
+      float toAlpha = hasFocus ? 1f : 0.5f;
+      ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(view, "alpha", toAlpha);
+      alphaAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
+      alphaAnimator.start();
     }
   }
 
