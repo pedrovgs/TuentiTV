@@ -24,9 +24,6 @@ import javax.inject.Inject;
  */
 public class MainPresenter {
 
-  private static final String DEFAULT_BACKGROUND_URL =
-      "https://tuentiassets3-a.akamaihd.net/AADYA-oRVco";
-
   private View view;
 
   @Inject public MainPresenter() {
@@ -38,12 +35,12 @@ public class MainPresenter {
   }
 
   public void loadData() {
-    view.updateBackground(DEFAULT_BACKGROUND_URL);
+    view.showDefaultBackground();
     List<CardInfo> favorites = getFavoriteContacts();
     List<CardInfo> conversations = getConversations();
     List<CardInfo> contacts = getAllContacts();
     List<CardInfo> mediaElements = getAllMediaElements();
-    view.showMainInformation(favorites, conversations, contacts,mediaElements);
+    view.showMainInformation(favorites, conversations, contacts, mediaElements);
   }
 
   private List<CardInfo> getFavoriteContacts() {
@@ -91,6 +88,7 @@ public class MainPresenter {
     contacts.add(new Contact("Blanca Díaz", "https://imrl.tuenti.net/MexmsQOUyDnTABlnAA"));
     contacts.add(new Contact("Carmen Barroso", "https://imrl.tuenti.net/MexNAAOXqRoOXZcYAA"));
     contacts.add(new Contact("Carlos Perez", "https://imrl.tuenti.net/ILQtUgOLW18w1mHaAA"));
+    contacts.add(new Contact("Cesar Estébanez", "https://imrl.tuenti.net/MeqsBwSymhO82EB9AA"));
     contacts.add(new Contact("Diana Hernández", "https://imrl.tuenti.net/MeUzdwP0dhA6dQhWAA"));
     contacts.add(new Contact("Eduardo Ramirez", "https://imrl.tuenti.net/Mef8vgRt9SHKr5U0AA"));
     contacts.add(new Contact("Eduardo Gonzalez", "https://imrl.tuenti.net/MeHopQQgmSi7GQGdAA"));
@@ -102,21 +100,34 @@ public class MainPresenter {
     return contacts;
   }
 
-  private List<CardInfo> getAllMediaElements(){
+  private List<CardInfo> getAllMediaElements() {
     List<CardInfo> mediaElements = new ArrayList<CardInfo>();
-    mediaElements.add(new MediaElement("Augmented Reality day :)", "https://imrl.tuenti.net/MeVNOAO1hS95RMX9AA"));
-    mediaElements.add(new MediaElement("Madrid: 4 - BCN: 0 ", "https://imrl.tuenti.net/Me2XLwONIBZEgj76AA"));
-    mediaElements.add(new MediaElement("Congrats!!!", "https://imrl.tuenti.net/MephbgPFZwIHmNz3AA"));
-    mediaElements.add(new MediaElement("Happy hallowing!", "https://imrl.tuenti.net/MepO8AS-zo4tbPwOAA"));
-    mediaElements.add(new MediaElement("I hate mondays :_(", "https://imrl.tuenti.net/Melh1wOmYV2w27UHAA"));
-    mediaElements.add(new MediaElement("Take a look at the hat xD", "https://imrl.tuenti.net/MevCbwOhf0Kgn2LmAA"));
-    mediaElements.add(new MediaElement("After work at Tuenti", "https://imrl.tuenti.net/MevCdQOhf0IzmO7bAA"));
-    mediaElements.add(new MediaElement("Cloud phone team picture \\o/", "https://imrl.tuenti.net/Mej6IwPYc55jJ3OuAA"));
-    mediaElements.add(new MediaElement("Design team building!", "https://imrl.tuenti.net/MekIYwS-zo6iTThqAA"));
-    mediaElements.add(new MediaElement("Love is in the air <3", "https://imrl.tuenti.net/MegZXgOmYV2hznMJAA"));
-    mediaElements.add(new MediaElement("Fifa 14 winners!", "https://imrl.tuenti.net/MeoEZARzE9_n9j5bAA"));
-    mediaElements.add(new MediaElement("Murcian experts xD", "https://imrl.tuenti.net/MepPHAS-zo4pJD4gAA"));
-    mediaElements.add(new MediaElement("Free donuts, yeah!", "https://imrl.tuenti.net/Meo8egTBiDawcvM3AA"));
+    mediaElements.add(
+        new MediaElement("Augmented Reality day :)", "https://imrl.tuenti.net/MeVNOAO1hS95RMX9AA"));
+    mediaElements.add(
+        new MediaElement("Madrid: 4 - BCN: 0 ", "https://imrl.tuenti.net/Me2XLwONIBZEgj76AA"));
+    mediaElements.add(
+        new MediaElement("Congrats!!!", "https://imrl.tuenti.net/MephbgPFZwIHmNz3AA"));
+    mediaElements.add(
+        new MediaElement("Happy hallowing!", "https://imrl.tuenti.net/MepO8AS-zo4tbPwOAA"));
+    mediaElements.add(
+        new MediaElement("I hate mondays :_(", "https://imrl.tuenti.net/Melh1wOmYV2w27UHAA"));
+    mediaElements.add(new MediaElement("Take a look at the hat xD",
+        "https://imrl.tuenti.net/MevCbwOhf0Kgn2LmAA"));
+    mediaElements.add(
+        new MediaElement("After work at Tuenti", "https://imrl.tuenti.net/MevCdQOhf0IzmO7bAA"));
+    mediaElements.add(new MediaElement("Cloud phone team picture \\o/",
+        "https://imrl.tuenti.net/Mej6IwPYc55jJ3OuAA"));
+    mediaElements.add(
+        new MediaElement("Design team building!", "https://imrl.tuenti.net/MekIYwS-zo6iTThqAA"));
+    mediaElements.add(
+        new MediaElement("Love is in the air <3", "https://imrl.tuenti.net/MegZXgOmYV2hznMJAA"));
+    mediaElements.add(
+        new MediaElement("Fifa 14 winners!", "https://imrl.tuenti.net/MeoEZARzE9_n9j5bAA"));
+    mediaElements.add(
+        new MediaElement("Murcian experts xD", "https://imrl.tuenti.net/MepPHAS-zo4pJD4gAA"));
+    mediaElements.add(
+        new MediaElement("Free donuts, yeah!", "https://imrl.tuenti.net/Meo8egTBiDawcvM3AA"));
     mediaElements.add(new MediaElement("Really???", "https://imrl.tuenti.net/Me0keARq1hWI_3FFAA"));
     return mediaElements;
   }
@@ -126,5 +137,7 @@ public class MainPresenter {
 
     void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
         List<CardInfo> contacts, List<CardInfo> mediaElements);
+
+    void showDefaultBackground();
   }
 }

@@ -38,6 +38,14 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     presenter.loadData();
   }
 
+  @Override public void showDefaultBackground() {
+    Picasso.with(getActivity())
+        .load(R.drawable.main_fragment_default_background)
+        .resize(metrics.widthPixels, metrics.heightPixels)
+        .centerCrop()
+        .into(backgroundTarget);
+  }
+
   @Override public void updateBackground(String imageUrl) {
     Picasso.with(getActivity())
         .load(imageUrl)
@@ -56,7 +64,8 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     addElementsToRowsAdapter(R.string.recent_conversation_item_title, conversations, rowsAdapter,
         cardPresenter, 2);
     addElementsToRowsAdapter(R.string.contacts_item_title, contacts, rowsAdapter, cardPresenter, 3);
-    addElementsToRowsAdapter(R.string.media_elements_item_title,mediaElements,rowsAdapter,cardPresenter,4);
+    addElementsToRowsAdapter(R.string.media_elements_item_title, mediaElements, rowsAdapter,
+        cardPresenter, 4);
 
     HeaderItem gridHeader = new HeaderItem(5, getResources().getString(R.string.preferences), null);
 
