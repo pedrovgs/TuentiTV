@@ -9,6 +9,7 @@
   <string name="favorites_item_title">Favorites</string>
   <string name="recent_conversation_item_title">Recent Conversations</string>
   <string name="contacts_item_title">Contacts</string>
+  <string name="media_elements_item_title">Media</string>
   <string name="preferences">Preferences</string>
 
 </resources>

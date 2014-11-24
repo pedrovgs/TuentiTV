@@ -47,7 +47,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   @Override public void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
-      List<CardInfo> contacts) {
+      List<CardInfo> contacts, List<CardInfo> mediaElements) {
     ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
     CardPresenter cardPresenter = new CardPresenter();
 
@@ -56,8 +56,9 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     addElementsToRowsAdapter(R.string.recent_conversation_item_title, conversations, rowsAdapter,
         cardPresenter, 2);
     addElementsToRowsAdapter(R.string.contacts_item_title, contacts, rowsAdapter, cardPresenter, 3);
+    addElementsToRowsAdapter(R.string.media_elements_item_title,mediaElements,rowsAdapter,cardPresenter,4);
 
-    HeaderItem gridHeader = new HeaderItem(4, getResources().getString(R.string.preferences), null);
+    HeaderItem gridHeader = new HeaderItem(5, getResources().getString(R.string.preferences), null);
 
     GridItemPresenter gridPresenter = new GridItemPresenter();
     ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(gridPresenter);
