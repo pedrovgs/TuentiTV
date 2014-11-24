@@ -11,7 +11,7 @@
       android:focusable="true"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="48dip"
+      android:layout_marginTop="@dimen/logo_margin_top"
       android:layout_centerHorizontal="true"
       android:src="@drawable/icn_application_transparent_bg"
       android:nextFocusDown="@+id/ib_account"

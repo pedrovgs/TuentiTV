@@ -125,7 +125,6 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
       ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(view, "alpha", toAlpha);
       alphaAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       alphaAnimator.start();
-      float density = getResources().getDisplayMetrics().density;
     }
   }
 
