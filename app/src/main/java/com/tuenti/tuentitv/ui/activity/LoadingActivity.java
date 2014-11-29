@@ -33,8 +33,8 @@ public class LoadingActivity extends BaseActivity {
 
   private void startMainActivity() {
     Intent intent = new Intent(this, MainActivity.class);
-    //startActivity(intent);
-    //finish();
+    startActivity(intent);
+    finish();
   }
 
   @Override protected List getModules() {

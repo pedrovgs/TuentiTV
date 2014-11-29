@@ -2,7 +2,7 @@
 <resources>
 
   <style name="TuentiTvTheme" parent="@style/Theme.Leanback">
-    <item name="android:windowBackground">@color/primary_color</item>
+    <item name="android:windowBackground">@drawable/main_background</item>
   </style>
 
   <style name="TuentiTvTheme.DialogActivity" parent="@style/Theme.Leanback">
