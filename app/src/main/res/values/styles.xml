@@ -19,7 +19,6 @@
   <style name="BigProgressBar" parent="Widget.AppCompat.ProgressBar">
     <item name="android:layout_centerVertical">true</item>
     <item name="android:layout_centerHorizontal">true</item>
-    <item name="android:layout_margin">@dimen/progress_bar_margin</item>
   </style>
 
 </resources>

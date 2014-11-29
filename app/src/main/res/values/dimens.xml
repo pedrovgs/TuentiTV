@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <dimen name="progress_bar_margin">30dp</dimen>
+  <dimen name="progress_bar_width">78dp</dimen>
+  <dimen name="progress_bar_height">78dp</dimen>
   <dimen name="logo_margin_top">72dp</dimen>
   <dimen name="account_item_size">96dp</dimen>
   <dimen name="account_item_margin_right">33dp</dimen>
