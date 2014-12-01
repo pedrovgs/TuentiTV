@@ -1,5 +1,8 @@
 package com.tuenti.tuentitv.ui.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Class created to represent a user contact. One contact has a name and one avatar.
  *
@@ -9,10 +12,12 @@ public class Contact implements CardInfo {
 
   private final String name;
   private final String avatarUrl;
+  private final String secondaryImage;
 
-  public Contact(String name, String avatarUrl) {
+  public Contact(String name, String avatarUrl,String secondaryImage) {
     this.name = name;
     this.avatarUrl = avatarUrl;
+    this.secondaryImage = secondaryImage;
   }
 
   public String getAvatarUrl() {
@@ -33,5 +38,9 @@ public class Contact implements CardInfo {
 
   @Override public String getText() {
     return null;
+  }
+
+  @Override public String getSecondaryImage() {
+    return secondaryImage;
   }
 }

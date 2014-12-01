@@ -1,11 +1,17 @@
 package com.tuenti.tuentitv.ui.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v17.leanback.app.BackgroundManager;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
+import android.support.v17.leanback.widget.OnItemViewSelectedListener;
+import android.support.v17.leanback.widget.Presenter;
+import android.support.v17.leanback.widget.Row;
+import android.support.v17.leanback.widget.RowPresenter;
 import android.util.DisplayMetrics;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
@@ -24,17 +30,27 @@ import javax.inject.Inject;
  */
 public class MainFragment extends BrowseBaseFragment implements MainPresenter.View {
 
+  private static final int UPDATE_BACKGROUND_IMAGE_DELAY_MILLIS = 2000;
+  private static final int FAVORITES_ROW = 1;
+  private static final int CONVERSATIONS_ROW = 2;
+  private static final int CONTACTS_ROW = 3;
+  private static final int MEDIA_ROW = 4;
+
   @Inject MainPresenter presenter;
 
   private DisplayMetrics metrics;
   private PicassoBackgroundManagerTarget backgroundTarget;
+  private Handler handler;
+  private ChangeBackground lastChangeBackgroundRunnable;
 
   @Override public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
+    this.handler = new Handler();
     presenter.setView(this);
     prepareBackgroundManager();
     configureColors();
     configureApplicationIcon();
+    hookListeners();
     presenter.loadData();
   }
 
@@ -47,11 +63,11 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   @Override public void updateBackground(String imageUrl) {
-    Picasso.with(getActivity())
-        .load(imageUrl)
-        .resize(metrics.widthPixels, metrics.heightPixels)
-        .centerCrop()
-        .into(backgroundTarget);
+    if (lastChangeBackgroundRunnable != null) {
+      handler.removeCallbacks(lastChangeBackgroundRunnable);
+    }
+    lastChangeBackgroundRunnable = new ChangeBackground(getActivity(), imageUrl, backgroundTarget);
+    handler.postDelayed(lastChangeBackgroundRunnable, UPDATE_BACKGROUND_IMAGE_DELAY_MILLIS);
   }
 
   @Override public void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
@@ -60,12 +76,13 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     CardPresenter cardPresenter = new CardPresenter();
 
     addElementsToRowsAdapter(R.string.favorites_item_title, favorites, rowsAdapter, cardPresenter,
-        1);
+        FAVORITES_ROW);
     addElementsToRowsAdapter(R.string.recent_conversation_item_title, conversations, rowsAdapter,
-        cardPresenter, 2);
-    addElementsToRowsAdapter(R.string.contacts_item_title, contacts, rowsAdapter, cardPresenter, 3);
+        cardPresenter, CONVERSATIONS_ROW);
+    addElementsToRowsAdapter(R.string.contacts_item_title, contacts, rowsAdapter, cardPresenter,
+        CONTACTS_ROW);
     addElementsToRowsAdapter(R.string.media_elements_item_title, mediaElements, rowsAdapter,
-        cardPresenter, 4);
+        cardPresenter, MEDIA_ROW);
 
     HeaderItem gridHeader = new HeaderItem(5, getResources().getString(R.string.preferences), null);
 
@@ -103,6 +120,43 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   private void configureApplicationIcon() {
-    setBadgeDrawable(getResources().getDrawable(R.drawable.icn_application_transparent_bg));
+    setBadgeDrawable(getResources().getDrawable(R.drawable.icn_wink));
+  }
+
+  private void hookListeners() {
+    setOnItemViewSelectedListener(new OnItemViewSelectedListener() {
+      @Override public void onItemSelected(Presenter.ViewHolder viewHolder, Object item,
+          RowPresenter.ViewHolder viewHolder1, Row row) {
+        if (row.getId() > MEDIA_ROW) {
+          presenter.onCardInfoSelected((CardInfo) item);
+        } else {
+          presenter.onPreferencesSelected();
+        }
+      }
+    });
+  }
+
+  private static class ChangeBackground implements Runnable {
+
+    private final Context context;
+    private String photo;
+    private final PicassoBackgroundManagerTarget backgroundTarget;
+
+    public ChangeBackground(Context context, String photo,
+        PicassoBackgroundManagerTarget backgroundTarget) {
+      this.context = context;
+      this.photo = photo;
+      this.backgroundTarget = backgroundTarget;
+    }
+
+    @Override public void run() {
+      if (photo == null) {
+        photo = "";
+      }
+      Picasso.with(context)
+          .load(photo)
+          .placeholder(R.drawable.main_fragment_default_background)
+          .into(backgroundTarget);
+    }
   }
 }

@@ -9,4 +9,6 @@ public interface CardInfo {
   String getTitle();
 
   String getText();
+
+  String getSecondaryImage();
 }
