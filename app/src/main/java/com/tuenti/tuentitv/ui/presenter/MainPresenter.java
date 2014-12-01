@@ -50,7 +50,7 @@ public class MainPresenter {
   }
 
   public void onPreferencesSelected() {
-    view.updateBackground("");
+    view.showDefaultBackground();
   }
 
   private List<CardInfo> getFavoriteContacts() {

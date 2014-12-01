@@ -127,7 +127,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     setOnItemViewSelectedListener(new OnItemViewSelectedListener() {
       @Override public void onItemSelected(Presenter.ViewHolder viewHolder, Object item,
           RowPresenter.ViewHolder viewHolder1, Row row) {
-        if (row.getId() > MEDIA_ROW) {
+        if (row.getId() <= MEDIA_ROW) {
           presenter.onCardInfoSelected((CardInfo) item);
         } else {
           presenter.onPreferencesSelected();
@@ -150,9 +150,6 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     }
 
     @Override public void run() {
-      if (photo == null) {
-        photo = "";
-      }
       Picasso.with(context)
           .load(photo)
           .placeholder(R.drawable.main_fragment_default_background)
