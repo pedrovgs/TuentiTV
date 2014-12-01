@@ -13,6 +13,7 @@ import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
 import android.util.DisplayMetrics;
+import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
 import com.tuenti.tuentitv.ui.model.CardInfo;
@@ -47,9 +48,9 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     super.onActivityCreated(savedInstanceState);
     this.handler = new Handler();
     presenter.setView(this);
-    prepareBackgroundManager();
     configureColors();
     configureApplicationIcon();
+    prepareBackgroundManager();
     hookListeners();
     presenter.loadData();
   }
@@ -124,6 +125,20 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   private void hookListeners() {
+    configureOnItemSelectedListener();
+    configureOnSearchClickedListener();
+  }
+
+  private void configureOnSearchClickedListener() {
+    setOnSearchClickedListener(new View.OnClickListener() {
+
+      @Override public void onClick(View view) {
+
+      }
+    });
+  }
+
+  private void configureOnItemSelectedListener() {
     setOnItemViewSelectedListener(new OnItemViewSelectedListener() {
       @Override public void onItemSelected(Presenter.ViewHolder viewHolder, Object item,
           RowPresenter.ViewHolder viewHolder1, Row row) {
