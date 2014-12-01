@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <string name="app_name">Tuenti TV</string>
-  <string name="login_username">Username</string>
-  <string name="login_password">Password</string>
-  <string name="add_account_button">Add</string>
-  <string name="main_fragment_title">Tuenti TV</string>
-  <string name="favorites_item_title">Favorites</string>
-  <string name="recent_conversation_item_title">Recent Conversations</string>
-  <string name="contacts_item_title">Contacts</string>
-  <string name="media_elements_item_title">Media</string>
-  <string name="preferences">Preferences</string>
+    <string name="app_name">Tuenti TV</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="add_account_button">Add</string>
+    <string name="main_fragment_title">Tuenti TV</string>
+    <string name="favorites_item_title">Favorites</string>
+    <string name="recent_conversation_item_title">Recent Conversations</string>
+    <string name="contacts_item_title">Contacts</string>
+    <string name="media_elements_item_title">Media</string>
+    <string name="preferences">Preferences</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

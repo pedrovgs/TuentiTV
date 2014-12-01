@@ -53,6 +53,10 @@ public class MainPresenter {
     view.showDefaultBackground();
   }
 
+  public void onSearchIconClicked() {
+    view.openSearchView();
+  }
+
   private List<CardInfo> getFavoriteContacts() {
     List<CardInfo> favorites = new ArrayList<CardInfo>();
     favorites.add(new Contact("Fina Perez", "https://imrl.tuenti.net/Mev9lAPPtkUlXKrgAA",
@@ -168,5 +172,7 @@ public class MainPresenter {
         List<CardInfo> contacts, List<CardInfo> mediaElements);
 
     void showDefaultBackground();
+
+    void openSearchView();
   }
 }

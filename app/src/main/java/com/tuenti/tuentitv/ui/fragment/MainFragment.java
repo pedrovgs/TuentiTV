@@ -1,6 +1,7 @@
 package com.tuenti.tuentitv.ui.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v17.leanback.app.BackgroundManager;
@@ -16,6 +17,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
+import com.tuenti.tuentitv.ui.activity.SearchActivity;
 import com.tuenti.tuentitv.ui.model.CardInfo;
 import com.tuenti.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
 import com.tuenti.tuentitv.ui.presenter.MainPresenter;
@@ -97,6 +99,11 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     setAdapter(rowsAdapter);
   }
 
+  @Override public void openSearchView() {
+    Intent intent = new Intent(getActivity(), SearchActivity.class);
+    startActivity(intent);
+  }
+
   private void addElementsToRowsAdapter(int title, List<CardInfo> elements,
       ArrayObjectAdapter rowsAdapter, CardPresenter cardPresenter, int id) {
     ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
@@ -133,7 +140,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     setOnSearchClickedListener(new View.OnClickListener() {
 
       @Override public void onClick(View view) {
-
+        presenter.onSearchIconClicked();
       }
     });
   }
