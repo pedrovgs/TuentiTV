@@ -11,14 +11,11 @@ public class ConversationSummary implements CardInfo {
   private final String title;
   private final String conversationAvatar;
   private final String lastMessage;
-  private final String secondaryImage;
 
-  public ConversationSummary(String title, String conversationAvatar, String lastMessage,
-      String secondaryImage) {
+  public ConversationSummary(String title, String conversationAvatar, String lastMessage) {
     this.title = title;
     this.conversationAvatar = conversationAvatar;
     this.lastMessage = lastMessage;
-    this.secondaryImage = secondaryImage;
   }
 
   public String getTitle() {
@@ -42,6 +39,6 @@ public class ConversationSummary implements CardInfo {
   }
 
   @Override public String getSecondaryImage() {
-    return secondaryImage;
+    return conversationAvatar;
   }
 }

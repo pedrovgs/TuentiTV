@@ -7,12 +7,10 @@ public class MediaElement implements CardInfo {
 
   private final String title;
   private final String imageUrl;
-  private final String secondaryImage;
 
-  public MediaElement(String title, String imageUrl,String secondaryImage) {
+  public MediaElement(String title, String imageUrl) {
     this.title = title;
     this.imageUrl = imageUrl;
-    this.secondaryImage = secondaryImage;
   }
 
   @Override public String getCardImageUrl() {
@@ -28,6 +26,6 @@ public class MediaElement implements CardInfo {
   }
 
   @Override public String getSecondaryImage() {
-    return secondaryImage;
+    return imageUrl;
   }
 }

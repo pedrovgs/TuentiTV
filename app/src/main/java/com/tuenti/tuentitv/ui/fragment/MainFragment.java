@@ -30,7 +30,7 @@ import javax.inject.Inject;
  */
 public class MainFragment extends BrowseBaseFragment implements MainPresenter.View {
 
-  private static final int UPDATE_BACKGROUND_IMAGE_DELAY_MILLIS = 2000;
+  private static final int UPDATE_BACKGROUND_IMAGE_DELAY_MILLIS = 700;
   private static final int FAVORITES_ROW = 1;
   private static final int CONVERSATIONS_ROW = 2;
   private static final int CONTACTS_ROW = 3;
@@ -150,6 +150,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     }
 
     @Override public void run() {
+      Picasso.with(context).cancelRequest(backgroundTarget);
       Picasso.with(context)
           .load(photo)
           .placeholder(R.drawable.main_fragment_default_background)
