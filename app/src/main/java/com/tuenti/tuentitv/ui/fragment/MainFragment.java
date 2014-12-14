@@ -124,7 +124,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
 
   private void configureColors() {
     setBrandColor(getResources().getColor(R.color.primary_color));
-    setSearchAffordanceColor(getResources().getColor(R.color.secondary_color));
+    setSearchAffordanceColor(getResources().getColor(R.color.primary_color_dark));
   }
 
   private void configureApplicationIcon() {
