@@ -101,8 +101,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
 
     ArrayObjectAdapter closeSessionAdapter = new ArrayObjectAdapter(new GridItemPresenter());
     closeSessionAdapter.add("Close session");
-    //TODO pon una url donde va el null
-    HeaderItem header = new HeaderItem(6, getString(R.string.close_session), null);
+    HeaderItem header = new HeaderItem(6, getString(R.string.close_session), "");
     rowsAdapter.add(new ListRow(header, closeSessionAdapter));
     setAdapter(rowsAdapter);
   }
