@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="progress_bar_width">90dp</dimen>
-    <dimen name="progress_bar_height">90dp</dimen>
-    <dimen name="logo_margin_top">72dp</dimen>
-    <dimen name="account_item_size">96dp</dimen>
-    <dimen name="account_item_margin_right">33dp</dimen>
-    <dimen name="account_item_margin_left">33dp</dimen>
-    <dimen name="account_item_margin_top">66dp</dimen>
-    <dimen name="account_item_margin_bottom">36dp</dimen>
-    <dimen name="title_text_size">18sp</dimen>
-    <dimen name="enter_password_box_width">464dp</dimen>
-    <dimen name="enter_password_box_height">96dp</dimen>
-    <dimen name="password_item_lateral_margin">16dp</dimen>
-    <dimen name="password_item_height">2dp</dimen>
-    <dimen name="password_item_width">48dp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="progress_bar_width">90dp</dimen>
+  <dimen name="progress_bar_height">90dp</dimen>
+  <dimen name="logo_margin_top">72dp</dimen>
+  <dimen name="account_item_size">96dp</dimen>
+  <dimen name="account_item_margin_right">43dp</dimen>
+  <dimen name="account_item_margin_left">43dp</dimen>
+  <dimen name="account_item_margin_top">66dp</dimen>
+  <dimen name="account_item_margin_bottom">36dp</dimen>
+  <dimen name="title_text_size">18sp</dimen>
+  <dimen name="enter_password_box_width">464dp</dimen>
+  <dimen name="enter_password_box_height">96dp</dimen>
+  <dimen name="password_item_lateral_margin">16dp</dimen>
+  <dimen name="password_item_height">2dp</dimen>
+  <dimen name="password_item_width">48dp</dimen>
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
 
 </resources>
