@@ -1,4 +1,4 @@
-package com.tuenti.tuentitv.ui.transformation;
+package com.tuenti.tuentitv.ui.picasso.transformation;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;

@@ -20,6 +20,7 @@ import com.tuenti.tuentitv.R;
 import com.tuenti.tuentitv.ui.activity.SearchActivity;
 import com.tuenti.tuentitv.ui.model.CardInfo;
 import com.tuenti.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
+import com.tuenti.tuentitv.ui.picasso.transformation.GrayScaleTransformation;
 import com.tuenti.tuentitv.ui.presenter.MainPresenter;
 import com.tuenti.tuentitv.ui.viewpresenter.CardPresenter;
 import com.tuenti.tuentitv.ui.viewpresenter.GridItemPresenter;
@@ -176,6 +177,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
       Picasso.with(context)
           .load(photo)
           .placeholder(R.drawable.main_fragment_default_background)
+          .transform(new GrayScaleTransformation(Picasso.with(context)))
           .into(backgroundTarget);
     }
   }
