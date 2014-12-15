@@ -36,7 +36,8 @@ public class LoginPresenter {
 
   public void loadAccounts() {
     Account juanma = new Account("Juanma", "https://imrl.tuenti.net/MephbQPFZwIygHTjAA");
-    Account emanuela = new Account("Emanuela", "https://imrl.tuenti.net/MepkRwS-zo7fxDoPAA");
+    Account emanuela =
+        new Account("Emanuela", "https://tuentiimg2-a.akamaihd.net/Meo8zgSyA0mYepIyAA");
     Account luisja =
         new Account("Luis Javier", "https://tuentiimg1-a.akamaihd.net/MeyvDQONIBaVEpFrAA");
     accounts = Arrays.asList(juanma, emanuela, luisja);

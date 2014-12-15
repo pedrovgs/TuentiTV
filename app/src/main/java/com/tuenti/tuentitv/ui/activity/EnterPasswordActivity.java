@@ -75,6 +75,18 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
     showPasswordElement(passwordElementResource);
   }
 
+  @Override public void hidePreviousPasswordElements() {
+    View currentViewWithFocus = getCurrentFocus();
+    ViewGroup parent = (ViewGroup) currentViewWithFocus.getParent();
+    for (int i = 0; i < parent.getChildCount(); i++) {
+      View ib_element_item = parent.getChildAt(i);
+      if (currentViewWithFocus.equals(ib_element_item)) {
+        ImageButton previousFocusedElement = (ImageButton) parent.getChildAt(i - 1);
+        updatePasswordElementWithAsterisk(previousFocusedElement, 0);
+      }
+    }
+  }
+
   @Override public void moveFocusToNextElement() {
     View focusedElement = getCurrentFocus();
     ViewGroup parent = (ViewGroup) focusedElement.getParent();
@@ -116,14 +128,18 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
         (LinearLayout.LayoutParams) ib_password_element.getLayoutParams();
     lp.height = LinearLayout.LayoutParams.WRAP_CONTENT;
     ib_password_element.setLayoutParams(lp);
-    updatePasswordElementWithAterisk(ib_password_element);
+    updatePasswordElementWithAsterisk(ib_password_element, CHANGE_PASSWORD_TIME_IN_MILLIS);
   }
 
-  private void updatePasswordElementWithAterisk(final ImageButton ib_password_element) {
+  private void updatePasswordElementWithAsterisk(final ImageButton ib_password_element,
+      long delay) {
+    if (ib_password_element == null) {
+      return;
+    }
     handler.postDelayed(new Runnable() {
       @Override public void run() {
         ib_password_element.setImageResource(R.drawable.icn_pass_ok_blue);
       }
-    }, CHANGE_PASSWORD_TIME_IN_MILLIS);
+    }, delay);
   }
 }
