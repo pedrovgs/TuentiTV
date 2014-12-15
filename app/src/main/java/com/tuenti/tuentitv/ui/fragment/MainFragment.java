@@ -9,6 +9,7 @@ import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
+import android.support.v17.leanback.widget.OnItemViewClickedListener;
 import android.support.v17.leanback.widget.OnItemViewSelectedListener;
 import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.Row;
@@ -17,6 +18,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
+import com.tuenti.tuentitv.ui.activity.LoginActivity;
 import com.tuenti.tuentitv.ui.activity.SearchActivity;
 import com.tuenti.tuentitv.ui.model.CardInfo;
 import com.tuenti.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
@@ -97,6 +99,11 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     gridRowAdapter.add("Test3");
     rowsAdapter.add(new ListRow(gridHeader, gridRowAdapter));
 
+    ArrayObjectAdapter closeSessionAdapter = new ArrayObjectAdapter(new GridItemPresenter());
+    closeSessionAdapter.add("Close session");
+    //TODO pon una url donde va el null
+    HeaderItem header = new HeaderItem(6, getString(R.string.close_session), null);
+    rowsAdapter.add(new ListRow(header, closeSessionAdapter));
     setAdapter(rowsAdapter);
   }
 
@@ -152,8 +159,17 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
           RowPresenter.ViewHolder viewHolder1, Row row) {
         if (row.getId() <= MEDIA_ROW) {
           presenter.onCardInfoSelected((CardInfo) item);
-        } else {
+        } else if (row.getId() == 5) {
           presenter.onPreferencesSelected();
+        }
+      }
+    });
+    setOnItemViewClickedListener(new OnItemViewClickedListener() {
+      @Override public void onItemClicked(Presenter.ViewHolder viewHolder, Object o,
+          RowPresenter.ViewHolder viewHolder1, Row row) {
+        if (row.getId() == 6) {
+          startActivity(new Intent(getActivity(), LoginActivity.class));
+          getActivity().finish();
         }
       }
     });
