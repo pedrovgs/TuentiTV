@@ -18,17 +18,26 @@ public class LoadingActivity extends BaseActivity {
 
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
 
+  private Runnable startMainActivity;
+  private Handler handler;
+
   @Override protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.loading_activity);
     super.onCreate(savedInstanceState);
     pb_loading.getIndeterminateDrawable()
         .setColorFilter(0x32FFFFFF, android.graphics.PorterDuff.Mode.MULTIPLY);
-
-    new Handler().postDelayed(new Runnable() {
+    handler = new Handler();
+    startMainActivity = new Runnable() {
       @Override public void run() {
         startMainActivity();
       }
-    }, LOADING_TIME_IN_MILLIS);
+    };
+    handler.postDelayed(startMainActivity, LOADING_TIME_IN_MILLIS);
+  }
+
+  @Override public void onBackPressed() {
+    super.onBackPressed();
+    handler.removeCallbacks(startMainActivity);
   }
 
   private void startMainActivity() {
