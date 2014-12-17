@@ -1,5 +1,6 @@
 package com.tuenti.tuentitv.presenter;
 
+import com.tuenti.tuentitv.model.Accounts;
 import com.tuenti.tuentitv.model.CardInfo;
 import com.tuenti.tuentitv.model.Contact;
 import com.tuenti.tuentitv.model.ConversationSummary;
@@ -24,10 +25,11 @@ import javax.inject.Inject;
  */
 public class MainPresenter {
 
+  private final Accounts accounts;
   private View view;
 
-  @Inject public MainPresenter() {
-    //Empty
+  @Inject public MainPresenter(Accounts accounts) {
+    this.accounts = accounts;
   }
 
   public void setView(View view) {
@@ -55,6 +57,11 @@ public class MainPresenter {
 
   public void onSearchIconClicked() {
     view.openSearchView();
+  }
+
+  public void logout() {
+    accounts.logout();
+    view.closeAndGoToLoginActivity();
   }
 
   private List<CardInfo> getFavoriteContacts() {
@@ -174,5 +181,7 @@ public class MainPresenter {
     void showDefaultBackground();
 
     void openSearchView();
+
+    void closeAndGoToLoginActivity();
   }
 }

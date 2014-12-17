@@ -41,6 +41,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   private static final int CONVERSATIONS_ROW = 2;
   private static final int CONTACTS_ROW = 3;
   private static final int MEDIA_ROW = 4;
+  public static final int LOGOUT_ROW = 6;
 
   @Inject MainPresenter presenter;
 
@@ -111,6 +112,11 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     startActivity(intent);
   }
 
+  @Override public void closeAndGoToLoginActivity() {
+    startActivity(new Intent(getActivity(), LoginActivity.class));
+    getActivity().finish();
+  }
+
   private void addElementsToRowsAdapter(int title, List<CardInfo> elements,
       ArrayObjectAdapter rowsAdapter, CardPresenter cardPresenter, int id) {
     ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
@@ -166,9 +172,8 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     setOnItemViewClickedListener(new OnItemViewClickedListener() {
       @Override public void onItemClicked(Presenter.ViewHolder viewHolder, Object o,
           RowPresenter.ViewHolder viewHolder1, Row row) {
-        if (row.getId() == 6) {
-          startActivity(new Intent(getActivity(), LoginActivity.class));
-          getActivity().finish();
+        if (row.getId() == LOGOUT_ROW) {
+          presenter.logout();
         }
       }
     });

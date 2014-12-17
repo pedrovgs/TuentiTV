@@ -22,7 +22,7 @@ import javax.inject.Inject;
  */
 public class LoginPresenter {
 
-  private Accounts accounts;
+  private final Accounts accounts;
   private View view;
   private List<Account> accountList;
   private Account selectedAccount;

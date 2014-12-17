@@ -33,4 +33,8 @@ public class Accounts {
   public boolean isUserLogged() {
     return loggedAccount != null;
   }
+
+  public void logout() {
+    loggedAccount = null;
+  }
 }
