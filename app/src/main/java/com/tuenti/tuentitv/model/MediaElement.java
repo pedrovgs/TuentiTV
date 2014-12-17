@@ -1,4 +1,4 @@
-package com.tuenti.tuentitv.ui.model;
+package com.tuenti.tuentitv.model;
 
 /**
  * @author Pedro Vicente Gómez Sánchez.

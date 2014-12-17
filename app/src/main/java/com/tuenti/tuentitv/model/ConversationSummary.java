@@ -1,4 +1,4 @@
-package com.tuenti.tuentitv.ui.model;
+package com.tuenti.tuentitv.model;
 
 /**
  * Class created to represent a conversation summary. One conversation avatar, one

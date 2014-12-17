@@ -1,7 +1,4 @@
-package com.tuenti.tuentitv.ui.model;
-
-import java.util.LinkedList;
-import java.util.List;
+package com.tuenti.tuentitv.model;
 
 /**
  * Class created to represent a user contact. One contact has a name and one avatar.

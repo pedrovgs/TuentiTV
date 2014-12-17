@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.tuenti.tuentitv.R;
-import com.tuenti.tuentitv.ui.model.CardInfo;
+import com.tuenti.tuentitv.model.CardInfo;
 
 public class CardPresenter extends Presenter {
 

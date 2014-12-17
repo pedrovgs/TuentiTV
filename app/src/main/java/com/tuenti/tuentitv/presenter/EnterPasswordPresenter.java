@@ -1,4 +1,4 @@
-package com.tuenti.tuentitv.ui.presenter;
+package com.tuenti.tuentitv.presenter;
 
 import javax.inject.Inject;
 

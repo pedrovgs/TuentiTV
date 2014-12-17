@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import com.tuenti.tuentitv.R;
-import com.tuenti.tuentitv.ui.presenter.EnterPasswordPresenter;
+import com.tuenti.tuentitv.presenter.EnterPasswordPresenter;
 import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;

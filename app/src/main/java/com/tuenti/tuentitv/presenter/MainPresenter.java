@@ -1,9 +1,9 @@
-package com.tuenti.tuentitv.ui.presenter;
+package com.tuenti.tuentitv.presenter;
 
-import com.tuenti.tuentitv.ui.model.CardInfo;
-import com.tuenti.tuentitv.ui.model.Contact;
-import com.tuenti.tuentitv.ui.model.ConversationSummary;
-import com.tuenti.tuentitv.ui.model.MediaElement;
+import com.tuenti.tuentitv.model.CardInfo;
+import com.tuenti.tuentitv.model.Contact;
+import com.tuenti.tuentitv.model.ConversationSummary;
+import com.tuenti.tuentitv.model.MediaElement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;

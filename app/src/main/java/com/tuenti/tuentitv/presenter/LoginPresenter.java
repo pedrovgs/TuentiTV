@@ -1,6 +1,6 @@
-package com.tuenti.tuentitv.ui.presenter;
+package com.tuenti.tuentitv.presenter;
 
-import com.tuenti.tuentitv.ui.model.Account;
+import com.tuenti.tuentitv.model.Account;
 import java.util.Arrays;
 import java.util.List;
 import javax.inject.Inject;
