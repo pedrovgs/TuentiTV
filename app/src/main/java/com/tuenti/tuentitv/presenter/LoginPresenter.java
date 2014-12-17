@@ -44,13 +44,17 @@ public class LoginPresenter {
     return accountList.get(position);
   }
 
-  private void showAccounts(List<Account> accounts) {
-    view.showAccounts(accounts);
-  }
-
   public void onAccountClicked(Account selectedAccount) {
     this.selectedAccount = selectedAccount;
     view.showPasswordBox();
+  }
+
+  public void loginWithSelectedAccount() {
+    accounts.login(selectedAccount);
+  }
+  
+  private void showAccounts(List<Account> accounts) {
+    view.showAccounts(accounts);
   }
 
   public interface View {
