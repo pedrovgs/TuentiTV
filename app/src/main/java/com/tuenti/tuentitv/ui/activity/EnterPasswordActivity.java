@@ -21,6 +21,7 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
 
   public static final String RESULT_KEY = "result";
   public static final int CHANGE_PASSWORD_TIME_IN_MILLIS = 700;
+  private static final long CLOSE_DELAY = 1000;
 
   @Inject EnterPasswordPresenter presenter;
   private boolean isLastPasswordElement;
@@ -105,7 +106,11 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
   }
 
   @Override public void closeViewWithSuccessPassword() {
-    finishWithResult();
+    new Handler().postDelayed(new Runnable() {
+      @Override public void run() {
+        finishWithResult();
+      }
+    }, CLOSE_DELAY);
   }
 
   private void finishWithResult() {
