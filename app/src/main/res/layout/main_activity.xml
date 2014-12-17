@@ -8,6 +8,6 @@
       android:id="@+id/main_fragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:name="com.tuenti.tuentitv.ui.fragment.MainFragment"/>
+      android:name="com.github.pedrovgs.tuentitv.ui.fragment.MainFragment"/>
 
 </FrameLayout>
