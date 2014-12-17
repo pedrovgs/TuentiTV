@@ -1,7 +1,7 @@
 package com.tuenti.tuentitv.presenter;
 
 import com.tuenti.tuentitv.model.Account;
-import java.util.Arrays;
+import com.tuenti.tuentitv.model.Accounts;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -22,12 +22,13 @@ import javax.inject.Inject;
  */
 public class LoginPresenter {
 
+  private Accounts accounts;
   private View view;
-  private List<Account> accounts;
+  private List<Account> accountList;
   private Account selectedAccount;
 
-  @Inject public LoginPresenter() {
-    // Empty
+  @Inject public LoginPresenter(Accounts accounts) {
+    this.accounts = accounts;
   }
 
   public void setView(View view) {
@@ -35,17 +36,12 @@ public class LoginPresenter {
   }
 
   public void loadAccounts() {
-    Account juanma = new Account("Juanma", "https://imrl.tuenti.net/MephbQPFZwIygHTjAA");
-    Account emanuela =
-        new Account("Emanuela", "https://tuentiimg2-a.akamaihd.net/Meo8zgSyA0mYepIyAA");
-    Account luisja =
-        new Account("Luis Javier", "https://tuentiimg1-a.akamaihd.net/MeyvDQONIBaVEpFrAA");
-    accounts = Arrays.asList(juanma, emanuela, luisja);
-    showAccounts(accounts);
+    accountList = accounts.getRecentLoggedAccounts();
+    showAccounts(accountList);
   }
 
   public Account getAccountAtIndex(int position) {
-    return accounts.get(position);
+    return accountList.get(position);
   }
 
   private void showAccounts(List<Account> accounts) {
