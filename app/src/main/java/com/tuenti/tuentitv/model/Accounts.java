@@ -3,14 +3,12 @@ package com.tuenti.tuentitv.model;
 import java.util.Arrays;
 import java.util.List;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 /**
  * Main class related to login feature.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-@Singleton
 public class Accounts {
 
   private Account loggedAccount;
@@ -30,5 +28,9 @@ public class Accounts {
 
   public void login(Account account) {
     loggedAccount = account;
+  }
+
+  public boolean isUserLogged() {
+    return loggedAccount != null;
   }
 }

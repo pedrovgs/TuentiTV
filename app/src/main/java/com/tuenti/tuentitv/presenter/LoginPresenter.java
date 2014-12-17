@@ -35,6 +35,12 @@ public class LoginPresenter {
     this.view = view;
   }
 
+  public void initialize() {
+    if (isUserLoggedIn()) {
+      view.openMainActivity();
+    }
+  }
+
   public void loadAccounts() {
     accountList = accounts.getRecentLoggedAccounts();
     showAccounts(accountList);
@@ -49,10 +55,15 @@ public class LoginPresenter {
     view.showPasswordBox();
   }
 
-  public void loginWithSelectedAccount() {
+  public void loginWithSelectedUser() {
     accounts.login(selectedAccount);
+    view.openLoadingActivity();
   }
-  
+
+  public boolean isUserLoggedIn() {
+    return accounts.isUserLogged();
+  }
+
   private void showAccounts(List<Account> accounts) {
     view.showAccounts(accounts);
   }
@@ -62,5 +73,9 @@ public class LoginPresenter {
     void showAccounts(List<Account> accounts);
 
     void showPasswordBox();
+
+    void openMainActivity();
+
+    void openLoadingActivity();
   }
 }

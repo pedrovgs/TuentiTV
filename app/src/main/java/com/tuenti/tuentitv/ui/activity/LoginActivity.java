@@ -12,8 +12,8 @@ import butterknife.OnFocusChange;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
 import com.tuenti.tuentitv.model.Account;
-import com.tuenti.tuentitv.ui.picasso.transformation.CircleTransform;
 import com.tuenti.tuentitv.presenter.LoginPresenter;
+import com.tuenti.tuentitv.ui.picasso.transformation.CircleTransform;
 import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;
@@ -27,14 +27,12 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
   @InjectView(R.id.ll_accounts_container) ViewGroup ll_accounts_container;
   @InjectView(R.id.iv_app_logo) View iv_app_logo;
 
-  private float accountItemYSelected;
-  private float accountItemYNotSelected;
-
   @Override protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.login_activity);
     super.onCreate(savedInstanceState);
     hookListeners();
     loginPresenter.setView(this);
+    loginPresenter.initialize();
     loginPresenter.loadAccounts();
   }
 
@@ -56,12 +54,23 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
     startActivityForResult(intent, PASSWORD_REQUEST_CODE);
   }
 
+  @Override public void openMainActivity() {
+    Intent openMainActivityIntent = new Intent(this, MainActivity.class);
+    startActivity(openMainActivityIntent);
+    finish();
+  }
+
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == PASSWORD_REQUEST_CODE && passwordIsCorrect(data)) {
-      loginPresenter.loginWithSelectedAccount();
-      finish();
+      loginPresenter.loginWithSelectedUser();
     }
+  }
+
+  @Override public void openLoadingActivity() {
+    Intent intent = new Intent(this, LoadingActivity.class);
+    startActivity(intent);
+    finish();
   }
 
   private void hookListeners() {

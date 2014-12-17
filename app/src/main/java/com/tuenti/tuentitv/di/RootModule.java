@@ -15,10 +15,12 @@ import dagger.Provides;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-@Module(injects = {
-    TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
-    MainActivity.class, MainFragment.class
-}, library = true) public class RootModule {
+@Module(
+    includes = { TuentiTvApplicationModule.class },
+    injects = {
+        TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
+        MainActivity.class, MainFragment.class
+    }, library = true) public class RootModule {
 
   private final Context context;
 

@@ -51,7 +51,6 @@ public class EnterPasswordPresenter {
 
   private void continueToNextPasswordElement() {
     if (view.isLastElementFocused()) {
-      view.openLoadingActivity();
       view.closeViewWithSuccessPassword();
     } else {
       view.hidePreviousPasswordElements();
@@ -77,6 +76,5 @@ public class EnterPasswordPresenter {
 
     void closeViewWithSuccessPassword();
 
-    void openLoadingActivity();
   }
 }
