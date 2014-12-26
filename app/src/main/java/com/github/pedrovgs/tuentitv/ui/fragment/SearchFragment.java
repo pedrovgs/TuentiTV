@@ -3,6 +3,8 @@ package com.github.pedrovgs.tuentitv.ui.fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
+import android.support.v17.leanback.widget.HeaderItem;
+import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
 import android.support.v17.leanback.widget.ObjectAdapter;
 import android.support.v17.leanback.widget.OnItemClickedListener;
@@ -10,6 +12,10 @@ import android.support.v17.leanback.widget.Row;
 import android.text.TextUtils;
 import android.util.Log;
 import com.github.pedrovgs.tuentitv.model.Agenda;
+import com.github.pedrovgs.tuentitv.model.Contact;
+import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
+import com.tuenti.tuentitv.R;
+import java.util.List;
 import javax.inject.Inject;
 
 /**
@@ -38,6 +44,11 @@ public class SearchFragment extends SearchBaseFragment
     delayedLoad = new SearchRunnable();
   }
 
+  @Override public void onActivityCreated(Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    loadAllContacts();
+  }
+
   @Override public ObjectAdapter getResultsAdapter() {
     return rowsAdapter;
   }
@@ -48,6 +59,8 @@ public class SearchFragment extends SearchBaseFragment
       delayedLoad.setSearchQuery(words);
       handler.removeCallbacks(delayedLoad);
       handler.postDelayed(delayedLoad, SEARCH_DELAY_MS);
+    } else {
+      loadAllContacts();
     }
   }
 
@@ -64,7 +77,29 @@ public class SearchFragment extends SearchBaseFragment
   }
 
   private void loadRows(String query) {
-    //Search here
+    loadContactsMatchingQuery(query);
+    loadAllContacts();
+  }
+
+  private void loadAllContacts() {
+    List<Contact> contacts = agenda.getContacts();
+    ArrayObjectAdapter arrayObjectAdapter = new ArrayObjectAdapter(new CardPresenter());
+    for (Contact contact : contacts) {
+      arrayObjectAdapter.add(contact);
+    }
+    HeaderItem headerItem = new HeaderItem(getString(R.string.contacts_item_title), "");
+    rowsAdapter.add(new ListRow(headerItem, arrayObjectAdapter));
+  }
+
+  private void loadContactsMatchingQuery(String query) {
+    HeaderItem queryHeaderItem = new HeaderItem(query, "");
+    query = query.toLowerCase();
+    List<Contact> contacts = agenda.getContactsWithName(query);
+    ArrayObjectAdapter arrayObjectAdapter = new ArrayObjectAdapter(new CardPresenter());
+    for (Contact contact : contacts) {
+      arrayObjectAdapter.add(contact);
+    }
+    rowsAdapter.add(new ListRow(queryHeaderItem, arrayObjectAdapter));
   }
 
   protected OnItemClickedListener getDefaultItemClickedListener() {

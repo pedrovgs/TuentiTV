@@ -26,6 +26,17 @@ public class Agenda {
     return favoriteContacts;
   }
 
+  public List<Contact> getContactsWithName(String name) {
+    List<Contact> searchResult = new LinkedList<Contact>();
+    for (Contact contact : contacts) {
+      String contactName = contact.getName().toLowerCase();
+      if (contactName.contains(name)) {
+        searchResult.add(contact);
+      }
+    }
+    return searchResult;
+  }
+
   private void loadContacts() {
     contacts.add(new Contact("Aarón", "https://imrl.tuenti.net/MexmzwOwyK_qaPXpAA",
         "https://imrl.tuenti.net/MeuEFQOwyK9ZMUl8AA"));
