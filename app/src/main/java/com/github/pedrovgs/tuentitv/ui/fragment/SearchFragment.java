@@ -11,8 +11,8 @@ import android.support.v17.leanback.widget.OnItemClickedListener;
 import android.support.v17.leanback.widget.Row;
 import android.text.TextUtils;
 import android.util.Log;
-import com.github.pedrovgs.tuentitv.model.Agenda;
 import com.github.pedrovgs.tuentitv.model.Contact;
+import com.github.pedrovgs.tuentitv.presenter.SearchPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
 import com.tuenti.tuentitv.R;
 import java.util.List;
@@ -24,12 +24,13 @@ import javax.inject.Inject;
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class SearchFragment extends SearchBaseFragment
-    implements android.support.v17.leanback.app.SearchFragment.SearchResultProvider {
+    implements android.support.v17.leanback.app.SearchFragment.SearchResultProvider,
+    SearchPresenter.View {
 
   private static final String TAG = "SearchFragment";
   private static final int SEARCH_DELAY_MS = 300;
 
-  @Inject Agenda agenda;
+  @Inject SearchPresenter searchPresenter;
 
   private ArrayObjectAdapter rowsAdapter;
   private Handler handler = new Handler();
@@ -46,6 +47,7 @@ public class SearchFragment extends SearchBaseFragment
 
   @Override public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
+    searchPresenter.setView(this);
     loadAllContacts();
   }
 
@@ -76,13 +78,7 @@ public class SearchFragment extends SearchBaseFragment
     return true;
   }
 
-  private void loadRows(String query) {
-    loadContactsMatchingQuery(query);
-    loadAllContacts();
-  }
-
-  private void loadAllContacts() {
-    List<Contact> contacts = agenda.getContacts();
+  @Override public void showAllContacts(List<Contact> contacts) {
     ArrayObjectAdapter arrayObjectAdapter = new ArrayObjectAdapter(new CardPresenter());
     for (Contact contact : contacts) {
       arrayObjectAdapter.add(contact);
@@ -91,15 +87,26 @@ public class SearchFragment extends SearchBaseFragment
     rowsAdapter.add(new ListRow(headerItem, arrayObjectAdapter));
   }
 
-  private void loadContactsMatchingQuery(String query) {
-    HeaderItem queryHeaderItem = new HeaderItem(query, "");
-    query = query.toLowerCase();
-    List<Contact> contacts = agenda.getContactsWithName(query);
+  @Override public void showSearchResultContacts(String query, List<Contact> contacts) {
     ArrayObjectAdapter arrayObjectAdapter = new ArrayObjectAdapter(new CardPresenter());
     for (Contact contact : contacts) {
       arrayObjectAdapter.add(contact);
     }
-    rowsAdapter.add(new ListRow(queryHeaderItem, arrayObjectAdapter));
+    HeaderItem headerItem = new HeaderItem(query, "");
+    rowsAdapter.add(new ListRow(headerItem, arrayObjectAdapter));
+  }
+
+  private void loadRows(String query) {
+    loadContactsMatchingQuery(query);
+    loadAllContacts();
+  }
+
+  private void loadAllContacts() {
+    searchPresenter.loadContacts();
+  }
+
+  private void loadContactsMatchingQuery(String query) {
+    searchPresenter.searchContacts(query);
   }
 
   protected OnItemClickedListener getDefaultItemClickedListener() {
