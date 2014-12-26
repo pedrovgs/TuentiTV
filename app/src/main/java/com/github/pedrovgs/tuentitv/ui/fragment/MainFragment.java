@@ -94,7 +94,6 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
         cardPresenter, CONTACTS_ROW);
     addImageInfoElementsToRowAdapter(R.string.media_elements_item_title, mediaElements, rowsAdapter,
         new ImagePresenter(), MEDIA_ROW);
-
     addIconInfoElementsToRowAdapter(getResources().getString(R.string.preferences), preferences,
         rowsAdapter, new IconPresenter(), PREFERENCES_ROW);
 
@@ -179,16 +178,21 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
           presenter.onCardInfoSelected((CardInfo) item);
         } else if (row.getId() == MEDIA_ROW) {
           presenter.onImageInfoSelected((ImageInfo) item);
-        } else if (row.getId() == 5) {
+        } else if (row.getId() == PREFERENCES_ROW) {
           presenter.onPreferencesSelected();
         }
       }
     });
     setOnItemViewClickedListener(new OnItemViewClickedListener() {
-      @Override public void onItemClicked(Presenter.ViewHolder viewHolder, Object o,
+      @Override public void onItemClicked(Presenter.ViewHolder viewHolder, Object item,
           RowPresenter.ViewHolder viewHolder1, Row row) {
-        if (row.getId() == LOGOUT_ROW) {
-          presenter.logout();
+        if (row.getId() == PREFERENCES_ROW) {
+          int id = ((IconInfo) item).getIconId();
+          switch (id) {
+            case R.drawable.icn_wink:
+              presenter.logout();
+              break;
+          }
         }
       }
     });

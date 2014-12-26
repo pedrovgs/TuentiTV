@@ -5,15 +5,15 @@ package com.github.pedrovgs.tuentitv.ui.data;
  */
 public class IconInfo {
 
-  private final String title;
+  private final int title;
   private final int iconId;
 
-  public IconInfo(String title, int iconId) {
+  public IconInfo(int title, int iconId) {
     this.title = title;
     this.iconId = iconId;
   }
 
-  public String getTitle() {
+  public int getTitle() {
     return title;
   }
 

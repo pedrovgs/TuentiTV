@@ -63,10 +63,10 @@ public class MainPresenter {
 
   private List<IconInfo> getPreferences() {
     List<IconInfo> preferences = new LinkedList<IconInfo>();
-    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
-    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
-    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
-    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
     return preferences;
   }
 
