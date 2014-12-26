@@ -9,40 +9,45 @@ import android.support.v17.leanback.widget.OnItemClickedListener;
 import android.support.v17.leanback.widget.Row;
 import android.text.TextUtils;
 import android.util.Log;
+import com.github.pedrovgs.tuentitv.model.Agenda;
+import javax.inject.Inject;
 
 /**
  * Search fragment created to support search functionality.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class SearchFragment extends android.support.v17.leanback.app.SearchFragment
+public class SearchFragment extends SearchBaseFragment
     implements android.support.v17.leanback.app.SearchFragment.SearchResultProvider {
+
   private static final String TAG = "SearchFragment";
   private static final int SEARCH_DELAY_MS = 300;
 
-  private ArrayObjectAdapter mRowsAdapter;
-  private Handler mHandler = new Handler();
-  private SearchRunnable mDelayedLoad;
+  @Inject Agenda agenda;
+
+  private ArrayObjectAdapter rowsAdapter;
+  private Handler handler = new Handler();
+  private SearchRunnable delayedLoad;
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
+    rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
     setSearchResultProvider(this);
     setOnItemClickedListener(getDefaultItemClickedListener());
-    mDelayedLoad = new SearchRunnable();
+    delayedLoad = new SearchRunnable();
   }
 
   @Override public ObjectAdapter getResultsAdapter() {
-    return mRowsAdapter;
+    return rowsAdapter;
   }
 
   private void queryByWords(String words) {
-    mRowsAdapter.clear();
+    rowsAdapter.clear();
     if (!TextUtils.isEmpty(words)) {
-      mDelayedLoad.setSearchQuery(words);
-      mHandler.removeCallbacks(mDelayedLoad);
-      mHandler.postDelayed(mDelayedLoad, SEARCH_DELAY_MS);
+      delayedLoad.setSearchQuery(words);
+      handler.removeCallbacks(delayedLoad);
+      handler.postDelayed(delayedLoad, SEARCH_DELAY_MS);
     }
   }
 
@@ -59,7 +64,7 @@ public class SearchFragment extends android.support.v17.leanback.app.SearchFragm
   }
 
   private void loadRows(String query) {
-
+    //Search here
   }
 
   protected OnItemClickedListener getDefaultItemClickedListener() {
