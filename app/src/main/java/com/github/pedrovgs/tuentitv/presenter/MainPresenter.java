@@ -7,6 +7,7 @@ import com.github.pedrovgs.tuentitv.model.Contact;
 import com.github.pedrovgs.tuentitv.model.ConversationSummary;
 import com.github.pedrovgs.tuentitv.model.ImageInfo;
 import com.github.pedrovgs.tuentitv.model.MediaElement;
+import com.github.pedrovgs.tuentitv.model.MediaGallery;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,12 +31,14 @@ public class MainPresenter {
 
   private final Accounts accounts;
   private final Agenda agenda;
+  private final MediaGallery mediaGallery;
 
   private View view;
 
-  @Inject public MainPresenter(Accounts accounts, Agenda agenda) {
+  @Inject public MainPresenter(Accounts accounts, Agenda agenda, MediaGallery mediaGallery) {
     this.accounts = accounts;
     this.agenda = agenda;
+    this.mediaGallery = mediaGallery;
   }
 
   public void setView(View view) {
@@ -116,35 +119,8 @@ public class MainPresenter {
   }
 
   private List<ImageInfo> getAllMediaElements() {
-    List<ImageInfo> mediaElements = new ArrayList<ImageInfo>();
-    mediaElements.add(
-        new MediaElement("Augmented Reality day :)", "https://imrl.tuenti.net/MeVNOAO1hS95RMX9AA"));
-    mediaElements.add(
-        new MediaElement("Madrid: 4 - BCN: 0 ", "https://imrl.tuenti.net/Me2XLwONIBZEgj76AA"));
-    mediaElements.add(
-        new MediaElement("Congrats!!!", "https://imrl.tuenti.net/MephbgPFZwIHmNz3AA"));
-    mediaElements.add(
-        new MediaElement("Happy hallowing!", "https://imrl.tuenti.net/MepO8AS-zo4tbPwOAA"));
-    mediaElements.add(
-        new MediaElement("I hate mondays :_(", "https://imrl.tuenti.net/Melh1wOmYV2w27UHAA"));
-    mediaElements.add(new MediaElement("Take a look at the hat xD",
-        "https://imrl.tuenti.net/MevCbwOhf0Kgn2LmAA"));
-    mediaElements.add(
-        new MediaElement("After work at Tuenti", "https://imrl.tuenti.net/MevCdQOhf0IzmO7bAA"));
-    mediaElements.add(new MediaElement("Cloud phone team picture \\o/",
-        "https://imrl.tuenti.net/Mej6IwPYc55jJ3OuAA"));
-    mediaElements.add(
-        new MediaElement("Design team building!", "https://imrl.tuenti.net/MekIYwS-zo6iTThqAA"));
-    mediaElements.add(
-        new MediaElement("Love is in the air <3", "https://imrl.tuenti.net/MegZXgOmYV2hznMJAA"));
-    mediaElements.add(
-        new MediaElement("Fifa 14 winners!", "https://imrl.tuenti.net/MeoEZARzE9_n9j5bAA"));
-    mediaElements.add(
-        new MediaElement("Murcian experts xD", "https://imrl.tuenti.net/MepPHAS-zo4pJD4gAA"));
-    mediaElements.add(
-        new MediaElement("Free donuts, yeah!", "https://imrl.tuenti.net/Meo8egTBiDawcvM3AA"));
-    mediaElements.add(new MediaElement("Really???", "https://imrl.tuenti.net/Me0keARq1hWI_3FFAA"));
-    return mediaElements;
+    List<MediaElement> lastMediaElements = mediaGallery.getLatestMediaElements();
+    return new ArrayList<ImageInfo>(lastMediaElements);
   }
 
   public interface View {
