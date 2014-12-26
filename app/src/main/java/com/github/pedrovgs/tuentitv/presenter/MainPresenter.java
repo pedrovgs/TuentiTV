@@ -3,6 +3,7 @@ package com.github.pedrovgs.tuentitv.presenter;
 import com.github.pedrovgs.tuentitv.model.Accounts;
 import com.github.pedrovgs.tuentitv.model.Agenda;
 import com.github.pedrovgs.tuentitv.model.CardInfo;
+import com.github.pedrovgs.tuentitv.model.Chat;
 import com.github.pedrovgs.tuentitv.model.Contact;
 import com.github.pedrovgs.tuentitv.model.ConversationSummary;
 import com.github.pedrovgs.tuentitv.model.ImageInfo;
@@ -32,13 +33,16 @@ public class MainPresenter {
   private final Accounts accounts;
   private final Agenda agenda;
   private final MediaGallery mediaGallery;
+  private final Chat chat;
 
   private View view;
 
-  @Inject public MainPresenter(Accounts accounts, Agenda agenda, MediaGallery mediaGallery) {
+  @Inject
+  public MainPresenter(Accounts accounts, Agenda agenda, MediaGallery mediaGallery, Chat chat) {
     this.accounts = accounts;
     this.agenda = agenda;
     this.mediaGallery = mediaGallery;
+    this.chat = chat;
   }
 
   public void setView(View view) {
@@ -85,32 +89,8 @@ public class MainPresenter {
   }
 
   private List<CardInfo> getConversations() {
-    List<CardInfo> conversations = new ArrayList<CardInfo>();
-    conversations.add(new ConversationSummary("Android Developers",
-        "http://www.androidguys.com/wp-content/uploads/2011/12/android-developer-logo.png",
-        "Pull request sent!!"));
-    conversations.add(
-        new ConversationSummary("Andu Fratu", "https://imrl.tuenti.net/MewKTgRZKByd5oZ9AA",
-            "Hey, do you have the test ready?"));
-    conversations.add(
-        new ConversationSummary("Carmen Barroso", "https://imrl.tuenti.net/MexNAAOXqRoOXZcYAA",
-            "Bye!"));
-    conversations.add(
-        new ConversationSummary("Cesar Estébanez", "https://imrl.tuenti.net/MeqsBwSymhO82EB9AA",
-            "Hey, do you have the test ready?"));
-    conversations.add(
-        new ConversationSummary("Eduardo Ramirez", "https://imrl.tuenti.net/Mef8vgRt9SHKr5U0AA",
-            "Do you come to the kitchen??"));
-    conversations.add(
-        new ConversationSummary("Laura Rus", "https://imrl.tuenti.net/MefvswOREWiM7ehEAA",
-            "I have news!! :)"));
-    conversations.add(
-        new ConversationSummary("Roberto Fernández", "https://imrl.tuenti.net/Me2X1ATgzxoIlIjAAA",
-            "I've a problem with one animation, can you help me?"));
-    conversations.add(
-        new ConversationSummary("David Santiago", "https://imrl.tuenti.net/Me4XWwQtq65VyIUVAA",
-            "Beers after work?"));
-    return conversations;
+    List<ConversationSummary> conversations = chat.getConversations();
+    return new ArrayList<CardInfo>(conversations);
   }
 
   private List<CardInfo> getAllContacts() {
