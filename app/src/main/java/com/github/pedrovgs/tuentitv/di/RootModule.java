@@ -5,6 +5,7 @@ import com.github.pedrovgs.tuentitv.TuentiTvApplication;
 import com.github.pedrovgs.tuentitv.ui.activity.EnterPasswordActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
+import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
 import com.github.pedrovgs.tuentitv.ui.fragment.MainFragment;
 import dagger.Module;
 import dagger.Provides;
@@ -19,7 +20,7 @@ import dagger.Provides;
     includes = { TuentiTvApplicationModule.class },
     injects = {
         TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
-        MainActivity.class, MainFragment.class
+        MainActivity.class, MainFragment.class, SearchActivity.class
     }, library = true) public class RootModule {
 
   private final Context context;
