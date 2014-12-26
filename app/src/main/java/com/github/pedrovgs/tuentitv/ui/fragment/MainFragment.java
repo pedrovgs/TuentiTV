@@ -16,16 +16,18 @@ import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
 import android.util.DisplayMetrics;
 import android.view.View;
-import com.squareup.picasso.Picasso;
-import com.tuenti.tuentitv.R;
+import com.github.pedrovgs.tuentitv.model.CardInfo;
+import com.github.pedrovgs.tuentitv.model.ImageInfo;
+import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
-import com.github.pedrovgs.tuentitv.model.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
 import com.github.pedrovgs.tuentitv.ui.picasso.transformation.GrayScaleTransformation;
-import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.GridItemPresenter;
+import com.github.pedrovgs.tuentitv.ui.viewpresenter.ImagePresenter;
+import com.squareup.picasso.Picasso;
+import com.tuenti.tuentitv.R;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -78,18 +80,18 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   @Override public void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
-      List<CardInfo> contacts, List<CardInfo> mediaElements) {
+      List<CardInfo> contacts, List<ImageInfo> mediaElements) {
     ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
     CardPresenter cardPresenter = new CardPresenter();
 
-    addElementsToRowsAdapter(R.string.favorites_item_title, favorites, rowsAdapter, cardPresenter,
-        FAVORITES_ROW);
-    addElementsToRowsAdapter(R.string.recent_conversation_item_title, conversations, rowsAdapter,
-        cardPresenter, CONVERSATIONS_ROW);
-    addElementsToRowsAdapter(R.string.contacts_item_title, contacts, rowsAdapter, cardPresenter,
-        CONTACTS_ROW);
-    addElementsToRowsAdapter(R.string.media_elements_item_title, mediaElements, rowsAdapter,
-        cardPresenter, MEDIA_ROW);
+    addCardInfoElementsToRowsAdapter(R.string.favorites_item_title, favorites, rowsAdapter,
+        cardPresenter, FAVORITES_ROW);
+    addCardInfoElementsToRowsAdapter(R.string.recent_conversation_item_title, conversations,
+        rowsAdapter, cardPresenter, CONVERSATIONS_ROW);
+    addCardInfoElementsToRowsAdapter(R.string.contacts_item_title, contacts, rowsAdapter,
+        cardPresenter, CONTACTS_ROW);
+    addImageInfoElementsToRowAdapter(R.string.media_elements_item_title, mediaElements, rowsAdapter,
+        new ImagePresenter(), MEDIA_ROW);
 
     HeaderItem gridHeader = new HeaderItem(5, getResources().getString(R.string.preferences), null);
 
@@ -117,11 +119,21 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     getActivity().finish();
   }
 
-  private void addElementsToRowsAdapter(int title, List<CardInfo> elements,
-      ArrayObjectAdapter rowsAdapter, CardPresenter cardPresenter, int id) {
-    ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
-    for (CardInfo cardInfo : elements) {
-      listRowAdapter.add(cardInfo);
+  private void addCardInfoElementsToRowsAdapter(int title, List<CardInfo> elements,
+      ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+    ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+    for (Object element : elements) {
+      listRowAdapter.add(element);
+    }
+    HeaderItem header = new HeaderItem(id, getString(title), null);
+    rowsAdapter.add(new ListRow(header, listRowAdapter));
+  }
+
+  private void addImageInfoElementsToRowAdapter(int title, List<ImageInfo> elements,
+      ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+    ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+    for (Object element : elements) {
+      listRowAdapter.add(element);
     }
     HeaderItem header = new HeaderItem(id, getString(title), null);
     rowsAdapter.add(new ListRow(header, listRowAdapter));
@@ -162,8 +174,10 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     setOnItemViewSelectedListener(new OnItemViewSelectedListener() {
       @Override public void onItemSelected(Presenter.ViewHolder viewHolder, Object item,
           RowPresenter.ViewHolder viewHolder1, Row row) {
-        if (row.getId() <= MEDIA_ROW) {
+        if (row.getId() < MEDIA_ROW) {
           presenter.onCardInfoSelected((CardInfo) item);
+        } else if (row.getId() == MEDIA_ROW) {
+          presenter.onImageInfoSelected((ImageInfo) item);
         } else if (row.getId() == 5) {
           presenter.onPreferencesSelected();
         }

@@ -8,10 +8,10 @@ import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
 import android.view.View;
 import android.view.ViewGroup;
+import com.github.pedrovgs.tuentitv.model.CardInfo;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.tuenti.tuentitv.R;
-import com.github.pedrovgs.tuentitv.model.CardInfo;
 
 public class CardPresenter extends Presenter {
 
@@ -20,6 +20,7 @@ public class CardPresenter extends Presenter {
   private static int CARD_HEIGHT = 200;
 
   static class ViewHolder extends Presenter.ViewHolder {
+
     private CardInfo cardInfo;
     private ImageCardView imageCardView;
     private Drawable defaultCardImage;

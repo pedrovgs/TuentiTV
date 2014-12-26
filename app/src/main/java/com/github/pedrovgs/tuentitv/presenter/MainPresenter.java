@@ -4,6 +4,7 @@ import com.github.pedrovgs.tuentitv.model.Accounts;
 import com.github.pedrovgs.tuentitv.model.CardInfo;
 import com.github.pedrovgs.tuentitv.model.Contact;
 import com.github.pedrovgs.tuentitv.model.ConversationSummary;
+import com.github.pedrovgs.tuentitv.model.ImageInfo;
 import com.github.pedrovgs.tuentitv.model.MediaElement;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,13 +42,19 @@ public class MainPresenter {
     List<CardInfo> favorites = getFavoriteContacts();
     List<CardInfo> conversations = getConversations();
     List<CardInfo> contacts = getAllContacts();
-    List<CardInfo> mediaElements = getAllMediaElements();
+    List<ImageInfo> mediaElements = getAllMediaElements();
     view.showMainInformation(favorites, conversations, contacts, mediaElements);
   }
 
   public void onCardInfoSelected(CardInfo cardInfo) {
     if (cardInfo != null) {
       view.updateBackground(cardInfo.getSecondaryImage());
+    }
+  }
+
+  public void onImageInfoSelected(ImageInfo imageInfo) {
+    if (imageInfo != null) {
+      view.updateBackground(imageInfo.getImageUrl());
     }
   }
 
@@ -139,8 +146,8 @@ public class MainPresenter {
     return contacts;
   }
 
-  private List<CardInfo> getAllMediaElements() {
-    List<CardInfo> mediaElements = new ArrayList<CardInfo>();
+  private List<ImageInfo> getAllMediaElements() {
+    List<ImageInfo> mediaElements = new ArrayList<ImageInfo>();
     mediaElements.add(
         new MediaElement("Augmented Reality day :)", "https://imrl.tuenti.net/MeVNOAO1hS95RMX9AA"));
     mediaElements.add(
@@ -176,7 +183,7 @@ public class MainPresenter {
     void updateBackground(String imageUrl);
 
     void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
-        List<CardInfo> contacts, List<CardInfo> mediaElements);
+        List<CardInfo> contacts, List<ImageInfo> mediaElements);
 
     void showDefaultBackground();
 

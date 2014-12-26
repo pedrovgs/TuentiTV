@@ -3,7 +3,7 @@ package com.github.pedrovgs.tuentitv.model;
 /**
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class MediaElement implements CardInfo {
+public class MediaElement implements ImageInfo {
 
   private final String title;
   private final String imageUrl;
@@ -13,19 +13,7 @@ public class MediaElement implements CardInfo {
     this.imageUrl = imageUrl;
   }
 
-  @Override public String getCardImageUrl() {
-    return imageUrl;
-  }
-
-  @Override public String getTitle() {
-    return title;
-  }
-
-  @Override public String getText() {
-    return null;
-  }
-
-  @Override public String getSecondaryImage() {
+  @Override public String getImageUrl() {
     return imageUrl;
   }
 }
