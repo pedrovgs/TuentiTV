@@ -1,5 +1,7 @@
 package com.github.pedrovgs.tuentitv.model;
 
+import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
+
 /**
  * @author Pedro Vicente Gómez Sánchez.
  */

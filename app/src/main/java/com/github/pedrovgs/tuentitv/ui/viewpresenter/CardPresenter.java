@@ -8,7 +8,7 @@ import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
 import android.view.View;
 import android.view.ViewGroup;
-import com.github.pedrovgs.tuentitv.model.CardInfo;
+import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.tuenti.tuentitv.R;
@@ -52,7 +52,6 @@ public class CardPresenter extends Presenter {
 
     ImageCardView cardView = new ImageCardView(context);
     cardView.setFocusable(true);
-    cardView.setFocusableInTouchMode(true);
     cardView.setBackgroundColor(context.getResources().getColor(R.color.third_color));
     return new ViewHolder(cardView);
   }

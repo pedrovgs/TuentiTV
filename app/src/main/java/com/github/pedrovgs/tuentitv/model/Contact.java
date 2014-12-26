@@ -1,5 +1,7 @@
 package com.github.pedrovgs.tuentitv.model;
 
+import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
+
 /**
  * Class created to represent a user contact. One contact has a name and one avatar.
  *

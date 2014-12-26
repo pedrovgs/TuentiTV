@@ -5,6 +5,7 @@
   <dimen name="progress_bar_height">90dp</dimen>
   <dimen name="logo_margin_top">72dp</dimen>
   <dimen name="account_item_size">96dp</dimen>
+  <dimen name="item_margin">40dp</dimen>
   <dimen name="account_item_margin_right">43dp</dimen>
   <dimen name="account_item_margin_left">43dp</dimen>
   <dimen name="account_item_margin_top">66dp</dimen>

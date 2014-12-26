@@ -16,15 +16,16 @@ import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
 import android.util.DisplayMetrics;
 import android.view.View;
-import com.github.pedrovgs.tuentitv.model.CardInfo;
-import com.github.pedrovgs.tuentitv.model.ImageInfo;
 import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
+import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
+import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
+import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
 import com.github.pedrovgs.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
 import com.github.pedrovgs.tuentitv.ui.picasso.transformation.GrayScaleTransformation;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
-import com.github.pedrovgs.tuentitv.ui.viewpresenter.GridItemPresenter;
+import com.github.pedrovgs.tuentitv.ui.viewpresenter.IconPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.ImagePresenter;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
@@ -43,6 +44,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   private static final int CONVERSATIONS_ROW = 2;
   private static final int CONTACTS_ROW = 3;
   private static final int MEDIA_ROW = 4;
+  private static final int PREFERENCES_ROW = 5;
   public static final int LOGOUT_ROW = 6;
 
   @Inject MainPresenter presenter;
@@ -80,7 +82,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   @Override public void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
-      List<CardInfo> contacts, List<ImageInfo> mediaElements) {
+      List<CardInfo> contacts, List<ImageInfo> mediaElements, List<IconInfo> preferences) {
     ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
     CardPresenter cardPresenter = new CardPresenter();
 
@@ -93,19 +95,9 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     addImageInfoElementsToRowAdapter(R.string.media_elements_item_title, mediaElements, rowsAdapter,
         new ImagePresenter(), MEDIA_ROW);
 
-    HeaderItem gridHeader = new HeaderItem(5, getResources().getString(R.string.preferences), null);
+    addIconInfoElementsToRowAdapter(getResources().getString(R.string.preferences), preferences,
+        rowsAdapter, new IconPresenter(), PREFERENCES_ROW);
 
-    GridItemPresenter gridPresenter = new GridItemPresenter();
-    ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(gridPresenter);
-    gridRowAdapter.add("Test1");
-    gridRowAdapter.add("Test2");
-    gridRowAdapter.add("Test3");
-    rowsAdapter.add(new ListRow(gridHeader, gridRowAdapter));
-
-    ArrayObjectAdapter closeSessionAdapter = new ArrayObjectAdapter(new GridItemPresenter());
-    closeSessionAdapter.add("Close session");
-    HeaderItem header = new HeaderItem(6, getString(R.string.close_session), "");
-    rowsAdapter.add(new ListRow(header, closeSessionAdapter));
     setAdapter(rowsAdapter);
   }
 
@@ -137,6 +129,15 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     }
     HeaderItem header = new HeaderItem(id, getString(title), null);
     rowsAdapter.add(new ListRow(header, listRowAdapter));
+  }
+
+  private void addIconInfoElementsToRowAdapter(String title, List<IconInfo> preferences,
+      ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
+    ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
+    for (IconInfo iconInfo : preferences) {
+      listRowAdapter.add(iconInfo);
+    }
+    rowsAdapter.add(new ListRow(new HeaderItem(id, title, ""), listRowAdapter));
   }
 
   private void prepareBackgroundManager() {

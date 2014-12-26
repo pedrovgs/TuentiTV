@@ -5,7 +5,7 @@ import android.support.v17.leanback.widget.Presenter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.github.pedrovgs.tuentitv.model.ImageInfo;
+import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
 import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
 
@@ -45,7 +45,6 @@ public class ImagePresenter extends Presenter {
     imageView.setMinimumHeight(IMAGE_HEIGHT);
     imageView.setMinimumWidth(IMAGE_WIDTH);
     imageView.setFocusable(true);
-    imageView.setFocusableInTouchMode(true);
     imageView.setBackgroundColor(context.getResources().getColor(R.color.third_color));
     return new ViewHolder(imageView);
   }

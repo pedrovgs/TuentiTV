@@ -2,13 +2,15 @@ package com.github.pedrovgs.tuentitv.presenter;
 
 import com.github.pedrovgs.tuentitv.model.Accounts;
 import com.github.pedrovgs.tuentitv.model.Agenda;
-import com.github.pedrovgs.tuentitv.model.CardInfo;
 import com.github.pedrovgs.tuentitv.model.Chat;
 import com.github.pedrovgs.tuentitv.model.Contact;
 import com.github.pedrovgs.tuentitv.model.ConversationSummary;
-import com.github.pedrovgs.tuentitv.model.ImageInfo;
 import com.github.pedrovgs.tuentitv.model.MediaElement;
 import com.github.pedrovgs.tuentitv.model.MediaGallery;
+import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
+import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
+import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
+import com.tuenti.tuentitv.R;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,7 +57,17 @@ public class MainPresenter {
     List<CardInfo> conversations = getConversations();
     List<CardInfo> contacts = getAllContacts();
     List<ImageInfo> mediaElements = getAllMediaElements();
-    view.showMainInformation(favorites, conversations, contacts, mediaElements);
+    List<IconInfo> preferences = getPreferences();
+    view.showMainInformation(favorites, conversations, contacts, mediaElements, preferences);
+  }
+
+  private List<IconInfo> getPreferences() {
+    List<IconInfo> preferences = new LinkedList<IconInfo>();
+    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
+    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
+    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
+    preferences.add(new IconInfo("Test1", R.drawable.icn_wink));
+    return preferences;
   }
 
   public void onCardInfoSelected(CardInfo cardInfo) {
@@ -108,7 +120,7 @@ public class MainPresenter {
     void updateBackground(String imageUrl);
 
     void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
-        List<CardInfo> contacts, List<ImageInfo> mediaElements);
+        List<CardInfo> contacts, List<ImageInfo> mediaElements, List<IconInfo> preferences);
 
     void showDefaultBackground();
 
