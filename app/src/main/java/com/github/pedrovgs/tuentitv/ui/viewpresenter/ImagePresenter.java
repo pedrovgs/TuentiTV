@@ -11,9 +11,9 @@ import com.tuenti.tuentitv.R;
 
 public class ImagePresenter extends Presenter {
 
+  public static final int IMAGE_HEIGHT = 200;
+  public static final int IMAGE_WIDTH = 300;
   private static Context context;
-  private static int CARD_WIDTH = 300;
-  private static int CARD_HEIGHT = 200;
 
   static class ViewHolder extends Presenter.ViewHolder {
 
@@ -32,7 +32,7 @@ public class ImagePresenter extends Presenter {
     protected void updateCardViewImage(String url) {
       Picasso.with(context)
           .load(url)
-          .resize(CARD_WIDTH, CARD_HEIGHT)
+          .resize(IMAGE_WIDTH, IMAGE_HEIGHT)
           .centerCrop()
           .placeholder(R.color.third_color)
           .into(imageView);
@@ -42,6 +42,8 @@ public class ImagePresenter extends Presenter {
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent) {
     context = parent.getContext();
     ImageView imageView = new ImageView(context);
+    imageView.setMinimumHeight(IMAGE_HEIGHT);
+    imageView.setMinimumWidth(IMAGE_WIDTH);
     imageView.setFocusable(true);
     imageView.setFocusableInTouchMode(true);
     imageView.setBackgroundColor(context.getResources().getColor(R.color.third_color));
