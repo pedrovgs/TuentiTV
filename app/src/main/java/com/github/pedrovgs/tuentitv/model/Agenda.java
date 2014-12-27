@@ -40,6 +40,8 @@ public class Agenda {
   private void loadContacts() {
     contacts.add(new Contact("Aarón", "https://imrl.tuenti.net/MexmzwOwyK_qaPXpAA",
         "https://imrl.tuenti.net/MeuEFQOwyK9ZMUl8AA"));
+    contacts.add(new Contact("Andu Fratu", "https://imrl.tuenti.net/MewKTgRZKByd5oZ9AA",
+            "Hey, do you have the test ready?"));
     contacts.add(new Contact("Blanca Díaz", "https://imrl.tuenti.net/MexmsQOUyDnTABlnAA",
         "https://imrl.tuenti.net/Mer_-gRUXxq_3yZqAA"));
     contacts.add(new Contact("Carmen Barroso", "https://imrl.tuenti.net/MexNAAOXqRoOXZcYAA",
