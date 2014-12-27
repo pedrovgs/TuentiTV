@@ -20,9 +20,6 @@ public class Chat {
   }
 
   private void loadConversations() {
-    conversations.add(new ConversationSummary("Android Developers",
-        "http://www.androidguys.com/wp-content/uploads/2011/12/android-developer-logo.png",
-        "Pull request sent!!"));
     conversations.add(
         new ConversationSummary("Andu Fratu", "https://imrl.tuenti.net/MewKTgRZKByd5oZ9AA",
             "Hey, do you have the test ready?"));
