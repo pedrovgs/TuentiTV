@@ -17,16 +17,11 @@ public class ImagePresenter extends Presenter {
 
   static class ViewHolder extends Presenter.ViewHolder {
 
-    private ImageInfo imageInfo;
     private ImageView imageView;
 
     public ViewHolder(View view) {
       super(view);
       imageView = (ImageView) view;
-    }
-
-    public void setImageInfo(ImageInfo imageInfo) {
-      this.imageInfo = imageInfo;
     }
 
     protected void updateCardViewImage(String url) {
@@ -45,13 +40,11 @@ public class ImagePresenter extends Presenter {
     imageView.setMinimumHeight(IMAGE_HEIGHT);
     imageView.setMinimumWidth(IMAGE_WIDTH);
     imageView.setFocusable(true);
-    imageView.setBackgroundColor(context.getResources().getColor(R.color.third_color));
     return new ViewHolder(imageView);
   }
 
   @Override public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
     ImageInfo imageInfo = (ImageInfo) item;
-    ((ViewHolder) viewHolder).setImageInfo(imageInfo);
     if (imageInfo.getImageUrl() != null) {
       ((ViewHolder) viewHolder).updateCardViewImage(imageInfo.getImageUrl());
     }

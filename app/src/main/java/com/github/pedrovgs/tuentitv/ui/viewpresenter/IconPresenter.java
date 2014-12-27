@@ -8,20 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
-import com.squareup.picasso.Picasso;
 import com.tuenti.tuentitv.R;
 
 public class IconPresenter extends Presenter {
-
-  public static final int ICON_SIZE = 200;
-
-  private Context context;
+  
   private IconInfo iconInfo;
   private ImageView iv_icon;
   private TextView tv_icon_title;
 
   public ViewHolder onCreateViewHolder(ViewGroup parent) {
-    context = parent.getContext();
+    Context context = parent.getContext();
     LayoutInflater layoutInflater = LayoutInflater.from(context);
     View view = layoutInflater.inflate(R.layout.icon_item, null);
     iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
@@ -32,7 +28,7 @@ public class IconPresenter extends Presenter {
   public void onBindViewHolder(ViewHolder viewHolder, Object item) {
     iconInfo = (IconInfo) item;
     tv_icon_title.setText(iconInfo.getTitle());
-    Picasso.with(context).load(iconInfo.getIconId()).into(iv_icon);
+    iv_icon.setImageResource(iconInfo.getIconId());
   }
 
   public void onUnbindViewHolder(ViewHolder viewHolder) {
