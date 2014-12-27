@@ -9,7 +9,7 @@
       android:id="@+id/iv_media_element"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
-      />
+      android:visibility="invisible"/>
 
   <ProgressBar
       android:id="@+id/pb_loading"
