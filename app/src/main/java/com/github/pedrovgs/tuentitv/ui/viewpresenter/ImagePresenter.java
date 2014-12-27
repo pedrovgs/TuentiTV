@@ -2,6 +2,7 @@ package com.github.pedrovgs.tuentitv.ui.viewpresenter;
 
 import android.content.Context;
 import android.support.v17.leanback.widget.Presenter;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,7 +22,7 @@ public class ImagePresenter extends Presenter {
 
     public ViewHolder(View view) {
       super(view);
-      imageView = (ImageView) view;
+      imageView = (ImageView) view.findViewById(R.id.iv_media_element);
     }
 
     protected void updateCardViewImage(String url) {
@@ -36,11 +37,11 @@ public class ImagePresenter extends Presenter {
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent) {
     context = parent.getContext();
-    ImageView imageView = new ImageView(context);
+    View view = LayoutInflater.from(context).inflate(R.layout.image_item, null);
+    ImageView imageView = (ImageView) view.findViewById(R.id.iv_media_element);
     imageView.setMinimumHeight(IMAGE_HEIGHT);
     imageView.setMinimumWidth(IMAGE_WIDTH);
-    imageView.setFocusable(true);
-    return new ViewHolder(imageView);
+    return new ViewHolder(view);
   }
 
   @Override public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
