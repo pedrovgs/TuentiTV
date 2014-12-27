@@ -16,6 +16,7 @@ import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
 import android.util.DisplayMetrics;
 import android.view.View;
+import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
@@ -29,7 +30,6 @@ import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.IconPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.ImagePresenter;
 import com.squareup.picasso.Picasso;
-import com.tuenti.tuentitv.R;
 import java.util.List;
 import javax.inject.Inject;
 

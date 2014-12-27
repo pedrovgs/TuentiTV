@@ -6,9 +6,9 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import butterknife.InjectView;
+import com.github.pedrovgs.tuentitv.R;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.tuenti.tuentitv.R;
 import java.util.LinkedList;
 import java.util.List;
 

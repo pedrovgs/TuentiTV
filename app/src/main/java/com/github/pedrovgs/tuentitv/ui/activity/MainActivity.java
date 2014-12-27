@@ -1,7 +1,7 @@
 package com.github.pedrovgs.tuentitv.ui.activity;
 
 import android.os.Bundle;
-import com.tuenti.tuentitv.R;
+import com.github.pedrovgs.tuentitv.R;
 import java.util.LinkedList;
 import java.util.List;
 

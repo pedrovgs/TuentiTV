@@ -1,5 +1,6 @@
 package com.github.pedrovgs.tuentitv.presenter;
 
+import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.model.Accounts;
 import com.github.pedrovgs.tuentitv.model.Agenda;
 import com.github.pedrovgs.tuentitv.model.Chat;
@@ -10,7 +11,6 @@ import com.github.pedrovgs.tuentitv.model.MediaGallery;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
-import com.tuenti.tuentitv.R;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

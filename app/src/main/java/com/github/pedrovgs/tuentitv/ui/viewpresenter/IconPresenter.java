@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
-import com.tuenti.tuentitv.R;
 
 public class IconPresenter extends Presenter {
-  
+
   private IconInfo iconInfo;
   private ImageView iv_icon;
   private TextView tv_icon_title;

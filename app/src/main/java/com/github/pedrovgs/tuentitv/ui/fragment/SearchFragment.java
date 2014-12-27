@@ -11,10 +11,10 @@ import android.support.v17.leanback.widget.OnItemClickedListener;
 import android.support.v17.leanback.widget.Row;
 import android.text.TextUtils;
 import android.util.Log;
+import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.model.Contact;
 import com.github.pedrovgs.tuentitv.presenter.SearchPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
-import com.tuenti.tuentitv.R;
 import java.util.List;
 import javax.inject.Inject;
 

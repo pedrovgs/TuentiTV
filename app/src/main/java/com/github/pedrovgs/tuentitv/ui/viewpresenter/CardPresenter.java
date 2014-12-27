@@ -8,10 +8,10 @@ import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
 import android.view.View;
 import android.view.ViewGroup;
+import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-import com.tuenti.tuentitv.R;
 
 public class CardPresenter extends Presenter {
 

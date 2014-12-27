@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import com.tuenti.tuentitv.R;
+import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.presenter.EnterPasswordPresenter;
 import java.util.LinkedList;
 import java.util.List;

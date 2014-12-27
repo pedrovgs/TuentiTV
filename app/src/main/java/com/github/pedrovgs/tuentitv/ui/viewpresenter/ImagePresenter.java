@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
 import com.squareup.picasso.Picasso;
-import com.tuenti.tuentitv.R;
 
 public class ImagePresenter extends Presenter {
 
