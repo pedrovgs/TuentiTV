@@ -5,19 +5,26 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
-  <ImageButton
-      android:id="@+id/ib_account"
-      android:layout_width="@dimen/account_item_size"
-      android:layout_height="@dimen/account_item_size"
-      android:layout_marginTop="@dimen/account_item_margin_top"
-      android:layout_marginBottom="@dimen/account_item_margin_bottom"
-      android:layout_marginLeft="@dimen/account_item_margin_left"
-      android:layout_marginRight="@dimen/account_item_margin_right"
-      android:background="@drawable/account_background"
-      android:src="@drawable/icn_user_default_blue"
-      android:alpha="0.5"
+
+  <android.support.v17.leanback.widget.BaseCardView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:stateListAnimator="@anim/account_login_item_background">
-  </ImageButton>
+
+    <ImageButton
+        android:id="@+id/ib_account"
+        android:layout_width="@dimen/account_item_size"
+        android:layout_height="@dimen/account_item_size"
+        android:layout_marginTop="@dimen/account_item_margin_top"
+        android:layout_marginBottom="@dimen/account_item_margin_bottom"
+        android:layout_marginLeft="@dimen/account_item_margin_left"
+        android:layout_marginRight="@dimen/account_item_margin_right"
+        android:background="@drawable/account_background"
+        android:src="@drawable/icn_user_default_blue"
+        android:alpha="0.5"
+        android:stateListAnimator="@anim/account_login_item_background">
+    </ImageButton>
+  </android.support.v17.leanback.widget.BaseCardView>
 
 
   <TextView

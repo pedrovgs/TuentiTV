@@ -48,10 +48,19 @@
         android:screenOrientation="landscape"/>
 
     <!-- Search Activity -->
+
     <activity
         android:name="com.github.pedrovgs.tuentitv.ui.activity.SearchActivity"
         android:screenOrientation="landscape">
     </activity>
+
+    <!-- ShowImage Activity -->
+
+    <activity
+        android:name="com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity"
+        android:label="@string/title_activity_show_image">
+    </activity>
+
   </application>
 
 </manifest>
