@@ -19,11 +19,13 @@ public class ShowImageActivity extends BaseActivity {
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
     setContentView(R.layout.show_image_activity);
+    super.onCreate(savedInstanceState);
     String imageUrl = getImageUrlFromExtras();
     Picasso.with(this).load(imageUrl).into(iv_media_element, new Callback() {
       @Override public void onSuccess() {
+        int backgroundColor = getResources().getColor(R.color.third_color);
+        iv_media_element.setBackgroundColor(backgroundColor);
         pb_loading.setVisibility(View.GONE);
       }
 

@@ -19,6 +19,7 @@ import android.view.View;
 import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
+import com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
@@ -110,6 +111,12 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     getActivity().finish();
   }
 
+  @Override public void openImageView(String imageUrl) {
+    Intent intent = new Intent(getActivity(), ShowImageActivity.class);
+    intent.putExtra(ShowImageActivity.IMAGE_URL_EXTRA, imageUrl);
+    startActivity(intent);
+  }
+
   private void addCardInfoElementsToRowsAdapter(int title, List<CardInfo> elements,
       ArrayObjectAdapter rowsAdapter, Presenter presenter, int id) {
     ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(presenter);
@@ -193,6 +200,8 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
               presenter.logout();
               break;
           }
+        } else if (row.getId() == MEDIA_ROW) {
+          presenter.onImageInfoClicked((ImageInfo) item);
         }
       }
     });

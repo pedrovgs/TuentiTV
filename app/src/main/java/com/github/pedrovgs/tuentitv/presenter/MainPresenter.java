@@ -82,6 +82,10 @@ public class MainPresenter {
     }
   }
 
+  public void onImageInfoClicked(ImageInfo item) {
+    view.openImageView(item.getImageUrl());
+  }
+
   public void onPreferencesSelected() {
     view.showDefaultBackground();
   }
@@ -127,5 +131,7 @@ public class MainPresenter {
     void openSearchView();
 
     void closeAndGoToLoginActivity();
+
+    void openImageView(String imageUrl);
   }
 }
