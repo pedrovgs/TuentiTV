@@ -1,5 +1,6 @@
 package com.github.pedrovgs.tuentitv.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
@@ -14,6 +15,7 @@ import android.util.Log;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.model.Contact;
 import com.github.pedrovgs.tuentitv.presenter.SearchPresenter;
+import com.github.pedrovgs.tuentitv.ui.activity.DetailActivity;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
 import java.util.List;
 import javax.inject.Inject;
@@ -112,7 +114,12 @@ public class SearchFragment extends SearchBaseFragment
   protected OnItemClickedListener getDefaultItemClickedListener() {
     return new OnItemClickedListener() {
       @Override public void onItemClicked(Object item, Row row) {
-
+        Contact contact = (Contact) item;
+        String contactId = contact.getId();
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        intent.putExtra(DetailActivity.ID_EXTRA, contactId);
+        startActivity(intent);
+        getActivity().finish();
       }
     };
   }

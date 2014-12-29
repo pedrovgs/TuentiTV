@@ -13,7 +13,6 @@ public class DetailsDescriptionPresenter extends AbstractDetailsDescriptionPrese
     if (cardInfo != null) {
       viewHolder.getTitle().setText(cardInfo.getTitle());
       viewHolder.getSubtitle().setText(cardInfo.getText());
-      //viewHolder.getBody().setText(cardInfo.getDescription());
     }
   }
 }
