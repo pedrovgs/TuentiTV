@@ -1,7 +1,9 @@
 package com.github.pedrovgs.tuentitv;
 
 import android.app.Application;
+import android.content.Intent;
 import com.github.pedrovgs.tuentitv.di.RootModule;
+import com.github.pedrovgs.tuentitv.service.RecommendationService;
 import dagger.ObjectGraph;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class TuentiTvApplication extends Application {
   @Override public void onCreate() {
     super.onCreate();
     initializeDependencyInjector();
+    startRecommendationService();
   }
 
   /**
@@ -39,5 +42,10 @@ public class TuentiTvApplication extends Application {
    */
   public ObjectGraph plus(List<Object> modules) {
     return applicationObjectGraph.plus(modules.toArray());
+  }
+
+  private void startRecommendationService() {
+    Intent intent = new Intent(this, RecommendationService.class);
+    startService(intent);
   }
 }

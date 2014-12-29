@@ -4,6 +4,7 @@ import android.app.IntentService;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v4.app.TaskStackBuilder;
+import android.util.Log;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 
 /**
@@ -11,7 +12,6 @@ import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
  */
 public class RecommendationService extends IntentService {
 
-  private static final int MAX_RECOMMENDATIONS = 3;
   private static final String SERVICE_NAME = "RecommendationService";
 
   public RecommendationService() {
@@ -19,7 +19,7 @@ public class RecommendationService extends IntentService {
   }
 
   @Override protected void onHandleIntent(Intent intent) {
-
+    
   }
 
   private PendingIntent getPendingIntent() {
