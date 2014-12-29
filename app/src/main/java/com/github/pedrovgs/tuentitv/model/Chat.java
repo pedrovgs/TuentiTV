@@ -15,7 +15,7 @@ public class Chat {
     loadConversations();
   }
 
-  public List<ConversationSummary> getConversations() {
+  public List<ConversationSummary> getRecentConversations() {
     return conversations;
   }
 

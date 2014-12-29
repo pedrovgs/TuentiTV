@@ -109,7 +109,7 @@ public class MainPresenter {
   }
 
   private List<CardInfo> getConversations() {
-    List<ConversationSummary> conversations = chat.getConversations();
+    List<ConversationSummary> conversations = chat.getRecentConversations();
     return new ArrayList<CardInfo>(conversations);
   }
 
