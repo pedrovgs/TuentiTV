@@ -32,6 +32,10 @@ public class ConversationSummary implements CardInfo {
     return lastMessage;
   }
 
+  @Override public String getId() {
+    return title;
+  }
+
   @Override public String getCardImageUrl() {
     return getConversationAvatar();
   }

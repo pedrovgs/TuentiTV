@@ -13,7 +13,7 @@ public class Contact implements CardInfo {
   private final String avatarUrl;
   private final String secondaryImage;
 
-  public Contact(String name, String avatarUrl,String secondaryImage) {
+  public Contact(String name, String avatarUrl, String secondaryImage) {
     this.name = name;
     this.avatarUrl = avatarUrl;
     this.secondaryImage = secondaryImage;
@@ -24,6 +24,10 @@ public class Contact implements CardInfo {
   }
 
   public String getName() {
+    return name;
+  }
+
+  @Override public String getId() {
     return name;
   }
 
