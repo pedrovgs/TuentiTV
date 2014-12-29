@@ -2,6 +2,7 @@ package com.github.pedrovgs.tuentitv.di;
 
 import android.content.Context;
 import com.github.pedrovgs.tuentitv.TuentiTvApplication;
+import com.github.pedrovgs.tuentitv.ui.activity.DetailActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.EnterPasswordActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
@@ -23,7 +24,7 @@ import dagger.Provides;
     injects = {
         TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
         MainActivity.class, MainFragment.class, SearchActivity.class, SearchFragment.class,
-        ShowImageActivity.class
+        ShowImageActivity.class, DetailActivity.class
     }, library = true) public class RootModule {
 
   private final Context context;

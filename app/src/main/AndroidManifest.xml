@@ -8,6 +8,7 @@
   <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
   <!-- Application configuration -->
+
   <application
       android:name=".TuentiTvApplication"
       android:allowBackup="true"
@@ -51,15 +52,18 @@
 
     <activity
         android:name=".ui.activity.SearchActivity"
-        android:screenOrientation="landscape">
-    </activity>
+        android:screenOrientation="landscape"/>
 
     <!-- ShowImage Activity -->
 
     <activity
         android:name=".ui.activity.ShowImageActivity"
-        android:label="@string/title_activity_show_image">
-    </activity>
+        android:screenOrientation="landscape"/>
+
+    <!-- Detail Activity -->
+
+    <activity android:name=".ui.activity.DetailActivity"
+        android:screenOrientation="landscape"/>
 
   </application>
 
