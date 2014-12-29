@@ -51,7 +51,6 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
     Picasso.with(getActivity())
         .load(backgroundUrl)
         .resize(metrics.widthPixels, metrics.heightPixels)
-        .placeholder(R.drawable.fragment_default_background)
         .error(R.drawable.fragment_default_background)
         .centerCrop()
         .into(backgroundTarget);

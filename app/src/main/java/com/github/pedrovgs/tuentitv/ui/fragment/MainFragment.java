@@ -120,7 +120,6 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
 
   @Override public void openDetailView(String id) {
     cancelPendingBackgroundUpdates();
-    showDefaultBackground();
     Intent intent = new Intent(getActivity(), DetailActivity.class);
     intent.putExtra(DetailActivity.ID_EXTRA, id);
     startActivity(intent);
