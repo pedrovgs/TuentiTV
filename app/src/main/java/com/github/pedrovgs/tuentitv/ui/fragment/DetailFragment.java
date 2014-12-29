@@ -1,7 +1,6 @@
 package com.github.pedrovgs.tuentitv.ui.fragment;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v17.leanback.app.BackgroundManager;
@@ -39,7 +38,6 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
   @Inject DetailPresenter presenter;
 
   private PicassoBackgroundManagerTarget backgroundTarget;
-  private Drawable defaultBackground;
   private DisplayMetrics metrics;
   private ArrayObjectAdapter adapter;
 
@@ -53,8 +51,9 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
     Picasso.with(getActivity())
         .load(backgroundUrl)
         .resize(metrics.widthPixels, metrics.heightPixels)
-        .placeholder(defaultBackground)
-        .error(defaultBackground)
+        .placeholder(R.drawable.fragment_default_background)
+        .error(R.drawable.fragment_default_background)
+        .centerCrop()
         .into(backgroundTarget);
   }
 
@@ -109,7 +108,6 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
     BackgroundManager backgroundManager = BackgroundManager.getInstance(getActivity());
     backgroundManager.attach(getActivity().getWindow());
     backgroundTarget = new PicassoBackgroundManagerTarget(backgroundManager);
-    defaultBackground = getResources().getDrawable(R.drawable.fragment_default_background);
   }
 
   private void configureDetailPresenter() {

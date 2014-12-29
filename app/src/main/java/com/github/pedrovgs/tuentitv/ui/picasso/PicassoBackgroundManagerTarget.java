@@ -12,22 +12,22 @@ import com.squareup.picasso.Target;
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class PicassoBackgroundManagerTarget implements Target {
-  BackgroundManager mBackgroundManager;
+  BackgroundManager backgroundManager;
 
   public PicassoBackgroundManagerTarget(BackgroundManager backgroundManager) {
-    this.mBackgroundManager = backgroundManager;
+    this.backgroundManager = backgroundManager;
   }
 
   @Override public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-    this.mBackgroundManager.setBitmap(bitmap);
+    this.backgroundManager.setBitmap(bitmap);
   }
 
   @Override public void onBitmapFailed(Drawable drawable) {
-    this.mBackgroundManager.setDrawable(drawable);
+    this.backgroundManager.setDrawable(drawable);
   }
 
   @Override public void onPrepareLoad(Drawable drawable) {
-    // Do nothing, default_background manager has its own transitions
+    this.backgroundManager.setDrawable(drawable);
   }
 
   @Override public boolean equals(Object o) {
@@ -40,7 +40,7 @@ public class PicassoBackgroundManagerTarget implements Target {
 
     PicassoBackgroundManagerTarget that = (PicassoBackgroundManagerTarget) o;
 
-    if (!mBackgroundManager.equals(that.mBackgroundManager)) {
+    if (!backgroundManager.equals(that.backgroundManager)) {
       return false;
     }
 
@@ -48,6 +48,6 @@ public class PicassoBackgroundManagerTarget implements Target {
   }
 
   @Override public int hashCode() {
-    return mBackgroundManager.hashCode();
+    return backgroundManager.hashCode();
   }
 }
