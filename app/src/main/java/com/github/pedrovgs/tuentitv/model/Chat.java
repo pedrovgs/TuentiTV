@@ -50,7 +50,7 @@ public class Chat {
         new ConversationSummary("Cesar Estébanez", "https://imrl.tuenti.net/MeqsBwSymhO82EB9AA",
             "Hey, do you have the test ready?"));
     conversations.add(
-        new ConversationSummary("Eduardo Ramirez", "https://imrl.tuenti.net/Mef8vgRt9SHKr5U0AA",
+        new ConversationSummary("Eduardo Ramirez", "https://imrl.tuenti.net/MekXWQRt9SETF706AA",
             "Do you come to the kitchen??"));
     conversations.add(
         new ConversationSummary("Laura Rus", "https://imrl.tuenti.net/MefvswOREWiM7ehEAA",

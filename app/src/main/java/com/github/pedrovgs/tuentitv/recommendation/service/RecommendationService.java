@@ -27,10 +27,14 @@ public class RecommendationService extends BaseIntentService {
   }
 
   @Override protected void onHandleIntent(Intent intent) {
-    ConversationSummary conversation = getRandomRecommendation();
-    configureRecommendationBuilder();
-    prepareRecommendation(conversation);
-    showRecommendation();
+    new Thread(new Runnable() {
+      @Override public void run() {
+        ConversationSummary conversation = getRandomRecommendation();
+        configureRecommendationBuilder();
+        prepareRecommendation(conversation);
+        showRecommendation();
+      }
+    }).start();
   }
 
   private ConversationSummary getRandomRecommendation() {
