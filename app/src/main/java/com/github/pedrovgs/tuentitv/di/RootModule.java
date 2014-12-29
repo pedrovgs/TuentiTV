@@ -8,6 +8,7 @@ import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity;
+import com.github.pedrovgs.tuentitv.ui.fragment.DetailFragment;
 import com.github.pedrovgs.tuentitv.ui.fragment.MainFragment;
 import com.github.pedrovgs.tuentitv.ui.fragment.SearchFragment;
 import dagger.Module;
@@ -24,7 +25,7 @@ import dagger.Provides;
     injects = {
         TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
         MainActivity.class, MainFragment.class, SearchActivity.class, SearchFragment.class,
-        ShowImageActivity.class, DetailActivity.class
+        ShowImageActivity.class, DetailActivity.class, DetailFragment.class
     }, library = true) public class RootModule {
 
   private final Context context;

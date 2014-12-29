@@ -19,6 +19,17 @@ public class Chat {
     return conversations;
   }
 
+  public ConversationSummary getConversationById(String conversationId) {
+    ConversationSummary conversationSummary = null;
+    for (ConversationSummary conversation : conversations) {
+      if (conversationId.equals(conversation.getId())) {
+        conversationSummary = conversation;
+        break;
+      }
+    }
+    return conversationSummary;
+  }
+
   private void loadConversations() {
     conversations.add(
         new ConversationSummary("Andu Fratu", "https://imrl.tuenti.net/MewKTgRZKByd5oZ9AA",

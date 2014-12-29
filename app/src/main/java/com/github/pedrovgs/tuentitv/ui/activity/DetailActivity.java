@@ -11,19 +11,11 @@ import java.util.List;
  */
 public class DetailActivity extends BaseActivity {
 
-  public static final String ID_EXTRA = "id_extra";
+  public static final String ID_EXTRA = DetailFragment.ID_EXTRA;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
-    setContentView(R.layout.detail_activity);
     super.onCreate(savedInstanceState);
-    String id = getContentId();
-    DetailFragment detailFragment =
-        (DetailFragment) getFragmentManager().findFragmentById(R.id.detail_fragment);
-    detailFragment.setContentId(id);
-  }
-
-  private String getContentId() {
-    return getIntent().getExtras().getString(ID_EXTRA);
+    setContentView(R.layout.detail_activity);
   }
 
   @Override protected List getModules() {
