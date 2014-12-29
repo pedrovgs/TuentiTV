@@ -7,130 +7,100 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import com.github.pedrovgs.tuentitv.R;
-import com.github.pedrovgs.tuentitv.ui.util.Util;
 import com.squareup.picasso.Picasso;
 import java.io.IOException;
 
-/*
- * This class builds recommendations as notifications with videos as inputs.
- */
 public class RecommendationBuilder {
-  private static final String TAG = "RecommendationBuilder";
 
-  private static int CARD_WIDTH = 313;
-  private static int CARD_HEIGHT = 176;
+  private Context context;
+  private NotificationManager notificationManager;
 
-  private Context mContext;
-  private NotificationManager mNotificationManager;
-
-  private int mId;
-  private int mPriority;
-  private int mSmallIcon;
-  private String mTitle;
-  private String mDescription;
-  private String mImageUri;
-  private String mBackgroundUri;
-  private PendingIntent mIntent;
+  private int id;
+  private int priority;
+  private int smallIcon;
+  private String title;
+  private String description;
+  private String imageUri;
+  private String backgroundUri;
+  private PendingIntent pendingIntent;
 
   public RecommendationBuilder() {
   }
 
   public RecommendationBuilder setContext(Context context) {
-    mContext = context;
+    this.context = context;
     return this;
   }
 
   public RecommendationBuilder setId(int id) {
-    mId = id;
+    this.id = id;
     return this;
   }
 
   public RecommendationBuilder setPriority(int priority) {
-    mPriority = priority;
+    this.priority = priority;
     return this;
   }
 
   public RecommendationBuilder setTitle(String title) {
-    mTitle = title;
+    this.title = title;
     return this;
   }
 
   public RecommendationBuilder setDescription(String description) {
-    mDescription = description;
+    this.description = description;
     return this;
   }
 
   public RecommendationBuilder setImage(String uri) {
-    mImageUri = uri;
+    imageUri = uri;
     return this;
   }
 
   public RecommendationBuilder setBackground(String uri) {
-    mBackgroundUri = uri;
+    backgroundUri = uri;
     return this;
   }
 
   public RecommendationBuilder setIntent(PendingIntent intent) {
-    mIntent = intent;
+    pendingIntent = intent;
     return this;
   }
 
   public RecommendationBuilder setSmallIcon(int resourceId) {
-    mSmallIcon = resourceId;
+    smallIcon = resourceId;
     return this;
   }
 
   public Notification build() throws IOException {
-
-    Log.d(TAG, "Building notification - " + this.toString());
-
-    if (mNotificationManager == null) {
-      mNotificationManager =
-          (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+    if (notificationManager == null) {
+      notificationManager =
+          (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     Bundle extras = new Bundle();
-    if (mBackgroundUri != null) {
-      Log.d(TAG, "Background - " + mBackgroundUri);
-      extras.putString(Notification.EXTRA_BACKGROUND_IMAGE_URI, mBackgroundUri);
+    if (backgroundUri != null) {
+      extras.putString(Notification.EXTRA_BACKGROUND_IMAGE_URI, backgroundUri);
     }
 
-    Bitmap image = Picasso.with(mContext)
-        .load(mImageUri)
-        .resize(Util.convertDpToPixel(mContext, CARD_WIDTH),
-            Util.convertDpToPixel(mContext, CARD_HEIGHT))
-        .get();
+    Bitmap image = Picasso.with(context).load(imageUri).get();
 
     Notification notification = new NotificationCompat.BigPictureStyle(
-        new NotificationCompat.Builder(mContext).setContentTitle(mTitle)
-            .setContentText(mDescription)
-            .setPriority(mPriority)
+        new NotificationCompat.Builder(context).setContentTitle(title)
+            .setContentText(description)
+            .setPriority(priority)
             .setLocalOnly(true)
             .setOngoing(true)
-            .setColor(mContext.getResources().getColor(R.color.primary_color))
+            .setColor(context.getResources().getColor(R.color.primary_color))
             .setCategory(Notification.CATEGORY_RECOMMENDATION)
             .setLargeIcon(image)
-            .setSmallIcon(mSmallIcon)
-            .setContentIntent(mIntent)
+            .setSmallIcon(smallIcon)
+            .setContentIntent(pendingIntent)
             .setExtras(extras)).build();
 
-    mNotificationManager.notify(mId, notification);
-    mNotificationManager = null;
+    notificationManager.notify(id, notification);
+    notificationManager = null;
     return notification;
-  }
-
-  @Override public String toString() {
-    return "RecommendationBuilder{" +
-        ", mId=" + mId +
-        ", mPriority=" + mPriority +
-        ", mSmallIcon=" + mSmallIcon +
-        ", mTitle='" + mTitle + '\'' +
-        ", mDescription='" + mDescription + '\'' +
-        ", mImageUri='" + mImageUri + '\'' +
-        ", mBackgroundUri='" + mBackgroundUri + '\'' +
-        ", mIntent=" + mIntent +
-        '}';
   }
 }
