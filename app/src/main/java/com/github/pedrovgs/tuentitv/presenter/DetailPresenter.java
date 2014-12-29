@@ -27,6 +27,11 @@ public class DetailPresenter {
   public void loadContent(String contentId) {
     CardInfo cardInfo = loadCardInfo(contentId);
     showBackground(cardInfo);
+    showCardInfoDetails(cardInfo);
+  }
+
+  private void showCardInfoDetails(CardInfo cardInfo) {
+    view.showCardInfo(cardInfo);
   }
 
   private void showBackground(CardInfo cardInfo) {
@@ -45,5 +50,7 @@ public class DetailPresenter {
   public interface View {
 
     void showBackground(String backgroundUrl);
+
+    void showCardInfo(CardInfo cardInfo);
   }
 }
