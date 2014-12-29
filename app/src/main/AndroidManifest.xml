@@ -65,6 +65,10 @@
     <activity android:name=".ui.activity.DetailActivity"
         android:screenOrientation="landscape"/>
 
+    <!-- Recommendation Service -->
+
+    <service
+        android:name=".service.RecommendationService"/>
   </application>
 
 </manifest>
