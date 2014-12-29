@@ -67,8 +67,7 @@
 
     <!-- Recommendation Service -->
 
-    <service
-        android:name=".service.RecommendationService"/>
+    <service android:name=".recommendation.service.RecommendationService"/>
   </application>
 
 </manifest>

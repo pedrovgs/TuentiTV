@@ -3,7 +3,7 @@ package com.github.pedrovgs.tuentitv;
 import android.app.Application;
 import android.content.Intent;
 import com.github.pedrovgs.tuentitv.di.RootModule;
-import com.github.pedrovgs.tuentitv.service.RecommendationService;
+import com.github.pedrovgs.tuentitv.recommendation.service.RecommendationService;
 import dagger.ObjectGraph;
 import java.util.List;
 
@@ -31,7 +31,11 @@ public class TuentiTvApplication extends Application {
   private void initializeDependencyInjector() {
     RootModule rootModule = new RootModule(this);
     applicationObjectGraph = ObjectGraph.create(rootModule);
-    applicationObjectGraph.inject(this);
+    inject(this);
+  }
+
+  public void inject(Object object) {
+    applicationObjectGraph.inject(object);
   }
 
   /**

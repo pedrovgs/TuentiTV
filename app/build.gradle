@@ -14,7 +14,7 @@ repositories {
 
 android {
   compileSdkVersion 21
-  buildToolsVersion "21.0.2"
+  buildToolsVersion "21.1.2"
 
   defaultConfig {
     applicationId "com.tuenti.tuentitv"
@@ -33,8 +33,8 @@ android {
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:recyclerview-v7:21.0.+'
-  compile 'com.android.support:leanback-v17:21.0.+'
+  compile 'com.android.support:leanback-v17:+'
+  compile 'com.android.support:recyclerview-v7:+'
   compile 'com.android.support:appcompat-v7:21.0.+'
   provided 'com.squareup.dagger:dagger-compiler:1.2.2'
   compile 'com.squareup.dagger:dagger:1.2.2'

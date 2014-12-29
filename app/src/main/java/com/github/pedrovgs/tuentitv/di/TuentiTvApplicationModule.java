@@ -4,6 +4,7 @@ import com.github.pedrovgs.tuentitv.model.Accounts;
 import com.github.pedrovgs.tuentitv.model.Agenda;
 import com.github.pedrovgs.tuentitv.model.Chat;
 import com.github.pedrovgs.tuentitv.model.MediaGallery;
+import com.github.pedrovgs.tuentitv.recommendation.builder.RecommendationBuilder;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -28,5 +29,9 @@ import javax.inject.Singleton;
 
   @Provides @Singleton Chat provideChat() {
     return new Chat();
+  }
+
+  @Provides RecommendationBuilder provideRecommendationBuilder() {
+    return new RecommendationBuilder();
   }
 }

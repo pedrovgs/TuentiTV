@@ -2,6 +2,7 @@ package com.github.pedrovgs.tuentitv.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Pedro Vicente Gómez Sánchez.
@@ -9,10 +10,12 @@ import java.util.List;
 public class Chat {
 
   private List<ConversationSummary> conversations;
+  private Random random;
 
   public Chat() {
     conversations = new LinkedList<ConversationSummary>();
     loadConversations();
+    random = new Random();
   }
 
   public List<ConversationSummary> getRecentConversations() {
@@ -28,6 +31,12 @@ public class Chat {
       }
     }
     return conversationSummary;
+  }
+
+  public ConversationSummary getLastUnreadConversation() {
+    int randomPosition = random.nextInt(conversations.size());
+    ConversationSummary randomConversation = conversations.get(randomPosition);
+    return randomConversation;
   }
 
   private void loadConversations() {

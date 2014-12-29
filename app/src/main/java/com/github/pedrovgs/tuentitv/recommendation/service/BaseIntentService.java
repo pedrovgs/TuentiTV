@@ -1,8 +1,8 @@
-package com.github.pedrovgs.tuentitv.service;
+package com.github.pedrovgs.tuentitv.recommendation.service;
 
 import android.app.IntentService;
 import android.content.Intent;
-import com.github.pedrovgs.tuentitv.ui.activity.BaseActivity;
+import com.github.pedrovgs.tuentitv.TuentiTvApplication;
 
 /**
  * @author Pedro Vicente Gómez Sánchez.
@@ -16,6 +16,10 @@ public class BaseIntentService extends IntentService {
    */
   public BaseIntentService(String name) {
     super(name);
+  }
+
+  @Override public void onCreate() {
+    super.onCreate();
     injectDependencies();
   }
 
@@ -28,6 +32,6 @@ public class BaseIntentService extends IntentService {
    * inside a Dagger module value.
    */
   private void injectDependencies() {
-    ((BaseActivity) getApplicationContext()).inject(this);
+    ((TuentiTvApplication) getApplication()).inject(this);
   }
 }
