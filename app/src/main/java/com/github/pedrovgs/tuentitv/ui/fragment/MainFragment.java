@@ -68,7 +68,8 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
 
   @Override public void showDefaultBackground() {
     Picasso.with(getActivity())
-        .load(R.drawable.main_fragment_default_background)
+        .load(R.drawable.fragment_default_background)
+        .placeholder(R.drawable.fragment_default_background)
         .resize(metrics.widthPixels, metrics.heightPixels)
         .centerCrop()
         .into(backgroundTarget);
@@ -118,9 +119,16 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   @Override public void openDetailView(String id) {
+    cancelPendingBackgroundUpdates();
+    showDefaultBackground();
     Intent intent = new Intent(getActivity(), DetailActivity.class);
     intent.putExtra(DetailActivity.ID_EXTRA, id);
     startActivity(intent);
+  }
+
+  private void cancelPendingBackgroundUpdates() {
+    Picasso.with(getActivity()).cancelRequest(backgroundTarget);
+    handler.removeCallbacks(lastChangeBackgroundRunnable);
   }
 
   private void addCardInfoElementsToRowsAdapter(int title, List<CardInfo> elements,
@@ -232,7 +240,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
       Picasso.with(context).cancelRequest(backgroundTarget);
       Picasso.with(context)
           .load(photo)
-          .placeholder(R.drawable.main_fragment_default_background)
+          .placeholder(R.drawable.fragment_default_background)
           .transform(new GrayScaleTransformation(Picasso.with(context)))
           .into(backgroundTarget);
     }

@@ -1,6 +1,5 @@
 package com.github.pedrovgs.tuentitv.presenter;
 
-import android.util.Log;
 import com.github.pedrovgs.tuentitv.model.Agenda;
 import com.github.pedrovgs.tuentitv.model.Chat;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
@@ -27,7 +26,11 @@ public class DetailPresenter {
 
   public void loadContent(String contentId) {
     CardInfo cardInfo = loadCardInfo(contentId);
-    Log.e("DEPURAR", "CONTENTID = " + contentId);
+    showBackground(cardInfo);
+  }
+
+  private void showBackground(CardInfo cardInfo) {
+    view.showBackground(cardInfo.getSecondaryImage());
   }
 
   private CardInfo loadCardInfo(String contentId) {
@@ -41,5 +44,6 @@ public class DetailPresenter {
 
   public interface View {
 
+    void showBackground(String backgroundUrl);
   }
 }
