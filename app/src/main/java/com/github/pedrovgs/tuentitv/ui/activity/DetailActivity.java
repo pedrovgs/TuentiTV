@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class DetailActivity extends BaseActivity {
 
+  public static final String ID_EXTRA = "id_extra";
+
   @Override protected List getModules() {
     return new LinkedList();
   }

@@ -76,6 +76,10 @@ public class MainPresenter {
     }
   }
 
+  public void onCardInfoClicked(CardInfo item) {
+    view.openDetailView(item.getId());
+  }
+
   public void onImageInfoSelected(ImageInfo imageInfo) {
     if (imageInfo != null) {
       view.updateBackground(imageInfo.getImageUrl());
@@ -133,5 +137,7 @@ public class MainPresenter {
     void closeAndGoToLoginActivity();
 
     void openImageView(String imageUrl);
+
+    void openDetailView(String id);
   }
 }

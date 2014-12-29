@@ -18,6 +18,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
+import com.github.pedrovgs.tuentitv.ui.activity.DetailActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity;
@@ -46,7 +47,6 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   private static final int CONTACTS_ROW = 3;
   private static final int MEDIA_ROW = 4;
   private static final int PREFERENCES_ROW = 5;
-  public static final int LOGOUT_ROW = 6;
 
   @Inject MainPresenter presenter;
 
@@ -114,6 +114,12 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   @Override public void openImageView(String imageUrl) {
     Intent intent = new Intent(getActivity(), ShowImageActivity.class);
     intent.putExtra(ShowImageActivity.IMAGE_URL_EXTRA, imageUrl);
+    startActivity(intent);
+  }
+
+  @Override public void openDetailView(String id) {
+    Intent intent = new Intent(getActivity(), DetailActivity.class);
+    intent.putExtra(DetailActivity.ID_EXTRA, id);
     startActivity(intent);
   }
 
@@ -202,6 +208,8 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
           }
         } else if (row.getId() == MEDIA_ROW) {
           presenter.onImageInfoClicked((ImageInfo) item);
+        } else if (row.getId() < MEDIA_ROW) {
+          presenter.onCardInfoClicked((CardInfo) item);
         }
       }
     });
