@@ -255,7 +255,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
       Picasso.with(context)
           .load(photo)
           .placeholder(R.drawable.fragment_default_background)
-          .transform(new GrayScaleTransformation(Picasso.with(context)))
+          .transform(new GrayScaleTransformation())
           .into(backgroundTarget);
     }
   }
