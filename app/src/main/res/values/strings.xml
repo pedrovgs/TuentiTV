@@ -17,5 +17,6 @@
   <string name="call_action_title">Call</string>
   <string name="vd_call_action_title">Voz Digital Call</string>
   <string name="chat_action_title">Chat</string>
+  <string name="edit_action_title">Edit</string>
 
 </resources>

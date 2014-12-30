@@ -32,6 +32,7 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
   private static final long VD_CALL_ACTION_ID = 1;
   private static final long CALL_ACTION_ID = 2;
   private static final long CHAT_ACTION_ID = 3;
+  private static final long EDIT_ACTION_ID = 4;
   private static final int DETAIL_THUMB_WIDTH = 274;
   private static final int DETAIL_THUMB_HEIGHT = 274;
 
@@ -98,6 +99,7 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
     row.addAction(new Action(VD_CALL_ACTION_ID, getString(R.string.vd_call_action_title)));
     row.addAction(new Action(CALL_ACTION_ID, getString(R.string.call_action_title)));
     row.addAction(new Action(CHAT_ACTION_ID, getString(R.string.chat_action_title)));
+    row.addAction(new Action(EDIT_ACTION_ID, getString(R.string.edit_action_title)));
     return row;
   }
 
