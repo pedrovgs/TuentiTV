@@ -227,6 +227,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
             case R.drawable.icn_wink:
               presenter.logout();
               break;
+            default:
           }
         } else if (row.getId() == MEDIA_ROW) {
           presenter.onImageInfoClicked((ImageInfo) item);

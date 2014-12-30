@@ -105,7 +105,7 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
         adapter.add(detailRow);
         setAdapter(adapter);
       }
-    }.execute();
+    } .execute();
   }
 
   private DetailsOverviewRow configureDetailsOverviewRow(CardInfo cardInfo, Bitmap bitmap) {
