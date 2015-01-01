@@ -57,7 +57,7 @@ public class ShowImageActivity extends BaseActivity {
       }
     });
   }
-  
+
   private String getImageUrlFromExtras() {
     return getIntent().getExtras().getString(IMAGE_URL_EXTRA);
   }

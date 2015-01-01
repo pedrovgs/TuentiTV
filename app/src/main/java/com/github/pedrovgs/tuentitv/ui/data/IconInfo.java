@@ -16,6 +16,9 @@
 package com.github.pedrovgs.tuentitv.ui.data;
 
 /**
+ * Class created to show information related to the user interface where that items contains just a
+ * title and one icon.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class IconInfo {

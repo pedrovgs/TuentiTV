@@ -16,6 +16,8 @@
 package com.github.pedrovgs.tuentitv.ui.data;
 
 /**
+ * Interface used by the UI code to show cards with information related to domain model data.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public interface CardInfo {

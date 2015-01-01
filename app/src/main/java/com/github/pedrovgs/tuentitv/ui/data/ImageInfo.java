@@ -16,6 +16,10 @@
 package com.github.pedrovgs.tuentitv.ui.data;
 
 /**
+ * Interface created to represent all the information the user interface can show related to the
+ * domain model data. In this sample, this interface is used to show MediaElements inside
+ * MainFragment.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public interface ImageInfo {
