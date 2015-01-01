@@ -53,9 +53,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
     setContentView(R.layout.login_activity);
     super.onCreate(savedInstanceState);
     hookListeners();
-    loginPresenter.setView(this);
-    loginPresenter.initialize();
-    loginPresenter.loadAccounts();
+    initializePresenter();
   }
 
   @OnFocusChange(R.id.iv_app_logo) void onFocusChanged(boolean focused) {
@@ -82,7 +80,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
     finish();
   }
 
-  @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  @Override public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == PASSWORD_REQUEST_CODE && passwordIsCorrect(data)) {
       loginPresenter.loginWithSelectedUser();
@@ -93,6 +91,12 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
     Intent intent = new Intent(this, LoadingActivity.class);
     startActivity(intent);
     finish();
+  }
+
+  private void initializePresenter() {
+    loginPresenter.setView(this);
+    loginPresenter.initialize();
+    loginPresenter.loadAccounts();
   }
 
   private void hookListeners() {
@@ -146,12 +150,24 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
 
     @Override public void onFocusChange(View v, boolean hasFocus) {
       float to = hasFocus ? 1.6f : 1;
+      performScaleXAnimation(to);
+      performScaleYAnimation(to);
+      performAlphaAnimation(hasFocus);
+    }
+
+    private void performScaleXAnimation(float to) {
       ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(view, "scaleX", to);
       scaleXAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       scaleXAnimator.start();
+    }
+
+    private void performScaleYAnimation(float to) {
       ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(view, "scaleY", to);
       scaleYAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));
       scaleYAnimator.start();
+    }
+
+    private void performAlphaAnimation(boolean hasFocus) {
       float toAlpha = hasFocus ? 1f : 0.5f;
       ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(view, "alpha", toAlpha);
       alphaAnimator.setDuration(getResources().getInteger(R.integer.short_animation_time));

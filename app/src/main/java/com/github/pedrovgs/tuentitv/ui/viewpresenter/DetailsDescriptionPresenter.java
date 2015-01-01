@@ -19,6 +19,9 @@ import android.support.v17.leanback.widget.AbstractDetailsDescriptionPresenter;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 
 /**
+ * AbstractDetailsDescriptionPresenter implementation created to show CardInfo elements into
+ * DetailFragment.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class DetailsDescriptionPresenter extends AbstractDetailsDescriptionPresenter {

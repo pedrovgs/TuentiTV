@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
+import com.github.pedrovgs.tuentitv.ui.util.Util;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -33,8 +34,8 @@ import com.squareup.picasso.Picasso;
  */
 public class ImagePresenter extends Presenter {
 
-  public static final int IMAGE_HEIGHT = 200;
-  public static final int IMAGE_WIDTH = 300;
+  private static final int IMAGE_HEIGHT = 200;
+  private static final int IMAGE_WIDTH = 300;
   private static Context context;
 
   static class ViewHolder extends Presenter.ViewHolder {
@@ -49,7 +50,8 @@ public class ImagePresenter extends Presenter {
     protected void updateCardViewImage(String url) {
       Picasso.with(context)
           .load(url)
-          .resize(IMAGE_WIDTH, IMAGE_HEIGHT)
+          .resize(Util.convertDpToPixel(context, IMAGE_HEIGHT),
+              Util.convertDpToPixel(context, IMAGE_WIDTH))
           .centerCrop()
           .placeholder(R.color.third_color)
           .into(imageView);
@@ -60,8 +62,8 @@ public class ImagePresenter extends Presenter {
     context = parent.getContext();
     View view = LayoutInflater.from(context).inflate(R.layout.image_item, null);
     ImageView imageView = (ImageView) view.findViewById(R.id.iv_media_element);
-    imageView.setMinimumHeight(IMAGE_HEIGHT);
-    imageView.setMinimumWidth(IMAGE_WIDTH);
+    imageView.setMinimumHeight(Util.convertDpToPixel(context, IMAGE_HEIGHT));
+    imageView.setMinimumWidth(Util.convertDpToPixel(context, IMAGE_WIDTH));
     return new ViewHolder(view);
   }
 

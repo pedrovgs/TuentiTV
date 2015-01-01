@@ -16,8 +16,6 @@
 package com.github.pedrovgs.tuentitv.ui.viewpresenter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
@@ -25,8 +23,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
+import com.github.pedrovgs.tuentitv.ui.picasso.PicassoImageCardViewTarget;
+import com.github.pedrovgs.tuentitv.ui.util.Util;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 /**
  * Android Presenter extension created to show CardInfo information using an ImageCardView.
@@ -43,22 +42,23 @@ public class CardPresenter extends Presenter {
 
     private ImageCardView imageCardView;
     private Drawable defaultCardImage;
-    private PicassoImageCardViewTarget mImageCardViewTarget;
+    private PicassoImageCardViewTarget imageCardViewTarget;
 
     public ViewHolder(View view) {
       super(view);
       imageCardView = (ImageCardView) view;
-      mImageCardViewTarget = new PicassoImageCardViewTarget(imageCardView);
+      imageCardViewTarget = new PicassoImageCardViewTarget(imageCardView);
       defaultCardImage = context.getResources().getDrawable(R.drawable.icn_application);
     }
 
     protected void updateCardViewImage(String url) {
       Picasso.with(context)
           .load(url)
-          .resize(CARD_WIDTH, CARD_HEIGHT)
+          .resize(Util.convertDpToPixel(context, CARD_WIDTH),
+              Util.convertDpToPixel(context, CARD_HEIGHT))
           .centerCrop()
           .placeholder(defaultCardImage)
-          .into(mImageCardViewTarget);
+          .into(imageCardViewTarget);
     }
   }
 
@@ -76,7 +76,9 @@ public class CardPresenter extends Presenter {
     if (cardInfo.getCardImageUrl() != null) {
       ((ViewHolder) viewHolder).imageCardView.setTitleText(cardInfo.getTitle());
       ((ViewHolder) viewHolder).imageCardView.setContentText(cardInfo.getText());
-      ((ViewHolder) viewHolder).imageCardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
+      int cardWidth = Util.convertDpToPixel(context, CARD_WIDTH);
+      int cardHeight = Util.convertDpToPixel(context, CARD_HEIGHT);
+      ((ViewHolder) viewHolder).imageCardView.setMainImageDimensions(cardWidth, cardHeight);
       ((ViewHolder) viewHolder).updateCardViewImage(cardInfo.getCardImageUrl());
     }
   }
@@ -87,26 +89,5 @@ public class CardPresenter extends Presenter {
 
   @Override public void onViewAttachedToWindow(Presenter.ViewHolder viewHolder) {
     //Empty
-  }
-
-  public static class PicassoImageCardViewTarget implements Target {
-    private ImageCardView mImageCardView;
-
-    public PicassoImageCardViewTarget(ImageCardView mImageCardView) {
-      this.mImageCardView = mImageCardView;
-    }
-
-    @Override public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
-      Drawable bitmapDrawable = new BitmapDrawable(context.getResources(), bitmap);
-      mImageCardView.setMainImage(bitmapDrawable);
-    }
-
-    @Override public void onBitmapFailed(Drawable drawable) {
-      mImageCardView.setMainImage(drawable);
-    }
-
-    @Override public void onPrepareLoad(Drawable drawable) {
-      //Empty
-    }
   }
 }

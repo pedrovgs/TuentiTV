@@ -15,7 +15,7 @@
  */
 package com.github.pedrovgs.tuentitv.model;
 
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -28,22 +28,19 @@ import javax.inject.Inject;
  */
 public class Accounts {
 
+  private final List<Account> recentLoggedAccounts;
   private Account loggedAccount;
 
   @Inject public Accounts() {
-    //Empty
+    this.recentLoggedAccounts = new LinkedList<Account>();
+    loadRecentLoggedAccounts();
   }
 
   /**
    * @return last three recent logged accounts sorted by last login date.
    */
   public List<Account> getRecentLoggedAccounts() {
-    Account juanma = new Account("Juanma", "https://imrl.tuenti.net/MephbQPFZwIygHTjAA");
-    Account emanuela =
-        new Account("Emanuela", "https://tuentiimg2-a.akamaihd.net/Meo8zgSyA0mYepIyAA");
-    Account luisja =
-        new Account("Luis Javier", "https://tuentiimg1-a.akamaihd.net/MeyvDQONIBaVEpFrAA");
-    return Arrays.asList(juanma, emanuela, luisja);
+    return recentLoggedAccounts;
   }
 
   /**
@@ -66,5 +63,13 @@ public class Accounts {
    */
   public void logout() {
     loggedAccount = null;
+  }
+
+  private void loadRecentLoggedAccounts() {
+    recentLoggedAccounts.add(new Account("Juanma", "https://imrl.tuenti.net/MephbQPFZwIygHTjAA"));
+    recentLoggedAccounts.add(
+        new Account("Emanuela", "https://tuentiimg2-a.akamaihd.net/Meo8zgSyA0mYepIyAA"));
+    recentLoggedAccounts.add(
+        new Account("Luis Javier", "https://tuentiimg1-a.akamaihd.net/MeyvDQONIBaVEpFrAA"));
   }
 }

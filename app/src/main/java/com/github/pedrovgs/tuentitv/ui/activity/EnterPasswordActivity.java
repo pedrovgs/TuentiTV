@@ -45,7 +45,7 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
   private boolean isLastPasswordElement;
   private final Handler handler = new Handler();
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+  @Override public void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.enter_password_activity);
     super.onCreate(savedInstanceState);
     presenter.setView(this);
@@ -68,10 +68,6 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
       default:
         return super.onKeyDown(keyCode, event);
     }
-  }
-
-  @Override protected List getModules() {
-    return new LinkedList();
   }
 
   @Override public void showTopArrowOnCurrentPasswordField() {
@@ -159,5 +155,9 @@ public class EnterPasswordActivity extends BaseActivity implements EnterPassword
         ib_password_element.setImageResource(R.drawable.icn_pass_ok_blue);
       }
     }, delay);
+  }
+
+  @Override protected List getModules() {
+    return new LinkedList();
   }
 }

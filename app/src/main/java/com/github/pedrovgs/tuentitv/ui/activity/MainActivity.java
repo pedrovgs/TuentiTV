@@ -36,13 +36,13 @@ public class MainActivity extends BaseActivity {
     cancelNotifications();
   }
 
-  @Override protected List getModules() {
-    return new LinkedList();
-  }
-
   private void cancelNotifications() {
     NotificationManager notificationManager =
         (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
     notificationManager.cancelAll();
+  }
+
+  @Override protected List getModules() {
+    return new LinkedList();
   }
 }
