@@ -28,6 +28,11 @@ import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+/**
+ * Android Presenter extension created to show CardInfo information using an ImageCardView.
+ *
+ * @author Pedro Vicente Gómez Sánchez
+ */
 public class CardPresenter extends Presenter {
 
   private static Context context;
@@ -36,7 +41,6 @@ public class CardPresenter extends Presenter {
 
   static class ViewHolder extends Presenter.ViewHolder {
 
-    private CardInfo cardInfo;
     private ImageCardView imageCardView;
     private Drawable defaultCardImage;
     private PicassoImageCardViewTarget mImageCardViewTarget;
@@ -46,10 +50,6 @@ public class CardPresenter extends Presenter {
       imageCardView = (ImageCardView) view;
       mImageCardViewTarget = new PicassoImageCardViewTarget(imageCardView);
       defaultCardImage = context.getResources().getDrawable(R.drawable.icn_application);
-    }
-
-    public void setCardInfo(CardInfo cardInfo) {
-      this.cardInfo = cardInfo;
     }
 
     protected void updateCardViewImage(String url) {
@@ -73,7 +73,6 @@ public class CardPresenter extends Presenter {
 
   @Override public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
     CardInfo cardInfo = (CardInfo) item;
-    ((ViewHolder) viewHolder).setCardInfo(cardInfo);
     if (cardInfo.getCardImageUrl() != null) {
       ((ViewHolder) viewHolder).imageCardView.setTitleText(cardInfo.getTitle());
       ((ViewHolder) viewHolder).imageCardView.setContentText(cardInfo.getText());

@@ -25,6 +25,12 @@ import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
 import com.squareup.picasso.Picasso;
 
+/**
+ * Android Presenter extension created to show ImageInfo information using an ImageView. This
+ * presenter is used to show MediaElements obtained from MediaGallery.
+ *
+ * @author Pedro Vicente Gómez Sánchez
+ */
 public class ImagePresenter extends Presenter {
 
   public static final int IMAGE_HEIGHT = 200;

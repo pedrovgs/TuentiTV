@@ -24,8 +24,7 @@ import java.util.List;
 
 /**
  * Application component extension created to work as main Android in this APK. This class ins
- * going
- * to be used to implement dependency injectino using Dagger.
+ * going to be used to implement dependency injection using Dagger in this application.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
@@ -49,6 +48,10 @@ public class TuentiTvApplication extends Application {
     inject(this);
   }
 
+  /**
+   * Inject an object inside the application ObjectGraph to replace every @Inject annotation with
+   * the associated instance.
+   */
   public void inject(Object object) {
     applicationObjectGraph.inject(object);
   }

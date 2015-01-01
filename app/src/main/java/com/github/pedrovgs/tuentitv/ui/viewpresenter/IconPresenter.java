@@ -25,6 +25,12 @@ import android.widget.TextView;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
 
+/**
+ * Android Presenter extension created to show IconInfo information using an ImageView and one
+ * TextView. This presenter is used to show preferences in MainFragment.
+ *
+ * @author Pedro Vicente Gómez Sánchez
+ */
 public class IconPresenter extends Presenter {
 
   private IconInfo iconInfo;

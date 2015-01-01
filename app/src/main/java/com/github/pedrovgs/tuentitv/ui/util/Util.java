@@ -18,6 +18,8 @@ package com.github.pedrovgs.tuentitv.ui.util;
 import android.content.Context;
 
 /**
+ * Utility class created to contain some code related to Android user interface development.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class Util {
