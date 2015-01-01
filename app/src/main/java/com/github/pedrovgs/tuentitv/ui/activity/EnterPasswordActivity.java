@@ -30,6 +30,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
+ * Activity used to show enter password user interface and handle all the presentation logic
+ * related to the enter password process.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class EnterPasswordActivity extends BaseActivity implements EnterPasswordPresenter.View {

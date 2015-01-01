@@ -21,6 +21,11 @@ import com.github.pedrovgs.tuentitv.R;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Activity created to show SearchFragment.
+ *
+ * @author Pedro Vicente Gómez Sánchez
+ */
 public class SearchActivity extends BaseActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {

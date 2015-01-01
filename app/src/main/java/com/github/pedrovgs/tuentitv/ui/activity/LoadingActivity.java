@@ -25,6 +25,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Activity created to show a view with a big loading inside. Few seconds after this Activity be
+ * created, main activity is going to be show.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class LoadingActivity extends BaseActivity {
@@ -39,8 +42,16 @@ public class LoadingActivity extends BaseActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.loading_activity);
     super.onCreate(savedInstanceState);
-    pb_loading.getIndeterminateDrawable()
-        .setColorFilter(0x32FFFFFF, android.graphics.PorterDuff.Mode.MULTIPLY);
+    configureProgressBarColor();
+    startMainActivityOnLoadingFinished();
+  }
+
+  @Override public void onBackPressed() {
+    super.onBackPressed();
+    handler.removeCallbacks(startMainActivity);
+  }
+
+  private void startMainActivityOnLoadingFinished() {
     handler = new Handler();
     startMainActivity = new Runnable() {
       @Override public void run() {
@@ -50,15 +61,15 @@ public class LoadingActivity extends BaseActivity {
     handler.postDelayed(startMainActivity, LOADING_TIME_IN_MILLIS);
   }
 
-  @Override public void onBackPressed() {
-    super.onBackPressed();
-    handler.removeCallbacks(startMainActivity);
-  }
-
   private void startMainActivity() {
     Intent intent = new Intent(this, MainActivity.class);
     startActivity(intent);
     finish();
+  }
+
+  private void configureProgressBarColor() {
+    pb_loading.getIndeterminateDrawable()
+        .setColorFilter(0x32FFFFFF, android.graphics.PorterDuff.Mode.MULTIPLY);
   }
 
   @Override protected List getModules() {

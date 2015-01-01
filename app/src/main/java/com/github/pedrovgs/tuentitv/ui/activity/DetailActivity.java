@@ -24,6 +24,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Activity used as container of DetailFragment. This activity is also used to show recommendations
+ * using RecommendationService.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class DetailActivity extends BaseActivity {

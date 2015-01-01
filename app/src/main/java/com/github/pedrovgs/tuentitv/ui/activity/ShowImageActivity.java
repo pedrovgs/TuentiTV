@@ -27,6 +27,11 @@ import com.squareup.picasso.Picasso;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Activity created to show an Image given a URL passed as parameter.
+ *
+ * @author Pedro Vicente Gómez Sánchez
+ */
 public class ShowImageActivity extends BaseActivity {
 
   public static final String IMAGE_URL_EXTRA = "image_url_extra";
@@ -52,6 +57,10 @@ public class ShowImageActivity extends BaseActivity {
       }
     });
   }
+  
+  private String getImageUrlFromExtras() {
+    return getIntent().getExtras().getString(IMAGE_URL_EXTRA);
+  }
 
   private void animateImageView() {
     AlphaAnimation alphaAnimation = new AlphaAnimation(0f, 1.0f);
@@ -72,9 +81,5 @@ public class ShowImageActivity extends BaseActivity {
 
   @Override protected List getModules() {
     return new LinkedList();
-  }
-
-  public String getImageUrlFromExtras() {
-    return getIntent().getExtras().getString(IMAGE_URL_EXTRA);
   }
 }

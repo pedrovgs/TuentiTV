@@ -33,6 +33,13 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.inject.Inject;
 
+/**
+ * Activity created to show recent logged accounts and perform login process. This activity is
+ * going
+ * to use LoginPresenter as main collaborator to perform login process.
+ *
+ * @author Pedro Vicente Gómez Sánchez
+ */
 public class LoginActivity extends BaseActivity implements LoginPresenter.View {
 
   private static final int PASSWORD_REQUEST_CODE = 1;

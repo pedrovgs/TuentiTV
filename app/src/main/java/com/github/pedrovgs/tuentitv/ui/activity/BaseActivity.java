@@ -34,6 +34,9 @@ public abstract class BaseActivity extends FragmentActivity {
 
   private ObjectGraph activityObjectGraph;
 
+  /**
+   * Inject dependencies and views using Dagger and ButterKnife as libraries.
+   */
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     initializeDependencyInjectorForActivityScopeGraph();
