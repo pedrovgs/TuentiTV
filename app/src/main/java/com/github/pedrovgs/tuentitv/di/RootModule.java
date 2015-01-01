@@ -31,8 +31,16 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Main Dagger module created to provide every dependency with an application scope. This module is
- * going to be used to include other modules with application scope.
+ * Main Dagger module created to provide every dependency with an application scope and Application
+ * context. This module is  going to be used to include other modules with application scope and
+ * provide some Android common dependencies.
+ *
+ * This module injects every Activity/Fragment of this project because we are going to use activity
+ * graphs just to support a Navigator implementation described in this talk:
+ * http://www.slideshare.net/PedroVicenteGmezSnch/effective-android-ui-english
+ *
+ * Presenter implementations are injected over the activity graph without any provisioning method
+ * and that's why we don't need to inject Activities and Fragments in activity scope modules.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */

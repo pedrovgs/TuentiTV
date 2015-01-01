@@ -22,7 +22,8 @@ import dagger.Provides;
 
 /**
  * Main Dagger module created to provide every dependency with an application scope. This module is
- * going to be used to include other modules with application scope.
+ * used to create every Activity ObjectGraph and add the Activity context to the graph associated
+ * with the named annotation @ActivityContext.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */

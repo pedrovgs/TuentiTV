@@ -19,12 +19,14 @@ import com.github.pedrovgs.tuentitv.model.Accounts;
 import com.github.pedrovgs.tuentitv.model.Agenda;
 import com.github.pedrovgs.tuentitv.model.Chat;
 import com.github.pedrovgs.tuentitv.model.MediaGallery;
-import com.github.pedrovgs.tuentitv.recommendation.builder.RecommendationBuilder;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
 
 /**
+ * Dagger module created to provide main module dependencies. Every dependency provided here is
+ * going to be in the application graph.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 
@@ -44,9 +46,5 @@ import javax.inject.Singleton;
 
   @Provides @Singleton Chat provideChat() {
     return new Chat();
-  }
-
-  @Provides RecommendationBuilder provideRecommendationBuilder() {
-    return new RecommendationBuilder();
   }
 }

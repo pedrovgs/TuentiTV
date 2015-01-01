@@ -25,6 +25,7 @@ import android.support.v4.app.NotificationCompat;
 import com.github.pedrovgs.tuentitv.R;
 import com.squareup.picasso.Picasso;
 import java.io.IOException;
+import javax.inject.Inject;
 
 public class RecommendationBuilder {
 
@@ -40,7 +41,8 @@ public class RecommendationBuilder {
   private String backgroundUri;
   private PendingIntent pendingIntent;
 
-  public RecommendationBuilder() {
+  @Inject public RecommendationBuilder() {
+    //Empty
   }
 
   public RecommendationBuilder setContext(Context context) {
