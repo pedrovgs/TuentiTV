@@ -20,7 +20,10 @@ import android.content.Intent;
 import com.github.pedrovgs.tuentitv.TuentiTvApplication;
 
 /**
- * @author Pedro Vicente Gómez Sánchez.
+ * Base IntentService created to be extended by every service in this application. This class
+ * provides dependency injection configuration to every IntentService.
+ *
+ * @author Pedro Vicente Gómez Sánchez
  */
 public class BaseIntentService extends IntentService {
 

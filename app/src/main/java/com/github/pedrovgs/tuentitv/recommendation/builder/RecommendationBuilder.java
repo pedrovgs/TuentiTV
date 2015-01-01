@@ -27,6 +27,11 @@ import com.squareup.picasso.Picasso;
 import java.io.IOException;
 import javax.inject.Inject;
 
+/**
+ * Builder created to show Android TV notifications. Main collaborator of this class is
+ * NotificationManager and NotificationCompat notifications configured in recommendation mode to
+ * show notifications in the Android TV dashboard.
+ */
 public class RecommendationBuilder {
 
   private Context context;

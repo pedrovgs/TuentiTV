@@ -28,6 +28,11 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 /**
+ * IntentService extension created to show random recommendations. This class is not really needed,
+ * you can show recommendations using RecommendationBuilder or just NotificationManager from any
+ * part of your Android application. This service is used to show you can use also a service in
+ * Android TV applications.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class RecommendationService extends BaseIntentService {
@@ -49,7 +54,7 @@ public class RecommendationService extends BaseIntentService {
         prepareRecommendation(conversation);
         showRecommendation();
       }
-    }).start();
+    });
   }
 
   private ConversationSummary getRandomRecommendation() {
