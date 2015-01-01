@@ -21,6 +21,11 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import com.squareup.picasso.Transformation;
 
+/**
+ * Picasso Transformation created to apply a circular mask to the downloaded image.
+ *
+ * @author Pedro Vicente Gómez Sánchez
+ */
 public class CircleTransform implements Transformation {
 
   private final int size;
@@ -30,11 +35,6 @@ public class CircleTransform implements Transformation {
   }
 
   @Override public Bitmap transform(Bitmap source) {
-
-    int x = (source.getWidth() - size) / 2;
-    int y = (source.getHeight() - size) / 2;
-
-    //Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
     Bitmap squaredBitmap = Bitmap.createScaledBitmap(source, size, size, false);
     if (squaredBitmap != source) {
       source.recycle();

@@ -30,7 +30,7 @@ import static android.graphics.Paint.ANTI_ALIAS_FLAG;
 import static android.graphics.Shader.TileMode.REPEAT;
 
 /**
- * Picasso Transformation to change images color to grey scale.
+ * Picasso Transformation created to apply a gray scale color effect to downloaded images.
  *
  * @author Pedro Vicente Gómez Sánchez <pgomez@tuenti.com>
  */
@@ -62,6 +62,6 @@ public class GrayScaleTransformation implements Transformation {
   }
 
   @Override public String key() {
-    return "grayscaleTransformation()";
+    return "GrayScaleTransformation";
   }
 }
