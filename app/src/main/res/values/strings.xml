@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
   <string name="app_name">Tuenti TV</string>
   <string name="login_username">Username</string>
   <string name="login_password">Password</string>
@@ -18,5 +17,4 @@
   <string name="vd_call_action_title">Voz Digital Call</string>
   <string name="chat_action_title">Chat</string>
   <string name="edit_action_title">Edit</string>
-
 </resources>

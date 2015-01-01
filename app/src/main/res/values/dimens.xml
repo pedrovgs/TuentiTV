@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
   <dimen name="progress_bar_width">90dp</dimen>
   <dimen name="progress_bar_height">90dp</dimen>
   <dimen name="logo_margin_top">72dp</dimen>
@@ -18,5 +17,4 @@
   <dimen name="password_item_width">48dp</dimen>
   <dimen name="activity_horizontal_margin">16dp</dimen>
   <dimen name="activity_vertical_margin">16dp</dimen>
-
 </resources>

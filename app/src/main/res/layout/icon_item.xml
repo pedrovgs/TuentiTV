@@ -12,12 +12,15 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content">
 
+    <!-- Item Icon -->
+
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </ImageView>
 
+    <!-- Item Name -->
 
     <TextView
         android:id="@+id/tv_icon_title"

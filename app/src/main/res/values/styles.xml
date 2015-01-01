@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
   <style name="TuentiTvTheme" parent="@style/Theme.Leanback">
     <item name="android:windowBackground">@drawable/main_background</item>
   </style>
@@ -20,5 +19,4 @@
     <item name="android:layout_centerVertical">true</item>
     <item name="android:layout_centerHorizontal">true</item>
   </style>
-
 </resources>

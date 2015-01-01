@@ -6,7 +6,7 @@
     android:background="@drawable/loading_activity_bg"
     tools:context=".LoadingActivity">
 
-  <!-- Loading -->
+  <!-- Loading Progress Bar -->
 
   <ProgressBar
       android:id="@+id/pb_loading"

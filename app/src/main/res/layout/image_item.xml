@@ -6,6 +6,8 @@
     android:focusable="true"
     android:background="@color/third_color">
 
+  <!-- Media Element Image View -->
+
   <ImageView
       android:id="@+id/iv_media_element"
       android:layout_width="wrap_content"

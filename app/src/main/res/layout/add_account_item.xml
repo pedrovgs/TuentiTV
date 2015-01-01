@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
+  <!-- Add Account Image -->
+
   <ImageButton
       android:id="@+id/ib_account"
       android:layout_width="@dimen/account_item_size"
@@ -18,6 +20,8 @@
       android:alpha="0.5"
       android:stateListAnimator="@anim/account_login_item_background">
   </ImageButton>
+
+  <!-- Add Account Title -->
 
   <TextView
       android:id="@+id/tv_account_name"

@@ -34,6 +34,8 @@
       android:layout_centerInParent="true"
       android:gravity="center">
 
+    <!-- Accounts Avatars -->
+
     <include layout="@layout/account_item"/>
     <include layout="@layout/account_item"/>
     <include layout="@layout/account_item"/>
