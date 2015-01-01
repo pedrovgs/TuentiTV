@@ -20,6 +20,10 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ * Main class related to chat feature. This class contains the responsibility to return recent
+ * conversations, search conversations by id and return last unread conversations when needed.
+ * All the data this class returns is mocked for this sample.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class Chat {
@@ -33,10 +37,16 @@ public class Chat {
     random = new Random();
   }
 
+  /**
+   * @return return recent conversations related to the logged user.
+   */
   public List<ConversationSummary> getRecentConversations() {
     return conversations;
   }
 
+  /**
+   * @return conversations that matches with the conversation id passed as parameter.
+   */
   public ConversationSummary getConversationById(String conversationId) {
     ConversationSummary conversationSummary = null;
     for (ConversationSummary conversation : conversations) {
@@ -48,6 +58,9 @@ public class Chat {
     return conversationSummary;
   }
 
+  /**
+   * @return last unread conversation related to the logged user.
+   */
   public ConversationSummary getLastUnreadConversation() {
     int randomPosition = random.nextInt(conversations.size());
     ConversationSummary randomConversation = conversations.get(randomPosition);

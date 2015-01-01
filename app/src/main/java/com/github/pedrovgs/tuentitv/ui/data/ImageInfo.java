@@ -20,5 +20,7 @@ package com.github.pedrovgs.tuentitv.ui.data;
  */
 public interface ImageInfo {
 
+  String getTitle();
+
   String getImageUrl();
 }

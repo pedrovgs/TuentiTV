@@ -20,7 +20,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Main class related to login feature.
+ * Main class related to accounts feature. This class contains the responsibility to return recent
+ * logged accounts, check if the user is logged and perform login, logout operations. All the data
+ * this class returns is mocked for this sample.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
@@ -32,6 +34,9 @@ public class Accounts {
     //Empty
   }
 
+  /**
+   * @return last three recent logged accounts sorted by last login date.
+   */
   public List<Account> getRecentLoggedAccounts() {
     Account juanma = new Account("Juanma", "https://imrl.tuenti.net/MephbQPFZwIygHTjAA");
     Account emanuela =
@@ -41,14 +46,24 @@ public class Accounts {
     return Arrays.asList(juanma, emanuela, luisja);
   }
 
+  /**
+   * Perform login using an Account object to be used as logged Account during the application
+   * lifecycle.
+   */
   public void login(Account account) {
     loggedAccount = account;
   }
 
+  /**
+   * @return true if there is any user logged in this application and false if not.
+   */
   public boolean isUserLogged() {
     return loggedAccount != null;
   }
 
+  /**
+   * Perform logout process and remove the previous logged account as logged account.
+   */
   public void logout() {
     loggedAccount = null;
   }

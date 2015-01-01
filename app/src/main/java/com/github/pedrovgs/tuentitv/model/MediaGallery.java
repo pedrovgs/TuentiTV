@@ -19,6 +19,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Main class related to media feature. This class contains the responsibility to return media
+ * elements related to the logged user.All the data this class returns is mocked for this sample.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class MediaGallery {
@@ -30,6 +33,9 @@ public class MediaGallery {
     loadMediaElements();
   }
 
+  /**
+   * @return a list of MediaElement associated to the user logged in the application.
+   */
   public List<MediaElement> getLatestMediaElements() {
     return mediaElements;
   }

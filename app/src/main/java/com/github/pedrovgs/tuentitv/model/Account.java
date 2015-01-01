@@ -17,6 +17,8 @@ package com.github.pedrovgs.tuentitv.model;
 
 /**
  * Class created to represent user accounts. One user account user name and user avatar photo url.
+ * This immutable object is going to be used from the UI layer and from the Accounts object to
+ * return mocked data.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */

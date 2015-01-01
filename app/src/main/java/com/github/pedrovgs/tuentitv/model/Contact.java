@@ -18,7 +18,11 @@ package com.github.pedrovgs.tuentitv.model;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 
 /**
- * Class created to represent a user contact. One contact has a name and one avatar.
+ * Class created to represent a user contact. One contact has a name, one avatar and one secondary
+ * image and implements CardInfo interface to return Contact objects to the UI layer using this
+ * static type.
+ *
+ * For this sample we are going to use the contact name as id, don't do this at home ;)
  *
  * @author Pedro Vicente Gómez Sánchez.
  */

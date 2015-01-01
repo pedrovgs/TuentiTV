@@ -19,6 +19,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Main class related to contacts feature. This class contains the responsibility to return user
+ * logged contacts and favorite contacts. It also perform contact searches by name. All the data
+ * this class returns is mocked for this sample.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class Agenda {
@@ -33,14 +37,24 @@ public class Agenda {
     loadFavoriteContacts();
   }
 
+  /**
+   * @return every contact associated to the user logged sorted by name.
+   */
   public List<Contact> getContacts() {
     return contacts;
   }
 
+  /**
+   * @return contacts marked by the logged user as favorite contacts. Returns this information
+   * sorted by name.
+   */
   public List<Contact> getFavorites() {
     return favoriteContacts;
   }
 
+  /**
+   * @return a list of contacts that matches with a name passed as parameter.
+   */
   public List<Contact> getContactsWithName(String name) {
     List<Contact> searchResult = new LinkedList<Contact>();
     for (Contact contact : contacts) {
@@ -52,6 +66,9 @@ public class Agenda {
     return searchResult;
   }
 
+  /**
+   * @return a Contact that matches with the id passed as parameter.
+   */
   public Contact getContactById(String id) {
     Contact contactWithId = null;
     for (Contact contact : contacts) {
@@ -108,6 +125,8 @@ public class Agenda {
     favoriteContacts.add(
         new Contact("Joaquin Engelmo", "https://imrl.tuenti.net/MeqNvwQ3IFNBDGnUAA",
             "https://imrl.tuenti.net/MejJ5wRt9SGPKzF-AA"));
+    contacts.add(new Contact("Laura Rus", "https://imrl.tuenti.net/MefvswOREWiM7ehEAA",
+        "https://imrl.tuenti.net/MeOW2gOREWgfCrI-AA"));
     favoriteContacts.add(
         new Contact("Juanjo Torroglosa", "https://imrl.tuenti.net/IMwzMQOv3yxSsLLxAA",
             "https://imrl.tuenti.net/Mevl_gS9EGaDmKQ7AA"));
@@ -116,5 +135,7 @@ public class Agenda {
             "https://imrl.tuenti.net/MejiHgP0dhCo4kjrAA"));
     favoriteContacts.add(new Contact("Iván Mosquera", "https://imrl.tuenti.net/Mek7iQPYc565Wkj7AA",
         "https://imrl.tuenti.net/MepPAQS-zo6Lc9gnAA"));
+    contacts.add(new Contact("Carmen Barroso", "https://imrl.tuenti.net/MexNAAOXqRoOXZcYAA",
+        "https://imrl.tuenti.net/MepPIQS-zo5ircngAA"));
   }
 }

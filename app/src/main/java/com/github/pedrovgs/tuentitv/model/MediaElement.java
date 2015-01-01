@@ -18,6 +18,10 @@ package com.github.pedrovgs.tuentitv.model;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
 
 /**
+ * Base class of MediaGallery feature. This class contains all the data needed by the UI to show a
+ * MediaElement. This class implements ImageInfo interface to return MediaElement objects to the UI
+ * layer using ImageInfo static type.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class MediaElement implements ImageInfo {
@@ -28,6 +32,10 @@ public class MediaElement implements ImageInfo {
   public MediaElement(String title, String imageUrl) {
     this.title = title;
     this.imageUrl = imageUrl;
+  }
+
+  @Override public String getTitle() {
+    return title;
   }
 
   @Override public String getImageUrl() {

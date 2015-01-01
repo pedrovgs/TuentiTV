@@ -18,8 +18,11 @@ package com.github.pedrovgs.tuentitv.model;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 
 /**
- * Class created to represent a conversation summary. One conversation avatar, one
- * name and one last message.
+ * Class created to represent a conversation summary. One conversation avatar, one name and one
+ * last message. This class implements CardInfo interface to return ConversationSummary objects to
+ * the UI layer using CardInfo static type.
+ *
+ * For this sample we are going to use the conversation title as id, don't do this at home ;)
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
