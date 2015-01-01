@@ -29,7 +29,7 @@ import android.support.v17.leanback.widget.ListRowPresenter;
 import android.util.DisplayMetrics;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.presenter.DetailPresenter;
-import com.github.pedrovgs.tuentitv.presenter.DetailsDescriptionPresenter;
+import com.github.pedrovgs.tuentitv.ui.viewpresenter.DetailsDescriptionPresenter;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
 import com.github.pedrovgs.tuentitv.ui.util.Util;

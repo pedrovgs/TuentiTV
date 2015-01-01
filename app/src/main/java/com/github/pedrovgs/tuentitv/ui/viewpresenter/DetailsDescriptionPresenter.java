@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.pedrovgs.tuentitv.presenter;
+package com.github.pedrovgs.tuentitv.ui.viewpresenter;
 
 import android.support.v17.leanback.widget.AbstractDetailsDescriptionPresenter;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;

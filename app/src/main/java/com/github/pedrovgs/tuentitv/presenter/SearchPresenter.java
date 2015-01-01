@@ -21,6 +21,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
+ * Class created to work as search view presenter. This presenter has all the responsibility
+ * related search a contact using the name.
+ *
+ * Main collaborator of this class is Agenda, used to search contacts by name.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class SearchPresenter {

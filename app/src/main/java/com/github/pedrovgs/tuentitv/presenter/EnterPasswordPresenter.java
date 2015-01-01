@@ -18,17 +18,8 @@ package com.github.pedrovgs.tuentitv.presenter;
 import javax.inject.Inject;
 
 /**
- * Class created to work as login view presenter. This presenter has all the responsibility related
- * to the login view presentation logic.
- *
- * Responsibilities:
- *
- * - Obtains a list of accounts previously logged and shows it. For this sample we are going to
- * mock
- * all this information with fake accounts.
- *
- * - If the user clicks on one account is going to show the password dialog. If the user enters his
- * password this presenter is going to start next view.
+ * Class created to work as enter password view presenter. This presenter has all the
+ * responsibility related to capture user's password and return the result to the previous view.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */

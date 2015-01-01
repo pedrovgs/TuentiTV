@@ -33,15 +33,12 @@ import javax.inject.Inject;
 
 /**
  * Class created to work as main view presenter. This presenter has all the responsibility related
- * to the main view presentation logic.
+ * to the main view presentation logic: obtain a list of favorite contacts, obtain a list of recent
+ * conversations, show a list of all user's contacts sorted alphabetically.
  *
- * Responsibilities:
- *
- * - Obtains a list of favorite contacts.
- *
- * - Obtains a list of recent conversations.
- *
- * - Show a list of all user's contacts sorted alphabetically.
+ * Main collaborators of this class ar Accounts, Agenda, MediaGallery and Chat. Collaborators
+ * needed
+ * to perform all the business/presentation logic related to this view.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
@@ -74,15 +71,6 @@ public class MainPresenter {
     List<ImageInfo> mediaElements = getAllMediaElements();
     List<IconInfo> preferences = getPreferences();
     view.showMainInformation(favorites, conversations, contacts, mediaElements, preferences);
-  }
-
-  private List<IconInfo> getPreferences() {
-    List<IconInfo> preferences = new LinkedList<IconInfo>();
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
-    return preferences;
   }
 
   public void onCardInfoSelected(CardInfo cardInfo) {
@@ -136,6 +124,15 @@ public class MainPresenter {
   private List<ImageInfo> getAllMediaElements() {
     List<MediaElement> lastMediaElements = mediaGallery.getLatestMediaElements();
     return new ArrayList<ImageInfo>(lastMediaElements);
+  }
+
+  private List<IconInfo> getPreferences() {
+    List<IconInfo> preferences = new LinkedList<IconInfo>();
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    return preferences;
   }
 
   public interface View {

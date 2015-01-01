@@ -22,16 +22,13 @@ import javax.inject.Inject;
 
 /**
  * Class created to work as login view presenter. This presenter has all the responsibility related
- * to the login view presentation logic.
+ * to the login view presentation logic. This presenter has responsibilities related to obtains a
+ * list of accounts previously logged and shows it. For this sample we are going to mock all this
+ * information with fake accounts. If the user clicks on one account is going to show the password
+ * dialog. If the user enters his password this presenter is going to start next view.
  *
- * Responsibilities:
- *
- * - Obtains a list of accounts previously logged and shows it. For this sample we are going to
- * mock
- * all this information with fake accounts.
- *
- * - If the user clicks on one account is going to show the password dialog. If the user enters his
- * password this presenter is going to start next view.
+ * Account is the main collaborator of this presenter and is used to get recent logged accounts and
+ * log in the selected user.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
