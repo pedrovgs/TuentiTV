@@ -29,15 +29,18 @@ import android.support.v17.leanback.widget.ListRowPresenter;
 import android.util.DisplayMetrics;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.presenter.DetailPresenter;
-import com.github.pedrovgs.tuentitv.ui.viewpresenter.DetailsDescriptionPresenter;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
 import com.github.pedrovgs.tuentitv.ui.util.Util;
+import com.github.pedrovgs.tuentitv.ui.viewpresenter.DetailsDescriptionPresenter;
 import com.squareup.picasso.Picasso;
 import java.io.IOException;
 import javax.inject.Inject;
 
 /**
+ * DetailBaseFragment extension created to show detailed information of Contacts or
+ * ConversationSummary given an identifier passed as extra to the container activity.
+ *
  * @author Pedro Vicente Gómez Sánchez.
  */
 public class DetailFragment extends DetailBaseFragment implements DetailPresenter.View {
@@ -105,7 +108,7 @@ public class DetailFragment extends DetailBaseFragment implements DetailPresente
         adapter.add(detailRow);
         setAdapter(adapter);
       }
-    } .execute();
+    }.execute();
   }
 
   private DetailsOverviewRow configureDetailsOverviewRow(CardInfo cardInfo, Bitmap bitmap) {

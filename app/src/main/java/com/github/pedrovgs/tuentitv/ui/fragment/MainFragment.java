@@ -50,7 +50,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Main application fragment used to show most important information related to the user.
+ * BrowseFragment extension created to work as main application fragment and to show most important
+ * information related to the user. Favorite contacts, contacts, recent conversation, media gallery
+ * elements and other information like application preferences.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */

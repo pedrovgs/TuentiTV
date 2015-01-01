@@ -36,7 +36,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Search fragment created to support search functionality.
+ * Search fragment and SearchFragment extension created to support search functionality for
+ * contacts.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
@@ -72,17 +73,6 @@ public class SearchFragment extends SearchBaseFragment
     return rowsAdapter;
   }
 
-  private void queryByWords(String words) {
-    rowsAdapter.clear();
-    if (!TextUtils.isEmpty(words)) {
-      delayedLoad.setSearchQuery(words);
-      handler.removeCallbacks(delayedLoad);
-      handler.postDelayed(delayedLoad, SEARCH_DELAY_MS);
-    } else {
-      loadAllContacts();
-    }
-  }
-
   @Override public boolean onQueryTextChange(String newQuery) {
     Log.d(TAG, String.format("Search Query Text Change %s", newQuery));
     queryByWords(newQuery);
@@ -113,6 +103,19 @@ public class SearchFragment extends SearchBaseFragment
     rowsAdapter.add(new ListRow(headerItem, arrayObjectAdapter));
   }
 
+  protected OnItemClickedListener getDefaultItemClickedListener() {
+    return new OnItemClickedListener() {
+      @Override public void onItemClicked(Object item, Row row) {
+        Contact contact = (Contact) item;
+        String contactId = contact.getId();
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        intent.putExtra(DetailActivity.ID_EXTRA, contactId);
+        startActivity(intent);
+        getActivity().finish();
+      }
+    };
+  }
+  
   private void loadRows(String query) {
     loadContactsMatchingQuery(query);
     loadAllContacts();
@@ -126,17 +129,15 @@ public class SearchFragment extends SearchBaseFragment
     searchPresenter.searchContacts(query);
   }
 
-  protected OnItemClickedListener getDefaultItemClickedListener() {
-    return new OnItemClickedListener() {
-      @Override public void onItemClicked(Object item, Row row) {
-        Contact contact = (Contact) item;
-        String contactId = contact.getId();
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-        intent.putExtra(DetailActivity.ID_EXTRA, contactId);
-        startActivity(intent);
-        getActivity().finish();
-      }
-    };
+  private void queryByWords(String words) {
+    rowsAdapter.clear();
+    if (!TextUtils.isEmpty(words)) {
+      delayedLoad.setSearchQuery(words);
+      handler.removeCallbacks(delayedLoad);
+      handler.postDelayed(delayedLoad, SEARCH_DELAY_MS);
+    } else {
+      loadAllContacts();
+    }
   }
 
   private class SearchRunnable implements Runnable {
