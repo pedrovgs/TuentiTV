@@ -34,7 +34,6 @@ import android.view.View;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
 import com.github.pedrovgs.tuentitv.ui.activity.DetailActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
@@ -135,13 +134,10 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   @Override public void openDetailView(String id) {
-    cancelPendingBackgroundUpdates();
-    Intent intent = new Intent(getActivity(), DetailActivity.class);
-    intent.putExtra(DetailActivity.ID_EXTRA, id);
-    startActivity(intent);
+
   }
 
-  private void cancelPendingBackgroundUpdates() {
+  @Override public void cancelPendingBackgroundUpdates() {
     Picasso.with(getActivity()).cancelRequest(backgroundTarget);
     handler.removeCallbacks(lastChangeBackgroundRunnable);
   }

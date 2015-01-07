@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.github.pedrovgs.tuentitv.di.ActivityContext;
+import com.github.pedrovgs.tuentitv.ui.activity.DetailActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.EnterPasswordActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
@@ -65,10 +66,16 @@ public class Navigator {
     startActivity(intent);
   }
 
+  public void openDetailView(String id) {
+    Intent intent = generateBaseIntent(DetailActivity.class);
+    intent.putExtra(DetailActivity.ID_EXTRA, id);
+    startActivity(intent);
+  }
+
   private Intent generateBaseIntent(Class clazz) {
     return new Intent(context, clazz);
   }
-  
+
   private void startActivity(Intent intent) {
     context.startActivity(intent);
   }

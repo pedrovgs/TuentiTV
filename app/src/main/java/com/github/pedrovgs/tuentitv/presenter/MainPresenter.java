@@ -84,7 +84,8 @@ public class MainPresenter {
   }
 
   public void onCardInfoClicked(CardInfo item) {
-    view.openDetailView(item.getId());
+    view.cancelPendingBackgroundUpdates();
+    navigator.openDetailView(item.getId());
   }
 
   public void onImageInfoSelected(ImageInfo imageInfo) {
@@ -155,6 +156,6 @@ public class MainPresenter {
 
     void openImageView(String imageUrl);
 
-    void openDetailView(String id);
+    void cancelPendingBackgroundUpdates();
   }
 }
