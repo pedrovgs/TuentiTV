@@ -106,12 +106,7 @@ public class SearchFragment extends SearchBaseFragment
   protected OnItemClickedListener getDefaultItemClickedListener() {
     return new OnItemClickedListener() {
       @Override public void onItemClicked(Object item, Row row) {
-        Contact contact = (Contact) item;
-        String contactId = contact.getId();
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-        intent.putExtra(DetailActivity.ID_EXTRA, contactId);
-        startActivity(intent);
-        getActivity().finish();
+        searchPresenter.onContactClicked((Contact)item);
       }
     };
   }
