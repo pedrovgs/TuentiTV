@@ -126,7 +126,7 @@ public class Agenda {
     favoriteContacts.add(
         new Contact("Joaquin Engelmo", "https://imrl.tuenti.net/MeqNvwQ3IFNBDGnUAA",
             "https://imrl.tuenti.net/MejJ5wRt9SGPKzF-AA"));
-    contacts.add(new Contact("Laura Rus", "https://imrl.tuenti.net/MefvswOREWiM7ehEAA",
+    favoriteContacts.add(new Contact("Laura Rus", "https://imrl.tuenti.net/MefvswOREWiM7ehEAA",
         "https://imrl.tuenti.net/MeOW2gOREWgfCrI-AA"));
     favoriteContacts.add(
         new Contact("Juanjo Torroglosa", "https://imrl.tuenti.net/IMwzMQOv3yxSsLLxAA",
@@ -136,7 +136,7 @@ public class Agenda {
             "https://imrl.tuenti.net/MejiHgP0dhCo4kjrAA"));
     favoriteContacts.add(new Contact("Iván Mosquera", "https://imrl.tuenti.net/Mek7iQPYc565Wkj7AA",
         "https://imrl.tuenti.net/MepPAQS-zo6Lc9gnAA"));
-    contacts.add(new Contact("Carmen Barroso", "https://imrl.tuenti.net/MexNAAOXqRoOXZcYAA",
+    favoriteContacts.add(new Contact("Carmen Barroso", "https://imrl.tuenti.net/MexNAAOXqRoOXZcYAA",
         "https://imrl.tuenti.net/MepPIQS-zo5ircngAA"));
   }
 }
