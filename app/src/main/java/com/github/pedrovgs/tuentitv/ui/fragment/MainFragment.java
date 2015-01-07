@@ -127,16 +127,6 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     getActivity().finish();
   }
 
-  @Override public void openImageView(String imageUrl) {
-    Intent intent = new Intent(getActivity(), ShowImageActivity.class);
-    intent.putExtra(ShowImageActivity.IMAGE_URL_EXTRA, imageUrl);
-    startActivity(intent);
-  }
-
-  @Override public void openDetailView(String id) {
-
-  }
-
   @Override public void cancelPendingBackgroundUpdates() {
     Picasso.with(getActivity()).cancelRequest(backgroundTarget);
     handler.removeCallbacks(lastChangeBackgroundRunnable);

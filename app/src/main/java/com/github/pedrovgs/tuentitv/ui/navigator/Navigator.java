@@ -25,6 +25,7 @@ import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
+import com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity;
 import javax.inject.Inject;
 
 /**
@@ -69,6 +70,12 @@ public class Navigator {
   public void openDetailView(String id) {
     Intent intent = generateBaseIntent(DetailActivity.class);
     intent.putExtra(DetailActivity.ID_EXTRA, id);
+    startActivity(intent);
+  }
+
+  public void openImageView(String imageUrl) {
+    Intent intent = generateBaseIntent(ShowImageActivity.class);
+    intent.putExtra(ShowImageActivity.IMAGE_URL_EXTRA, imageUrl);
     startActivity(intent);
   }
 

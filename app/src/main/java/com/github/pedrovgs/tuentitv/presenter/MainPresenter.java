@@ -95,7 +95,7 @@ public class MainPresenter {
   }
 
   public void onImageInfoClicked(ImageInfo item) {
-    view.openImageView(item.getImageUrl());
+    navigator.openImageView(item.getImageUrl());
   }
 
   public void onPreferencesSelected() {
@@ -153,8 +153,6 @@ public class MainPresenter {
     void openSearchView();
 
     void closeView();
-
-    void openImageView(String imageUrl);
 
     void cancelPendingBackgroundUpdates();
   }
