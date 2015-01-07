@@ -103,6 +103,10 @@ public class SearchFragment extends SearchBaseFragment
     rowsAdapter.add(new ListRow(headerItem, arrayObjectAdapter));
   }
 
+  @Override public void finish() {
+    getActivity().finish();
+  }
+
   protected OnItemClickedListener getDefaultItemClickedListener() {
     return new OnItemClickedListener() {
       @Override public void onItemClicked(Object item, Row row) {
