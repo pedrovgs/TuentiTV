@@ -103,7 +103,7 @@ public class MainPresenter {
   }
 
   public void onSearchIconClicked() {
-    view.openSearchView();
+    navigator.openSearchView();
   }
 
   public void logout() {
@@ -149,8 +149,6 @@ public class MainPresenter {
         List<CardInfo> contacts, List<ImageInfo> mediaElements, List<IconInfo> preferences);
 
     void showDefaultBackground();
-
-    void openSearchView();
 
     void closeView();
 

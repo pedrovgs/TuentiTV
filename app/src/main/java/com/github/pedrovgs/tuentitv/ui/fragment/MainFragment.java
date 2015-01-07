@@ -118,11 +118,6 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     setAdapter(rowsAdapter);
   }
 
-  @Override public void openSearchView() {
-    Intent intent = new Intent(getActivity(), SearchActivity.class);
-    startActivity(intent);
-  }
-
   @Override public void closeView() {
     getActivity().finish();
   }
