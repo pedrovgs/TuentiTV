@@ -35,8 +35,8 @@ import com.squareup.picasso.Picasso;
 public class CardPresenter extends Presenter {
 
   private static Context context;
-  private static int CARD_WIDTH = 300;
-  private static int CARD_HEIGHT = 200;
+  private static int CARD_WIDTH = 170;
+  private static int CARD_HEIGHT = 115;
 
   static class ViewHolder extends Presenter.ViewHolder {
 

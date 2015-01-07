@@ -34,8 +34,8 @@ import com.squareup.picasso.Picasso;
  */
 public class ImagePresenter extends Presenter {
 
-  private static final int IMAGE_HEIGHT = 200;
-  private static final int IMAGE_WIDTH = 300;
+  private static final int IMAGE_WIDTH = 170;
+  private static final int IMAGE_HEIGHT = 115;
   private static Context context;
 
   static class ViewHolder extends Presenter.ViewHolder {
@@ -61,9 +61,6 @@ public class ImagePresenter extends Presenter {
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent) {
     context = parent.getContext();
     View view = LayoutInflater.from(context).inflate(R.layout.image_item, null);
-    ImageView imageView = (ImageView) view.findViewById(R.id.iv_media_element);
-    imageView.setMinimumHeight(Util.convertDpToPixel(context, IMAGE_HEIGHT));
-    imageView.setMinimumWidth(Util.convertDpToPixel(context, IMAGE_WIDTH));
     return new ViewHolder(view);
   }
 
