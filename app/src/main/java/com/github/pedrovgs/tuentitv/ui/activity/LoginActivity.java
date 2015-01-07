@@ -27,6 +27,7 @@ import butterknife.OnFocusChange;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.model.Account;
 import com.github.pedrovgs.tuentitv.presenter.LoginPresenter;
+import com.github.pedrovgs.tuentitv.ui.navigator.Navigator;
 import com.github.pedrovgs.tuentitv.ui.picasso.transformation.CircleTransform;
 import com.squareup.picasso.Picasso;
 import java.util.LinkedList;
@@ -45,6 +46,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
   private static final int PASSWORD_REQUEST_CODE = 1;
 
   @Inject LoginPresenter loginPresenter;
+  @Inject Navigator navigator;
 
   @InjectView(R.id.ll_accounts_container) ViewGroup ll_accounts_container;
   @InjectView(R.id.iv_app_logo) View iv_app_logo;
@@ -70,14 +72,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
   }
 
   @Override public void showPasswordBox() {
-    Intent intent = new Intent(this, EnterPasswordActivity.class);
-    startActivityForResult(intent, PASSWORD_REQUEST_CODE);
-  }
-
-  @Override public void openMainActivity() {
-    Intent openMainActivityIntent = new Intent(this, MainActivity.class);
-    startActivity(openMainActivityIntent);
-    finish();
+    navigator.startPasswordViewAndWaitForResult(PASSWORD_REQUEST_CODE);
   }
 
   @Override public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -87,7 +82,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
     }
   }
 
-  @Override public void closeView() {
+  @Override public void close() {
     finish();
   }
 

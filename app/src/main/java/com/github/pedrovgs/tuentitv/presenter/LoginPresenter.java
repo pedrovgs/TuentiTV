@@ -53,7 +53,8 @@ public class LoginPresenter {
 
   public void initialize() {
     if (isUserLoggedIn()) {
-      view.openMainActivity();
+      navigator.openMainView();
+      view.close();
     }
   }
 
@@ -74,7 +75,7 @@ public class LoginPresenter {
   public void loginWithSelectedUser() {
     accounts.login(selectedAccount);
     navigator.openLoadingView();
-    view.closeView();
+    view.close();
   }
 
   public boolean isUserLoggedIn() {
@@ -91,8 +92,6 @@ public class LoginPresenter {
 
     void showPasswordBox();
 
-    void openMainActivity();
-
-    void closeView();
+    void close();
   }
 }

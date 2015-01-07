@@ -15,9 +15,11 @@
  */
 package com.github.pedrovgs.tuentitv.ui.navigator;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.github.pedrovgs.tuentitv.di.ActivityContext;
+import com.github.pedrovgs.tuentitv.ui.activity.EnterPasswordActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
 import javax.inject.Inject;
@@ -30,10 +32,10 @@ import javax.inject.Inject;
  */
 public class Navigator {
 
-  private final Context context;
+  private final Activity context;
 
   @Inject public Navigator(@ActivityContext Context context) {
-    this.context = context;
+    this.context = (Activity) context;
   }
 
   public void openMainView() {
@@ -44,5 +46,10 @@ public class Navigator {
   public void openLoadingView() {
     Intent intent = new Intent(context, LoadingActivity.class);
     context.startActivity(intent);
+  }
+
+  public void startPasswordViewAndWaitForResult(int requestCode) {
+    Intent intent = new Intent(context, EnterPasswordActivity.class);
+    context.startActivityForResult(intent, requestCode);
   }
 }
