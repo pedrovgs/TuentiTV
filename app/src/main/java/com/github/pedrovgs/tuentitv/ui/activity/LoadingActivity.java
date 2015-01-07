@@ -15,14 +15,15 @@
  */
 package com.github.pedrovgs.tuentitv.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ProgressBar;
 import butterknife.InjectView;
 import com.github.pedrovgs.tuentitv.R;
+import com.github.pedrovgs.tuentitv.ui.navigator.Navigator;
 import java.util.LinkedList;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  * Activity created to show a view with a big loading inside. Few seconds after this Activity be
@@ -34,6 +35,7 @@ public class LoadingActivity extends BaseActivity {
 
   private static final long LOADING_TIME_IN_MILLIS = 3000;
 
+  @Inject private Navigator navigator;
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
 
   private Runnable startMainActivity;
@@ -62,8 +64,7 @@ public class LoadingActivity extends BaseActivity {
   }
 
   private void startMainActivity() {
-    Intent intent = new Intent(this, MainActivity.class);
-    startActivity(intent);
+    navigator.openMainActivity();
     finish();
   }
 

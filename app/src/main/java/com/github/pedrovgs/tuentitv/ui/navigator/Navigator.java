@@ -16,7 +16,9 @@
 package com.github.pedrovgs.tuentitv.ui.navigator;
 
 import android.content.Context;
+import android.content.Intent;
 import com.github.pedrovgs.tuentitv.di.ActivityContext;
+import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
 import javax.inject.Inject;
 
 /**
@@ -31,5 +33,10 @@ public class Navigator {
 
   @Inject public Navigator(@ActivityContext Context context) {
     this.context = context;
+  }
+
+  public void openMainActivity() {
+    Intent intent = new Intent(context, MainActivity.class);
+    context.startActivity(intent);
   }
 }
