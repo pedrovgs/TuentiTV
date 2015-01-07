@@ -17,6 +17,7 @@ package com.github.pedrovgs.tuentitv.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  * Main class related to media feature. This class contains the responsibility to return media
@@ -28,7 +29,7 @@ public class MediaGallery {
 
   private List<MediaElement> mediaElements;
 
-  public MediaGallery() {
+  @Inject public MediaGallery() {
     mediaElements = new LinkedList<MediaElement>();
     loadMediaElements();
   }

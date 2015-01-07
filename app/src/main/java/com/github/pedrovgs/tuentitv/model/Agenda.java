@@ -17,6 +17,7 @@ package com.github.pedrovgs.tuentitv.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  * Main class related to contacts feature. This class contains the responsibility to return user
@@ -30,7 +31,7 @@ public class Agenda {
   private final List<Contact> contacts;
   private final List<Contact> favoriteContacts;
 
-  public Agenda() {
+  @Inject public Agenda() {
     contacts = new LinkedList<Contact>();
     favoriteContacts = new LinkedList<Contact>();
     loadContacts();

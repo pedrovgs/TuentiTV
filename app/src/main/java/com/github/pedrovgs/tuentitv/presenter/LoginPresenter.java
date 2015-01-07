@@ -17,6 +17,7 @@ package com.github.pedrovgs.tuentitv.presenter;
 
 import com.github.pedrovgs.tuentitv.model.Account;
 import com.github.pedrovgs.tuentitv.model.Accounts;
+import com.github.pedrovgs.tuentitv.ui.navigator.Navigator;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -35,12 +36,15 @@ import javax.inject.Inject;
 public class LoginPresenter {
 
   private final Accounts accounts;
+  private final Navigator navigator;
+
   private View view;
   private List<Account> accountList;
   private Account selectedAccount;
 
-  @Inject public LoginPresenter(Accounts accounts) {
+  @Inject public LoginPresenter(Accounts accounts, Navigator navigator) {
     this.accounts = accounts;
+    this.navigator = navigator;
   }
 
   public void setView(View view) {
@@ -69,7 +73,8 @@ public class LoginPresenter {
 
   public void loginWithSelectedUser() {
     accounts.login(selectedAccount);
-    view.openLoadingActivity();
+    navigator.openLoadingView();
+    view.closeView();
   }
 
   public boolean isUserLoggedIn() {
@@ -88,6 +93,6 @@ public class LoginPresenter {
 
     void openMainActivity();
 
-    void openLoadingActivity();
+    void closeView();
   }
 }

@@ -18,15 +18,6 @@ package com.github.pedrovgs.tuentitv.di;
 import android.content.Context;
 import com.github.pedrovgs.tuentitv.TuentiTvApplication;
 import com.github.pedrovgs.tuentitv.recommendation.service.RecommendationService;
-import com.github.pedrovgs.tuentitv.ui.activity.DetailActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.EnterPasswordActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity;
-import com.github.pedrovgs.tuentitv.ui.fragment.DetailFragment;
-import com.github.pedrovgs.tuentitv.ui.fragment.MainFragment;
-import com.github.pedrovgs.tuentitv.ui.fragment.SearchFragment;
 import dagger.Module;
 import dagger.Provides;
 
@@ -47,10 +38,7 @@ import dagger.Provides;
 @Module(
     includes = { TuentiTvApplicationModule.class },
     injects = {
-        TuentiTvApplication.class, EnterPasswordActivity.class, LoadingActivity.class,
-        MainActivity.class, MainFragment.class, SearchActivity.class, SearchFragment.class,
-        ShowImageActivity.class, DetailActivity.class, DetailFragment.class,
-        RecommendationService.class
+        TuentiTvApplication.class, RecommendationService.class
     }, library = true) public class RootModule {
 
   private final Context context;

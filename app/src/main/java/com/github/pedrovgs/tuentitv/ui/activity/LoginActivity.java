@@ -87,9 +87,7 @@ public class LoginActivity extends BaseActivity implements LoginPresenter.View {
     }
   }
 
-  @Override public void openLoadingActivity() {
-    Intent intent = new Intent(this, LoadingActivity.class);
-    startActivity(intent);
+  @Override public void closeView() {
     finish();
   }
 

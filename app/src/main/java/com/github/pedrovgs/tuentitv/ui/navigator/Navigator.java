@@ -18,6 +18,7 @@ package com.github.pedrovgs.tuentitv.ui.navigator;
 import android.content.Context;
 import android.content.Intent;
 import com.github.pedrovgs.tuentitv.di.ActivityContext;
+import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
 import javax.inject.Inject;
 
@@ -35,8 +36,13 @@ public class Navigator {
     this.context = context;
   }
 
-  public void openMainActivity() {
+  public void openMainView() {
     Intent intent = new Intent(context, MainActivity.class);
+    context.startActivity(intent);
+  }
+
+  public void openLoadingView() {
+    Intent intent = new Intent(context, LoadingActivity.class);
     context.startActivity(intent);
   }
 }

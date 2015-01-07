@@ -18,6 +18,7 @@ package com.github.pedrovgs.tuentitv.model;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import javax.inject.Inject;
 
 /**
  * Main class related to chat feature. This class contains the responsibility to return recent
@@ -31,7 +32,7 @@ public class Chat {
   private List<ConversationSummary> conversations;
   private Random random;
 
-  public Chat() {
+  @Inject public Chat() {
     conversations = new LinkedList<ConversationSummary>();
     loadConversations();
     random = new Random();

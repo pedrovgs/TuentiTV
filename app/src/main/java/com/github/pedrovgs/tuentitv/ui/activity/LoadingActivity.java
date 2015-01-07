@@ -35,7 +35,7 @@ public class LoadingActivity extends BaseActivity {
 
   private static final long LOADING_TIME_IN_MILLIS = 3000;
 
-  @Inject private Navigator navigator;
+  @Inject Navigator navigator;
   @InjectView(R.id.pb_loading) ProgressBar pb_loading;
 
   private Runnable startMainActivity;
@@ -64,7 +64,7 @@ public class LoadingActivity extends BaseActivity {
   }
 
   private void startMainActivity() {
-    navigator.openMainActivity();
+    navigator.openMainView();
     finish();
   }
 
