@@ -26,6 +26,7 @@ import com.github.pedrovgs.tuentitv.model.MediaGallery;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
+import com.github.pedrovgs.tuentitv.ui.navigator.Navigator;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -48,15 +49,18 @@ public class MainPresenter {
   private final Agenda agenda;
   private final MediaGallery mediaGallery;
   private final Chat chat;
+  private final Navigator navigator;
 
   private View view;
 
   @Inject
-  public MainPresenter(Accounts accounts, Agenda agenda, MediaGallery mediaGallery, Chat chat) {
+  public MainPresenter(Accounts accounts, Agenda agenda, MediaGallery mediaGallery, Chat chat,
+      Navigator navigator) {
     this.accounts = accounts;
     this.agenda = agenda;
     this.mediaGallery = mediaGallery;
     this.chat = chat;
+    this.navigator = navigator;
   }
 
   public void setView(View view) {
@@ -103,7 +107,8 @@ public class MainPresenter {
 
   public void logout() {
     accounts.logout();
-    view.closeAndGoToLoginActivity();
+    navigator.openLoginView();
+    view.closeView();
   }
 
   private List<CardInfo> getFavoriteContacts() {
@@ -146,7 +151,7 @@ public class MainPresenter {
 
     void openSearchView();
 
-    void closeAndGoToLoginActivity();
+    void closeView();
 
     void openImageView(String imageUrl);
 

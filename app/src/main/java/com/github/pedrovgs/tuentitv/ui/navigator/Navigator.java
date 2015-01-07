@@ -21,6 +21,7 @@ import android.content.Intent;
 import com.github.pedrovgs.tuentitv.di.ActivityContext;
 import com.github.pedrovgs.tuentitv.ui.activity.EnterPasswordActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.LoadingActivity;
+import com.github.pedrovgs.tuentitv.ui.activity.LoginActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.MainActivity;
 import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
 import javax.inject.Inject;
@@ -41,12 +42,12 @@ public class Navigator {
 
   public void openMainView() {
     Intent intent = generateBaseIntent(MainActivity.class);
-    context.startActivity(intent);
+    startActivity(intent);
   }
 
   public void openLoadingView() {
     Intent intent = generateBaseIntent(LoadingActivity.class);
-    context.startActivity(intent);
+    startActivity(intent);
   }
 
   public void startPasswordViewAndWaitForResult(int requestCode) {
@@ -56,10 +57,19 @@ public class Navigator {
 
   public void openSearchView() {
     Intent intent = generateBaseIntent(SearchActivity.class);
-    context.startActivity(intent);
+    startActivity(intent);
+  }
+
+  public void openLoginView() {
+    Intent intent = generateBaseIntent(LoginActivity.class);
+    startActivity(intent);
   }
 
   private Intent generateBaseIntent(Class clazz) {
     return new Intent(context, clazz);
+  }
+  
+  private void startActivity(Intent intent) {
+    context.startActivity(intent);
   }
 }

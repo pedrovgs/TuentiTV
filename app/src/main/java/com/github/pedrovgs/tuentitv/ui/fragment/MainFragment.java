@@ -124,8 +124,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
     startActivity(intent);
   }
 
-  @Override public void closeAndGoToLoginActivity() {
-    startActivity(new Intent(getActivity(), LoginActivity.class));
+  @Override public void closeView() {
     getActivity().finish();
   }
 
