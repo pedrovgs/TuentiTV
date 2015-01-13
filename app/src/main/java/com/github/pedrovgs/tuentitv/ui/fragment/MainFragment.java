@@ -36,6 +36,7 @@ import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
 import com.github.pedrovgs.tuentitv.ui.picasso.PicassoBackgroundManagerTarget;
+import com.github.pedrovgs.tuentitv.ui.picasso.transformation.BlurTransformation;
 import com.github.pedrovgs.tuentitv.ui.picasso.transformation.GrayScaleTransformation;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.CardPresenter;
 import com.github.pedrovgs.tuentitv.ui.viewpresenter.IconPresenter;
@@ -238,6 +239,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
           .load(photo)
           .placeholder(R.drawable.fragment_default_background)
           .transform(new GrayScaleTransformation())
+          .transform(new BlurTransformation(context))
           .into(backgroundTarget);
     }
   }
