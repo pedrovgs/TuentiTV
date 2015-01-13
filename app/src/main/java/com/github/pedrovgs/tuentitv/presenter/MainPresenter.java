@@ -134,10 +134,10 @@ public class MainPresenter {
 
   private List<IconInfo> getPreferences() {
     List<IconInfo> preferences = new LinkedList<IconInfo>();
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
-    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_wink));
+    preferences.add(new IconInfo(R.string.change_pattern, R.drawable.icn_settings_change_pattern));
+    preferences.add(new IconInfo(R.string.account, R.drawable.icn_settings_account));
+    preferences.add(new IconInfo(R.string.settings, R.drawable.icn_settings));
+    preferences.add(new IconInfo(R.string.close_session, R.drawable.icn_settings_log_out));
     return preferences;
   }
 
