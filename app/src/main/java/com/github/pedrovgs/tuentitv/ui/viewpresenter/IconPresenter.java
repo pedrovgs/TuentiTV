@@ -38,7 +38,7 @@ public class IconPresenter extends Presenter {
   private TextView tv_icon_title;
 
   public ViewHolder onCreateViewHolder(ViewGroup parent) {
-    Context context = parent.getContext();
+    final Context context = parent.getContext();
     LayoutInflater layoutInflater = LayoutInflater.from(context);
     View view = layoutInflater.inflate(R.layout.icon_item, null);
     iv_icon = (ImageView) view.findViewById(R.id.iv_icon);

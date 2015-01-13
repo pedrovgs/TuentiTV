@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v17.leanback.widget.BaseCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/primary_color_dark"
+    android:background="@color/fourth_color"
     android:layout_margin="@dimen/item_margin"
-    android:gravity="center_horizontal"
     android:focusable="true">
 
-  <android.support.v17.leanback.widget.BaseCardView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
-
-    <!-- Item Icon -->
-
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ImageView>
+  <RelativeLayout
+      android:layout_height="112dp"
+      android:layout_width="112dp">
 
     <!-- Item Name -->
 
     <TextView
         android:id="@+id/tv_icon_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:text="@string/settings"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@color/fifth_color"
         android:textColor="@color/secondary_color"
-        android:textSize="@dimen/title_text_size"/>
+        android:textSize="@dimen/subtitle_text_size"/>
 
-  </android.support.v17.leanback.widget.BaseCardView>
-</LinearLayout>
+    <!-- Item Icon -->
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@id/tv_icon_title"
+        android:src="@drawable/icn_settings"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="18dp">
+    </ImageView>
+
+
+  </RelativeLayout>
+</android.support.v17.leanback.widget.BaseCardView>

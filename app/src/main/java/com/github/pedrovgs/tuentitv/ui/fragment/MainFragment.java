@@ -16,7 +16,6 @@
 package com.github.pedrovgs.tuentitv.ui.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v17.leanback.app.BackgroundManager;
@@ -33,9 +32,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import com.github.pedrovgs.tuentitv.R;
 import com.github.pedrovgs.tuentitv.presenter.MainPresenter;
-import com.github.pedrovgs.tuentitv.ui.activity.DetailActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.SearchActivity;
-import com.github.pedrovgs.tuentitv.ui.activity.ShowImageActivity;
 import com.github.pedrovgs.tuentitv.ui.data.CardInfo;
 import com.github.pedrovgs.tuentitv.ui.data.IconInfo;
 import com.github.pedrovgs.tuentitv.ui.data.ImageInfo;
@@ -206,7 +202,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
         if (row.getId() == PREFERENCES_ROW) {
           int id = ((IconInfo) item).getIconId();
           switch (id) {
-            case R.drawable.icn_wink:
+            case R.drawable.icn_settings_log_out:
               presenter.logout();
               break;
             default:

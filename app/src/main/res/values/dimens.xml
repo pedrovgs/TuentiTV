@@ -10,6 +10,7 @@
   <dimen name="account_item_margin_top">66dp</dimen>
   <dimen name="account_item_margin_bottom">36dp</dimen>
   <dimen name="title_text_size">18sp</dimen>
+  <dimen name="subtitle_text_size">14sp</dimen>
   <dimen name="enter_password_box_width">464dp</dimen>
   <dimen name="enter_password_box_height">96dp</dimen>
   <dimen name="password_item_lateral_margin">16dp</dimen>

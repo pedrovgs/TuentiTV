@@ -12,12 +12,12 @@
   <string name="preferences">Preferences</string>
   <string name="hello_world">Hello world!</string>
   <string name="action_settings">Settings</string>
-  <string name="close_session">Close session</string>
+  <string name="close_session">Log Out</string>
   <string name="call_action_title">Call</string>
   <string name="vd_call_action_title">Voz Digital Call</string>
   <string name="chat_action_title">Chat</string>
   <string name="edit_action_title">Edit</string>
-  <string name="change_pattern">Change Pattern</string>
+  <string name="change_pattern">Pattern</string>
   <string name="account">Account</string>
   <string name="settings">Settings</string>
 </resources>
