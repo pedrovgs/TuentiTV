@@ -53,6 +53,8 @@ import javax.inject.Inject;
  */
 public class MainFragment extends BrowseBaseFragment implements MainPresenter.View {
 
+  private static final int CARD_WIDTH_IN_DP = 260;
+  private static final int CARD_HEIGHT_IN_DP = 150;
   private static final int UPDATE_BACKGROUND_IMAGE_DELAY_MILLIS = 700;
   private static final int FAVORITES_ROW = 1;
   private static final int CONVERSATIONS_ROW = 2;
@@ -98,14 +100,15 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   @Override public void showMainInformation(List<CardInfo> favorites, List<CardInfo> conversations,
       List<CardInfo> contacts, List<ImageInfo> mediaElements, List<IconInfo> preferences) {
     ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
-    CardPresenter cardPresenter = new CardPresenter();
+    CardPresenter bigCardPresenter = new CardPresenter(CARD_WIDTH_IN_DP, CARD_HEIGHT_IN_DP);
+    CardPresenter smallCarPresenter = new CardPresenter();
 
     addCardInfoElementsToRowsAdapter(R.string.favorites_item_title, favorites, rowsAdapter,
-        cardPresenter, FAVORITES_ROW);
+        smallCarPresenter, FAVORITES_ROW);
     addCardInfoElementsToRowsAdapter(R.string.recent_conversation_item_title, conversations,
-        rowsAdapter, cardPresenter, CONVERSATIONS_ROW);
+        rowsAdapter, bigCardPresenter, CONVERSATIONS_ROW);
     addCardInfoElementsToRowsAdapter(R.string.contacts_item_title, contacts, rowsAdapter,
-        cardPresenter, CONTACTS_ROW);
+        smallCarPresenter, CONTACTS_ROW);
     addImageInfoElementsToRowAdapter(R.string.media_elements_item_title, mediaElements, rowsAdapter,
         new ImagePresenter(), MEDIA_ROW);
     addIconInfoElementsToRowAdapter(getResources().getString(R.string.preferences), preferences,

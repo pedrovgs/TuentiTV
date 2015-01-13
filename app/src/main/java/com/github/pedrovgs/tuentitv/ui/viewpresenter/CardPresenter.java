@@ -34,11 +34,24 @@ import com.squareup.picasso.Picasso;
  */
 public class CardPresenter extends Presenter {
 
-  private static Context context;
-  private static int CARD_WIDTH = 170;
-  private static int CARD_HEIGHT = 115;
+  private Context context;
 
-  static class ViewHolder extends Presenter.ViewHolder {
+  private static final int DEFAULT_CARD_WIDTH_IN_DP = 170;
+  private static final int DEFAULT_CARD_HEIGHT_IN_DP = 115;
+
+  private final int cardWidthInDp;
+  private final int cardHeightInDp;
+
+  public CardPresenter() {
+    this(DEFAULT_CARD_WIDTH_IN_DP, DEFAULT_CARD_HEIGHT_IN_DP);
+  }
+
+  public CardPresenter(int cardWidthInDp, int cardHeightInDp) {
+    this.cardWidthInDp = cardWidthInDp;
+    this.cardHeightInDp = cardHeightInDp;
+  }
+
+  class ViewHolder extends Presenter.ViewHolder {
 
     private ImageCardView imageCardView;
     private Drawable defaultCardImage;
@@ -54,8 +67,8 @@ public class CardPresenter extends Presenter {
     protected void updateCardViewImage(String url) {
       Picasso.with(context)
           .load(url)
-          .resize(Util.convertDpToPixel(context, CARD_WIDTH),
-              Util.convertDpToPixel(context, CARD_HEIGHT))
+          .resize(Util.convertDpToPixel(context, cardWidthInDp),
+              Util.convertDpToPixel(context, cardHeightInDp))
           .centerCrop()
           .placeholder(defaultCardImage)
           .into(imageCardViewTarget);
@@ -76,8 +89,8 @@ public class CardPresenter extends Presenter {
     if (cardInfo.getCardImageUrl() != null) {
       ((ViewHolder) viewHolder).imageCardView.setTitleText(cardInfo.getTitle());
       ((ViewHolder) viewHolder).imageCardView.setContentText(cardInfo.getText());
-      int cardWidth = Util.convertDpToPixel(context, CARD_WIDTH);
-      int cardHeight = Util.convertDpToPixel(context, CARD_HEIGHT);
+      int cardWidth = Util.convertDpToPixel(context, cardWidthInDp);
+      int cardHeight = Util.convertDpToPixel(context, cardHeightInDp);
       ((ViewHolder) viewHolder).imageCardView.setMainImageDimensions(cardWidth, cardHeight);
       ((ViewHolder) viewHolder).updateCardViewImage(cardInfo.getCardImageUrl());
     }

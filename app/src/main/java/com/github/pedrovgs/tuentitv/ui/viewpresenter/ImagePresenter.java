@@ -34,11 +34,12 @@ import com.squareup.picasso.Picasso;
  */
 public class ImagePresenter extends Presenter {
 
-  private static final int IMAGE_WIDTH = 170;
-  private static final int IMAGE_HEIGHT = 115;
-  private static Context context;
+  private static final int IMAGE_WIDTH = 150;
+  private static final int IMAGE_HEIGHT = 260;
 
-  static class ViewHolder extends Presenter.ViewHolder {
+  private Context context;
+
+  class ViewHolder extends Presenter.ViewHolder {
 
     private ImageView imageView;
 

@@ -10,8 +10,8 @@
 
   <ImageView
       android:id="@+id/iv_media_element"
-      android:layout_width="170dp"
-      android:layout_height="115dp"
+      android:layout_width="260dp"
+      android:layout_height="150dp"
       android:scaleType="centerCrop"/>
 
 </android.support.v17.leanback.widget.BaseCardView>
