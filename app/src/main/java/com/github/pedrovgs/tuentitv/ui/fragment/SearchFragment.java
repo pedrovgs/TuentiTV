@@ -97,7 +97,8 @@ public class SearchFragment extends SearchBaseFragment
     for (Contact contact : contacts) {
       arrayObjectAdapter.add(contact);
     }
-    HeaderItem headerItem = new HeaderItem(query, "");
+    String resultSearchTitle = getString(R.string.search_result, query);
+    HeaderItem headerItem = new HeaderItem(resultSearchTitle, "");
     rowsAdapter.add(new ListRow(headerItem, arrayObjectAdapter));
   }
 
