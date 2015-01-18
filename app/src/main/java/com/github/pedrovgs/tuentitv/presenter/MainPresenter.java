@@ -80,6 +80,8 @@ public class MainPresenter {
   public void onCardInfoSelected(CardInfo cardInfo) {
     if (cardInfo != null) {
       view.updateBackground(cardInfo.getSecondaryImage());
+    } else {
+      view.showDefaultBackground();
     }
   }
 

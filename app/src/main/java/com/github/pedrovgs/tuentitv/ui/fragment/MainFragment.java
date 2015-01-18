@@ -86,6 +86,8 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
         .load(R.drawable.fragment_default_background)
         .placeholder(R.drawable.fragment_default_background)
         .resize(metrics.widthPixels, metrics.heightPixels)
+        .transform(new GrayScaleTransformation())
+        .transform(new BlurTransformation(getActivity()))
         .centerCrop()
         .into(backgroundTarget);
   }
@@ -237,7 +239,6 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
       Picasso.with(context).cancelRequest(backgroundTarget);
       Picasso.with(context)
           .load(photo)
-          .placeholder(R.drawable.fragment_default_background)
           .transform(new GrayScaleTransformation())
           .transform(new BlurTransformation(context))
           .into(backgroundTarget);
