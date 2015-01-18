@@ -42,7 +42,7 @@ public class PicassoBackgroundManagerTarget implements Target {
   }
 
   @Override public void onPrepareLoad(Drawable drawable) {
-    this.backgroundManager.setDrawable(drawable);
+    //Empty. We don't want to support placeholders.
   }
 
   @Override public boolean equals(Object o) {

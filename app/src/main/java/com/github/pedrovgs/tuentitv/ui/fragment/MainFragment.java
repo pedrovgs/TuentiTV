@@ -172,7 +172,7 @@ public class MainFragment extends BrowseBaseFragment implements MainPresenter.Vi
   }
 
   private void configureApplicationIcon() {
-    setBadgeDrawable(getResources().getDrawable(R.drawable.icn_wink));
+    setBadgeDrawable(getResources().getDrawable(R.drawable.icn_wink_main_fragment));
   }
 
   private void hookListeners() {
