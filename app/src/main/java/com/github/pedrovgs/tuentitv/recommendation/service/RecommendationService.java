@@ -54,7 +54,7 @@ public class RecommendationService extends BaseIntentService {
         prepareRecommendation(conversation);
         showRecommendation();
       }
-    });
+    }).start();
   }
 
   private ConversationSummary getRandomRecommendation() {
