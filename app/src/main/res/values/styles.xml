@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- I don't have more time to continue working with styles and dimensions. Sorry, I'll improve this if I have time -->
 <resources>
   <style name="TuentiTvTheme" parent="@style/Theme.Leanback">
     <item name="android:windowBackground">@drawable/main_background</item>
