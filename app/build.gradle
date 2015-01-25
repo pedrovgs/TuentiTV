@@ -34,12 +34,11 @@ android {
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:leanback-v17:+'
-  compile 'com.android.support:recyclerview-v7:+'
-  compile 'com.android.support:appcompat-v7:21.0.+'
+  compile 'com.android.support:leanback-v17:21.0.3'
+  compile 'com.android.support:appcompat-v7:21.0.3'
   provided 'com.squareup.dagger:dagger-compiler:1.2.2'
   compile 'com.squareup.dagger:dagger:1.2.2'
-  compile 'com.jakewharton:butterknife:6.0.+'
+  compile 'com.jakewharton:butterknife:6.0.0'
   compile 'com.squareup.picasso:picasso:2.4.0'
 }
 
