@@ -26,17 +26,29 @@ Implementation description
 
 [Working with Android TV Slides - English][2]
 
+Video
+-----
+
+[Tuenti TV Project - Video] [3]
+
 Screenshots
 ------------
 
-![Demo Screenshot 1][3]
+![Demo Screenshot 1][4]
+![Demo Screenshot 2][5]
+![Demo Screenshot 3][6]
+![Demo Screenshot 4][7]
+![Demo Screenshot 5][8]
+![Demo Screenshot 6][9]
+![Demo Screenshot 7][10]
+![Demo Screenshot 8][11]
 
 Libraries used on the sample project
 ------------------------------------
 
-* [Dagger][4]
-* [Butterknife][5]
-* [Picasso][6]
+* [Dagger][12]
+* [Butterknife][13]
+* [Picasso][14]
 
 
 Developed By
@@ -72,7 +84,15 @@ License
 
 [1]: TBD
 [2]: TBD
-[3]: ./art/screenshot1.png
-[4]: https://github.com/square/dagger
-[5]: https://github.com/JakeWharton/butterknife
-[6]: https://github.com/square/picasso
+[3]: https://www.youtube.com/watch?v=cHrFp69qZVA
+[4]: ./art/screenshot1.png
+[5]: ./art/screenshot2.png
+[6]: ./art/screenshot3.png
+[7]: ./art/screenshot4.png
+[8]: ./art/screenshot5.png
+[9]: ./art/screenshot6.png
+[10]: ./art/screenshot7.png
+[11]:  ./art/screenshot8.png
+[12]: https://github.com/square/dagger
+[13]: https://github.com/JakeWharton/butterknife
+[14]: https://github.com/square/picasso
