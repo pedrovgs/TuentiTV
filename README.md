@@ -82,7 +82,7 @@ License
     limitations under the License.
 
 
-[1]: http://corporate.tuenti.com/es/dev/blog/Tuenti-For-Android-TV
+[1]: http://corporate.tuenti.com/es/dev/blog/Tuenti-for-Android-TV
 [2]: http://www.slideshare.net/PedroVicenteGmezSnch/TuentiTV
 [3]: https://www.youtube.com/watch?v=cHrFp69qZVA
 [4]: ./art/screenshot1.png
