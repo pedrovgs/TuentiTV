@@ -3,7 +3,7 @@ Tuenti TV - Android TV sample project
 
 Sample project created to show some of the most important features related to Android TV projects. This little sample uses mocked data to simulate an application working with information from Tuenti servers.
 
-In this repository you are going to find som interesting samples like:
+In this repository you are going to find some interesting samples to work with Android TV like:
 
 * How to configure Android dependencies to create an Android TV application. **Leanback** is the most important dependency.
 * Hos to configure an Activity to work as **Launcher Activity** for Android TV projects.
