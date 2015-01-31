@@ -19,15 +19,8 @@ In this repository you are going to find some interesting samples to work with A
 * How to capture Android TV **DPAD events**.
 * How to **create your own presenters** to use with **ArrayObjectAdapter**.
 
-Implementation description
---------------------------
-
-[Tuenti TV Android Project - Blog Post][1]
-
-[Working with Android TV Slides - English][2]
-
-Video
------
+Application Screencast
+----------------------
 
 [Tuenti TV Project - Video] [3]
 
