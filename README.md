@@ -1,5 +1,5 @@
-Tuenti TV - Android TV sample project
-=====================================
+Tuenti TV
+=========
 
 Sample project created to show some of the most important features related to Android TV projects. This little sample uses mocked data to simulate an application working with information from Tuenti servers.
 
