@@ -1,4 +1,4 @@
-Tuenti for Android TV
+Tuenti for Android TV [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-TuentiTV-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/1465)
 =====================
 
 Sample project created to show some of the most important features related to Android TV projects. This little sample uses mocked data to simulate an application working with information from Tuenti servers.
