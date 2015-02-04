@@ -23,6 +23,7 @@ Implementation description
 --------------------------
 
 [Tuenti for Android TV - Blog Post][1]
+
 [Working with Android TV Slides - English][2]
 
 Video Demo
